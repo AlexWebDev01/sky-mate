@@ -66,21 +66,6 @@ const WeatherPage = () => {
         });
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lat, lon]);
-  
-    const handleSearch = (location: string) => {
-      fetch(
-        `${
-          import.meta.env.VITE_GEOCODING_API_URL
-        }/direct?q=${location}&limit=${1}&appid=${
-          import.meta.env.VITE_WEATHER_APP_API_KEY
-        }`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setLat(result[0].lat);
-          setLon(result[0].lon);
-        });
-    };
 
     if (isLoading)
     return (
