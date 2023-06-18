@@ -1,4 +1,4 @@
-import "./HourlyForecast.scss";
+import "./HourlyForecast.css";
 
 import { epochToLocalTime } from "../../helpers";
 

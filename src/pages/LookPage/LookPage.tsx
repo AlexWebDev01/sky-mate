@@ -1,4 +1,4 @@
-import "./LookPage.scss";
+import "./LookPage.css";
 
 const LookPage = () => {
 

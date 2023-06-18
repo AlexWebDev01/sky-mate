@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import "./WeatherPage.scss";
+import "./WeatherPage.css";
 
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
 
