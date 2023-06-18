@@ -2,7 +2,7 @@ import { epochToLocalTime } from "../../helpers";
 import { calculateLocalDate } from "../../helpers";
 import { calculateLocalDay } from "../../helpers";
 
-import "./WeatherCard.scss";
+import "./WeatherCard.css";
 
 const WeatherCard = ({ weatherData, location }: any) => {
   return (
