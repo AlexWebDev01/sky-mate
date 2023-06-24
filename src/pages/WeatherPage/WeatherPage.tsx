@@ -4,6 +4,7 @@ import "./WeatherPage.css";
 
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import NavBar from "../../components/NavBar/NavBar";
+import MyComponentProps from "./HandleSearchFn";
 
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
@@ -69,6 +70,21 @@ const WeatherPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lat, lon]);
 
+    const handleSearch = (location: string) => {
+      fetch(
+        `${
+          import.meta.env.VITE_GEOCODING_API_URL
+        }/direct?q=${location}&limit=${1}&appid=${
+          import.meta.env.VITE_WEATHER_APP_API_KEY
+        }`
+      )
+        .then((res) => res.json())
+        .then((result) => {
+          setLat(result[0].lat);
+          setLon(result[0].lon);
+        });
+    };
+
     if (isLoading)
     return (
       <div className="loader">
@@ -77,8 +93,8 @@ const WeatherPage = () => {
     );
   
     return (
-        <div>
-            <NavBar />
+        <div className="weather-page">
+            <NavBar handleSearch={handleSearch} />
             <h1>Weather Page</h1>
             <WeatherCard 
                 weatherData={data}
