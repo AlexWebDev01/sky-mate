@@ -13,6 +13,7 @@
   margin-bottom: 25px;
 }
 .weather-card .main-info .left {
+  text-align: left;
   width: 70%;
 }
 .weather-card .main-info .left .temperature {
@@ -41,6 +42,7 @@
   font-weight: 600;
 }
 .weather-card .additional-info {
+  text-align: left;
   margin-bottom: 40px;
 }
 .weather-card .additional-info .title {
