@@ -1,3 +1,11 @@
+.weather-card {
+    width: 455px;
+    height: 468px;
+    background-color: #67A8F4;
+    border-radius: 40px;
+    padding: 21px 36px;
+}
+
 .right {
     text-transform: lowercase;
 }

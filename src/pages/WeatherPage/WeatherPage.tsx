@@ -3,10 +3,12 @@ import { useState, useEffect } from "react";
 import "./WeatherPage.css";
 
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
+import NavBar from "../../components/NavBar/NavBar";
 
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
 import { separateCoordinates } from "../../helpers";
+
 
 
 const WeatherPage = () => {
@@ -76,6 +78,7 @@ const WeatherPage = () => {
   
     return (
         <div>
+            <NavBar />
             <h1>Weather Page</h1>
             <WeatherCard 
                 weatherData={data}

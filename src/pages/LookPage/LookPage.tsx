@@ -1,3 +1,5 @@
+import NavBar from "../../components/NavBar/NavBar";
+
 import "./LookPage.css";
 
 const LookPage = () => {
@@ -5,6 +7,7 @@ const LookPage = () => {
 
     return (
         <div>
+            <NavBar />
             <h1>Look Page</h1>
         </div>
     )

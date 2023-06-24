@@ -1,3 +1,5 @@
+import HourlyForecast from "../HourlyForecast/HourlyForecast";
+
 import { epochToLocalTime } from "../../helpers";
 import { calculateLocalDate } from "../../helpers";
 import { calculateLocalDay } from "../../helpers";
@@ -41,7 +43,7 @@ const WeatherCard = ({ weatherData, location }: any) => {
             <div>{weatherData.current.pressure} m/s</div>
         </div>
       </div>
-    {/* TODO: ADD HOURLYFORECAST COMPONENT */}
+      <HourlyForecast weatherData={weatherData} />
       <span className="weather">{weatherData.daily[0].weather[0].main}</span>
     </div>
   );
