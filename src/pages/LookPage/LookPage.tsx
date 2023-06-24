@@ -1,5 +1,3 @@
-import NavBar from "../../components/NavBar/NavBar";
-
 import "./LookPage.css";
 
 const LookPage = () => {
