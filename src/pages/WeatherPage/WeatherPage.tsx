@@ -4,7 +4,6 @@ import "./WeatherPage.css";
 
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import NavBar from "../../components/NavBar/NavBar";
-import MyComponentProps from "./HandleSearchFn";
 
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
