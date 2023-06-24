@@ -1,15 +1,62 @@
 .weather-card {
-    width: 455px;
-    height: 468px;
-    background-color: #67A8F4;
-    border-radius: 40px;
-    padding: 21px 36px;
+  width: 455px;
+  height: 468px;
+  background-color: #67A8F4;
+  border-radius: 40px;
+  padding: 21px 36px;
+  color: white;
+  position: relative;
 }
-
-.right {
-    text-transform: lowercase;
+.weather-card .main-info {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 25px;
 }
-
-.weather {
-    text-transform: lowercase;
+.weather-card .main-info .left {
+  width: 70%;
 }
+.weather-card .main-info .left .temperature {
+  font-size: 48px;
+  font-weight: 600;
+}
+.weather-card .main-info .left h2 {
+  color: #CAE7FD;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+.weather-card .main-info .right {
+  text-transform: lowercase;
+}
+.weather-card .main-info .right .date {
+  font-size: 32px;
+  font-weight: 600;
+}
+.weather-card .main-info .right .time {
+  font-size: 32px;
+  font-weight: 600;
+}
+.weather-card .main-info .right .day {
+  font-size: 16px;
+  font-weight: 600;
+}
+.weather-card .additional-info {
+  margin-bottom: 40px;
+}
+.weather-card .additional-info .title {
+  color: #CAE7FD;
+  font-size: 16px;
+}
+.weather-card .additional-info .value {
+  font-size: 16px;
+  font-weight: 600;
+}
+.weather-card .weather {
+  position: absolute;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  top: 135px;
+  right: -15px;
+  font-size: 50px;
+  font-weight: 600;
+}/*# sourceMappingURL=WeatherCard.css.map */

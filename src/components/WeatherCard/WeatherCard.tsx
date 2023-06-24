@@ -7,6 +7,7 @@ import { calculateLocalDay } from "../../helpers";
 import "./WeatherCard.css";
 
 const WeatherCard = ({ weatherData, location }: any) => {
+
   return (
     <div className="weather-card">
       <div className="main-info">
@@ -15,8 +16,8 @@ const WeatherCard = ({ weatherData, location }: any) => {
             <h2>{location}</h2>
         </div>
         <div className="right">
-            <div>{calculateLocalDate(weatherData.current.dt)}/</div>
-             <div>
+            <div className="date">{calculateLocalDate(weatherData.current.dt)}/</div>
+             <div className="time">
                 {epochToLocalTime(
                     weatherData.current.dt,
                     weatherData.timezone_offset
@@ -27,20 +28,20 @@ const WeatherCard = ({ weatherData, location }: any) => {
       </div>
       <div className="additional-info">
         <div>
-          <div>sunrise</div>
-          <div>{epochToLocalTime(weatherData.current.sunrise, weatherData.timezone_offset)}</div>
+          <div className="title">sunrise</div>
+          <div className="value">{epochToLocalTime(weatherData.current.sunrise, weatherData.timezone_offset)}</div>
         </div>
         <div>
-          <div>sunset</div>
-          {epochToLocalTime(weatherData.current.sunset, weatherData.timezone_offset)}
+          <div className="title">sunset</div>
+          <div className="value">{epochToLocalTime(weatherData.current.sunset, weatherData.timezone_offset)}</div>
         </div>
         <div>
-            <div>wind speed</div>
-            <div>{Math.round(weatherData.current.wind_speed * 10) / 10} m/s</div>
+            <div className="title">wind speed</div>
+            <div className="value">{Math.round(weatherData.current.wind_speed * 10) / 10} m/s</div>
         </div>
         <div>
-            <div>pressure</div>
-            <div>{weatherData.current.pressure} m/s</div>
+            <div className="title">pressure</div>
+            <div className="value">{weatherData.current.pressure} m/s</div>
         </div>
       </div>
       <HourlyForecast weatherData={weatherData} />
