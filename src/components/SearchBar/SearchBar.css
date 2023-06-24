@@ -1,0 +1,31 @@
+.search-bar {
+  display: flex;
+  width: 285px;
+  height: 41px;
+  border-radius: 30px;
+  background: #FFF;
+}
+.search-bar input {
+  width: 207px;
+  border: none;
+  outline: none;
+  padding: 10px 0 10px 21px;
+  border-radius: 30px;
+}
+.search-bar input::-moz-placeholder {
+  color: #CAE7FD;
+  font-size: 14px;
+  font-weight: 600;
+}
+.search-bar input::placeholder {
+  color: #CAE7FD;
+  font-size: 14px;
+  font-weight: 600;
+}
+.search-bar .vertical-line {
+  align-self: center;
+}
+.search-bar button {
+  width: auto;
+  margin: auto 0 auto 14px;
+}/*# sourceMappingURL=SearchBar.css.map */

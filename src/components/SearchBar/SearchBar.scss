@@ -1,0 +1,30 @@
+.search-bar {
+    display: flex;
+    width: 285px;
+    height: 41px;
+    border-radius: 30px;
+    background: #FFF;
+
+    input {
+        width: 228px - 21px;
+        border: none;
+        outline: none;
+        padding: 10px 0 10px 21px;
+        border-radius: 30px;
+    }
+
+    input::placeholder {
+        color: #CAE7FD;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .vertical-line {
+        align-self: center;
+    }
+
+    button {
+        width: auto;
+        margin: auto 0 auto 14px;
+    }
+}

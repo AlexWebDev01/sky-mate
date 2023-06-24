@@ -7,7 +7,6 @@ const LookPage = () => {
 
     return (
         <div>
-            <NavBar />
             <h1>Look Page</h1>
         </div>
     )
