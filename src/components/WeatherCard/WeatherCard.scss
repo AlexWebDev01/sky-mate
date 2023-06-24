@@ -1,0 +1,74 @@
+.weather-card {
+    width: 455px;
+    height: 468px;
+    background-color: #67A8F4;
+    border-radius: 40px;
+    padding: 21px 36px;
+    color: white;
+    position: relative;
+
+    .main-info {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 25px;
+
+        .left {
+            width: 70%;
+
+            .temperature {
+                font-size: 48px;
+                font-weight: 600;
+            }
+            
+            h2 {
+                color: #CAE7FD;
+                font-size: 24px;
+                font-weight: 600;
+                margin: 0;
+            }
+        }
+        
+        .right {
+            text-transform: lowercase;
+
+            .date {
+                font-size: 32px;
+                font-weight: 600;
+            }
+
+            .time {
+                font-size: 32px;
+                font-weight: 600;
+            }
+
+            .day {
+                font-size: 16px;
+                font-weight: 600;
+            }
+        }
+    }
+    
+    .additional-info {
+        margin-bottom: 40px;
+
+        .title {
+            color: #CAE7FD;
+            font-size: 16px;
+        }
+
+        .value {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    .weather {
+        position: absolute;
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        top: 135px;
+        right: -15px;
+        font-size: 50px;
+        font-weight: 600;
+    }
+}
