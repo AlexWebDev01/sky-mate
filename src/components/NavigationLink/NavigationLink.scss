@@ -1,0 +1,22 @@
+@import url('../../fonts/fonts.css');
+
+.navigation-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    bottom: 81px;
+    left: 60px;
+
+    .link {
+        display: flex;
+        height: 24px;
+        color: #000;
+        font-size: 16px;
+        font-family: Circe-medium;
+        outline: none;
+        margin: 0 15px;
+        text-decoration: none;
+        border-bottom: 1px solid black;
+    }
+}

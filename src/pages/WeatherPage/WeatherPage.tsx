@@ -9,6 +9,7 @@ import DailyForecast from "../../components/DailyForecast/DailyForecast";
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
 import { separateCoordinates } from "../../helpers";
+import NavigationLink from "../../components/NavigationLink/NavigationLink";
 
 
 
@@ -101,6 +102,7 @@ const WeatherPage = () => {
                 getWeatherData={getWeatherData}
             />
             <DailyForecast weatherData={data} />
+            <NavigationLink currentPage='/' />
         </div>
     )
 };
