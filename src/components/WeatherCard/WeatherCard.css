@@ -1,3 +1,4 @@
+@import '../../fonts/fonts.css';
 .weather-card {
   width: 455px;
   height: 468px;
@@ -14,6 +15,7 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 25px;
+  font-family: Oddval;
 }
 .weather-card .main-info .left {
   text-align: left;
@@ -22,6 +24,7 @@
 .weather-card .main-info .left .temperature {
   font-size: 48px;
   font-weight: 600;
+  line-height: 100%;
 }
 .weather-card .main-info .left h2 {
   color: #CAE7FD;
@@ -31,14 +34,18 @@
 }
 .weather-card .main-info .right {
   text-transform: lowercase;
+  text-align: left;
 }
 .weather-card .main-info .right .date {
   font-size: 32px;
   font-weight: 600;
+  line-height: 100%;
+  margin-bottom: 15px;
 }
 .weather-card .main-info .right .time {
   font-size: 32px;
   font-weight: 600;
+  line-height: 80%;
 }
 .weather-card .main-info .right .day {
   font-size: 16px;
@@ -49,19 +56,21 @@
   margin-bottom: 40px;
 }
 .weather-card .additional-info .title {
+  font-family: Circle-medium;
   color: #CAE7FD;
   font-size: 16px;
 }
 .weather-card .additional-info .value {
+  font-family: Oddval;
   font-size: 16px;
   font-weight: 600;
 }
 .weather-card .weather {
   position: absolute;
-  text-transform: uppercase;
+  text-transform: lowercase;
   writing-mode: vertical-rl;
   top: 135px;
-  right: -15px;
+  right: -25px;
   font-size: 50px;
   font-weight: 600;
 }/*# sourceMappingURL=WeatherCard.css.map */

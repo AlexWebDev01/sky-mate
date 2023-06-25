@@ -1,5 +1,8 @@
+@import '../../fonts/fonts.css';
+
 .hourly-forecast {
     position: relative;
+    font-family: Oddval;
 
     .slider-container {
         display: flex;
