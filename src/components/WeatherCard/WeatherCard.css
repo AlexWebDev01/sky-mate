@@ -10,6 +10,9 @@
   box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14);
   box-sizing: border-box;
   margin-bottom: 20px;
+  position: absolute;
+  top: 60px;
+  right: 80px;
 }
 .weather-card .main-info {
   display: flex;
