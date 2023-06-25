@@ -1,5 +1,7 @@
 @font-face {
     font-family: 'Oddval';
     src: url('./fonts/oddval-semibold.ttf') format('truetype');
-  }
-  
+
+    font-family: 'Circe-medium';
+    src: url('./circe-medium.otf');
+}
