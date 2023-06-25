@@ -4,6 +4,9 @@
   height: 41px;
   border-radius: 30px;
   background: #FFF;
+  position: absolute;
+  top: 60px;
+  left: 80px;
 }
 .search-bar input {
   width: 207px;
