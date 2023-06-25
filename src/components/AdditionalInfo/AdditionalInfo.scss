@@ -1,0 +1,18 @@
+@import url('../../fonts/fonts.css');
+
+.additional-info {
+    text-align: left;
+    margin-bottom: 40px;
+
+    .title {
+        font-family: Circe-medium;
+        color: #CAE7FD;
+        font-size: 16px;
+    }
+
+    .value {
+        font-family: Oddval;
+        font-size: 16px;
+        font-weight: 600;
+    }
+}

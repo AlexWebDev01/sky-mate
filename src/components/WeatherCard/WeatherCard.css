@@ -54,20 +54,6 @@
   font-size: 16px;
   font-weight: 600;
 }
-.weather-card .additional-info {
-  text-align: left;
-  margin-bottom: 40px;
-}
-.weather-card .additional-info .title {
-  font-family: Circe-medium;
-  color: #CAE7FD;
-  font-size: 16px;
-}
-.weather-card .additional-info .value {
-  font-family: Oddval;
-  font-size: 16px;
-  font-weight: 600;
-}
 .weather-card .weather {
   position: absolute;
   text-transform: lowercase;
