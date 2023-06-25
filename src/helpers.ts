@@ -29,12 +29,45 @@ export function epochToLocalTime(epochTime: number, offsetTime: number): string 
     return `${localHours.toString().padStart(2, "0")}:${localMinutes.toString().padStart(2, "0")}`;
 }
 
+// Format: dd.mm
 export function calculateLocalDate(unixTimestamp: number) {
     const fullDate = new Date(unixTimestamp * 1000);
     const month = fullDate.getMonth().toString();
     const date = fullDate.getDate().toString();
 
     return `${date.padStart(2, "0")}.${month.padStart(2, "0")}`;
+}
+
+// Format: dd month
+export function calculateLocalDateAnotherFormat(unixTimestamp: number) {
+  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'];
+  const fullDate = new Date(unixTimestamp * 1000);
+  const month = fullDate.getMonth();
+  const monthFormatted = monthNames[month];
+  const date = fullDate.getDate().toString();
+
+  return `${date} ${monthFormatted}`;
+}
+
+export function calculateLocalFormattedDay(unixTimestamp: number) {
+  const date = new Date(unixTimestamp * 1000);
+  const dayOfWeek = date.getDay();
+  switch (dayOfWeek) {
+    case 0:
+      return "Sun";
+      case 1:
+      return "Mon";
+      case 2:
+      return "Tue";
+      case 3:
+      return "Wed";
+      case 4:
+      return "Thu";
+      case 5:
+      return "Fri";
+      case 6:
+      return "Sat";
+  }
 }
 
 export function calculateLocalDay(unixTimestamp: number) {

@@ -9,9 +9,9 @@ const WeatherCard = ({ weatherData }: any) => {
     const [currentPosition, setCurrentPosition] = useState(0);
 
     const sliderItems = weatherData.hourly.slice(1, 14);
-    const itemWidth = 50;
+    const itemWidth = 55;
     const isLeftArrowDisabled = currentPosition <= 0;
-    const isRightArrowDisabled = currentPosition >= 200;
+    const isRightArrowDisabled = currentPosition >= 220;
 
     const slideLeft = () => {
         console.log('left')

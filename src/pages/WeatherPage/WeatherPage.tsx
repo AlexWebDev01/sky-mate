@@ -2,8 +2,9 @@ import { useState, useEffect } from "react";
 
 import "./WeatherPage.css";
 
-import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import NavBar from "../../components/NavBar/NavBar";
+import WeatherCard from "../../components/WeatherCard/WeatherCard";
+import DailyForecast from "../../components/DailyForecast/DailyForecast";
 
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
@@ -99,6 +100,7 @@ const WeatherPage = () => {
                 location={location}
                 getWeatherData={getWeatherData}
             />
+            <DailyForecast weatherData={data} />
         </div>
     )
 };
