@@ -1,0 +1,27 @@
+.look-page {
+    min-height: 100vh;
+    background-color: white;
+    
+    .location {
+        color: #000;
+        font-size: 24px;
+        font-family: Oddval;
+        font-weight: 600;
+        text-align: left;
+        margin-left: 80px;
+    }
+
+    .additional-info {
+        position: absolute;
+        top: 325px;
+        left: 80px;
+
+        .title {
+            color: black;
+        }
+
+        .value {
+            color: #3E80FF;
+        }
+    }
+}

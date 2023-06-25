@@ -1,0 +1,23 @@
+.look-page {
+  min-height: 100vh;
+  background-color: white;
+}
+.look-page .location {
+  color: #000;
+  font-size: 24px;
+  font-family: Oddval;
+  font-weight: 600;
+  text-align: left;
+  margin-left: 80px;
+}
+.look-page .additional-info {
+  position: absolute;
+  top: 325px;
+  left: 80px;
+}
+.look-page .additional-info .title {
+  color: black;
+}
+.look-page .additional-info .value {
+  color: #3E80FF;
+}/*# sourceMappingURL=LookPage.css.map */

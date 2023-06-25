@@ -8,6 +8,7 @@ import "./LookPage.css";
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
 import { separateCoordinates } from "../../helpers";
+import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
 
 const LookPage = () => {
 
@@ -90,8 +91,10 @@ const LookPage = () => {
     );
 
     return (
-        <div>
+        <div className="look-page">
             <NavBar handleSearch={handleSearch} />
+            <div className="location">{location}</div>
+            <AdditionalInfo weatherData={data} /> 
             <h1>Look Page</h1>
             <NavigationLink currentPage="/look" />
         </div>
