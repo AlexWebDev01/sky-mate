@@ -2,6 +2,12 @@
     font-family: 'Oddval';
     src: url('./fonts/oddval-semibold.ttf') format('truetype');
 
+    font-family: 'Circe-thin';
+    src: url('./circe25.otf');
+
     font-family: 'Circe-medium';
-    src: url('./circe-medium.otf');
+    src: url('./circe35.otf');
+
+    font-family: 'Circe-bold';
+    src: url('./circe55.otf');
 }
