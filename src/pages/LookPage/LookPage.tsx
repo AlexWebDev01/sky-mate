@@ -14,12 +14,16 @@ import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
 const LookPage = () => {
   const props = useLocation();
 
+  const clothesList = ['Shorts/Skirt', 'Rubber Boots', 'Umbrella', 'Cotton T-Shirt', 'Cap'];
+  const clotherDescription = 'Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.'
+
   const [data, setData] = useState(props.state ? props.state.data : null);
   const [newDataFetched, setNewDataFetched] = useState(false);
   const [lat, setLat] = useState(props.state ? props.state.lat : 0);
   const [lon, setLon] = useState(props.state ? props.state.lon : 0);
   const [isLoading, setIsLoading] = useState(props.state? false : true);
   const [location, setLocation] = useState(props.state ? props.state.location : '');
+  console.log(data);
 
     useEffect(() => {
       if (!props.state) getUserLocation();
@@ -99,10 +103,23 @@ const LookPage = () => {
     return (
         <div className="look-page">
             <NavBar handleSearch={handleSearch} />
-            <div className="location">{location}</div>
-            <AdditionalInfo weatherData={data} /> 
-            <h1>Look Page</h1>
-            <NavigationLink navigationTo="/" />
+              <div className="left-part">
+                <h2 className="location">{location}</h2>
+                <AdditionalInfo weatherData={data} /> 
+                <NavigationLink navigationTo="/" />
+              </div>
+              <div className="right-part">
+                <h1>Protect look</h1>
+                <div className="temperature">{Math.round(data.current.temp)}&deg; C</div>
+                <ul className="clothes-list">
+                  {
+                    clothesList.map((item: string, index: number) => {
+                      return <li key={index}>{item}</li>
+                    })
+                  }
+                </ul>
+              </div>
+              <p className="clothes-description">{clotherDescription}</p>
         </div>
     )
 };
