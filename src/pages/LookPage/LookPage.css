@@ -63,4 +63,16 @@
   font-style: normal;
   font-weight: 400;
   line-height: 140.9%; /* 22.544px */
+}
+
+.rain, .snow {
+  background-color: #CAE7FD;
+}
+
+.sun, .clear {
+  background-color: #FDCBCA;
+}
+
+.clouds, .fog, .dust, .mist {
+  background-color: #CAF0C0;
 }/*# sourceMappingURL=LookPage.css.map */
