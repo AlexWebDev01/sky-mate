@@ -14,20 +14,14 @@ const WeatherCard = ({ weatherData }: any) => {
     const isRightArrowDisabled = currentPosition >= 220;
 
     const slideLeft = () => {
-        console.log('left')
         const newPosition = currentPosition - itemWidth;
         setCurrentPosition(newPosition);
     };
 
     const slideRight = () => {
-        console.log("right");
         const newPosition = currentPosition + itemWidth;
         setCurrentPosition(newPosition);
     };
-
-    useEffect(() => {
-        console.log(currentPosition);
-    },[currentPosition]);
 
     return (
         <div className="hourly-forecast">
