@@ -20,6 +20,10 @@ const WeatherPage = () => {
     const [data, setData] = useState(null);
     const [location, setLocation] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      getUserLocation();
+    }, []);
   
     const getUserLocation = () => {
       fetchUserLocatioByIP()
@@ -44,10 +48,6 @@ const WeatherPage = () => {
           console.log("DATA:", result);
         });
     };
-  
-    useEffect(() => {
-      getUserLocation();
-    }, []);
   
     useEffect(() => {
       if (!lat || !lon) {
@@ -102,7 +102,7 @@ const WeatherPage = () => {
                 getWeatherData={getWeatherData}
             />
             <DailyForecast weatherData={data} />
-            <NavigationLink currentPage='/' />
+            <NavigationLink navigationTo='/look' state={{ lat: lat, lon: lon, location: location, data: data }} />
         </div>
     )
 };
