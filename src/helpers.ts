@@ -40,7 +40,7 @@ export function calculateLocalDate(unixTimestamp: number) {
 
 // Format: dd month
 export function calculateLocalDateAnotherFormat(unixTimestamp: number) {
-  const monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'];
+  const monthNames = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul','aug', 'sept', 'oct', 'nov', 'dec'];
   const fullDate = new Date(unixTimestamp * 1000);
   const month = fullDate.getMonth();
   const monthFormatted = monthNames[month];
