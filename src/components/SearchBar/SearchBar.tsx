@@ -7,15 +7,19 @@ const SearchBar: React.FC<HandleSearchFn> = ({ handleSearch }) => {
     const OnClickHandler = () => {
         const inputElement = document.getElementById('search-input') as HTMLInputElement;
         const value = inputElement.value;
-        if (value === "") {
-          return;
-        } else {
-          handleSearch(value);
-          inputElement.value = "";
-        }
-      };
-      
+        if (value === "") return;
 
+        handleSearch(value);
+        inputElement.value = "";
+    };
+
+    // inputElement.addEventListener("keypress", (event) => {
+    //     if (event.key === 'Enter') {
+    //         event.preventDefault();
+    //         OnClickHandler();
+    //     }
+    // });
+      
     return(
         <div className="search-bar">
             <input placeholder="Search" id="search-input" />
