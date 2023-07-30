@@ -1,7 +1,13 @@
+body::-webkit-scrollbar {
+  width: scrollbarwidthpx;
+}
+
 .weather-page {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: calc(100vw - scrollbarwidthpx);
+    height: 100vh;
 }
 
 .loader {
@@ -20,4 +26,16 @@
   -ms-animation: rotating 2s linear infinite;
   -o-animation: rotating 2s linear infinite;
   animation: rotating 2s linear infinite;
+}
+
+.rain, .snow {
+  background-color: #CAE7FD;
+}
+
+.sun, .clear {
+  background-color: #FDCBCA;
+}
+
+.clouds, .fog, .dust, .mist {
+  background-color: #CAF0C0;
 }
