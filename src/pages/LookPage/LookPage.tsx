@@ -18,7 +18,7 @@ const LookPage = () => {
   const clotherDescription = 'Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.'
 
   const [data, setData] = useState(props.state ? props.state.data : null);
-  const [pageStyle, setPageStyle] = useState(props.state ? props.state.pageStyle : '');
+  // const [pageStyle, setPageStyle] = useState(props.state ? props.state.pageStyle : '');
   const [newDataFetched, setNewDataFetched] = useState(false);
   const [lat, setLat] = useState(props.state ? props.state.lat : 0);
   const [lon, setLon] = useState(props.state ? props.state.lon : 0);
@@ -102,7 +102,7 @@ const LookPage = () => {
     );
 
     return (
-        <div className={pageStyle}>
+        <div className='look-page'>
             <NavBar handleSearch={handleSearch} />
               <div className="left-part">
                 <h2 className="location">{location}</h2>
