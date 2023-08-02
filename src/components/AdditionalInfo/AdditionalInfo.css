@@ -4,9 +4,17 @@
   margin-bottom: 40px;
 }
 .additional-info .title {
-  font-family: Poppins, sans-serif;
-  color: #CAE7FD;
+  font-family: Circe-medium, sans-serif;
   font-size: 16px;
+}
+.additional-info .rain, .additional-info .snow {
+  color: #CAE7FD;
+}
+.additional-info .sun, .additional-info .clear {
+  color: #FDCBCA;
+}
+.additional-info .clouds, .additional-info .fog, .additional-info .dust, .additional-info .mist {
+  color: #CAF0C0;
 }
 .additional-info .value {
   font-family: Oddval;

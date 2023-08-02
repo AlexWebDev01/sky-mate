@@ -32,11 +32,19 @@
   font-weight: 600;
 }
 .daily-forecast .daily-weather .date {
-  color: #67A8F4;
   font-size: 16px;
   font-weight: 600;
   text-transform: lowercase;
   margin-bottom: 22px;
+}
+.daily-forecast .daily-weather .rain, .daily-forecast .daily-weather .snow {
+  color: #67A8F4;
+}
+.daily-forecast .daily-weather .sun, .daily-forecast .daily-weather .clear {
+  color: #FF753E;
+}
+.daily-forecast .daily-weather .clouds, .daily-forecast .daily-weather .fog, .daily-forecast .daily-weather .dust, .daily-forecast .daily-weather .mist {
+  color: #29AF77;
 }
 .daily-forecast .daily-weather .day-temperature {
   color: #000;

@@ -32,10 +32,21 @@
             }
             
             h2 {
-                color: #CAE7FD;
                 font-size: 24px;
                 font-weight: 600;
                 margin: 0;
+            }
+
+            .rain, .snow {
+                color: #CAE7FD;
+            };
+
+            .sun, .clear {
+                color: #FDCBCA;
+            };
+
+            .clouds, .fog, .dust, .mist {
+                color: #CAF0C0;
             }
         }
         
@@ -74,4 +85,16 @@
         font-size: 50px;
         font-weight: 600;
     }
+}
+
+.weather-card.rain, .weather-card.snow {
+    background-color: #67A8F4;
+  }
+
+.weather-card.sun, .weather-card.clear {
+background-color: #FF753E;
+}
+
+.weather-card.clouds, .weather-card.fog, .weather-card.dust, .weather-card.mist {
+background-color: #29AF77;
 }

@@ -20,7 +20,7 @@ const WeatherPage = () => {
     const [data, setData] = useState(null);
     const [location, setLocation] = useState("");
     const [isLoading, setIsLoading] = useState(true);
-    const [pageStyle, setPageStyle] = useState('weather-page');
+    const [pageStyle, setPageStyle] = useState('');
 
     useEffect(() => {
       getUserLocation();
@@ -45,7 +45,7 @@ const WeatherPage = () => {
         .then((res) => res.json())
         .then((result) => {
           setData(result);
-          setPageStyle(`${(result.daily[0].weather[0].main).toLowerCase()} weather-page`)
+          setPageStyle((result.daily[0].weather[0].main).toLowerCase())
           setIsLoading(false);
           console.log("DATA:", result);
         });
@@ -96,7 +96,7 @@ const WeatherPage = () => {
     );
   
     return (
-        <div className={pageStyle}>
+        <div className={`${pageStyle} weather-page`}>
             <NavBar handleSearch={handleSearch} />
             <WeatherCard 
                 weatherData={data}

@@ -5,9 +5,20 @@
     margin-bottom: 40px;
 
     .title {
-        font-family: Poppins, sans-serif;
-        color: #CAE7FD;
+        font-family: Circe-medium, sans-serif;
         font-size: 16px;
+    }
+
+    .rain, .snow {
+        color: #CAE7FD;
+    };
+
+    .sun, .clear {
+        color: #FDCBCA;
+    };
+
+    .clouds, .fog, .dust, .mist {
+        color: #CAF0C0;
     }
 
     .value {

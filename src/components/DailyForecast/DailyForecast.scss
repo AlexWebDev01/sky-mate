@@ -35,12 +35,23 @@
         }
 
         .date {
-            color: #67A8F4;
             font-size: 16px;
             font-weight: 600;
             text-transform: lowercase;
             margin-bottom: 22px;
         }
+
+        .rain, .snow {
+            color: #67A8F4;
+          }
+          
+          .sun, .clear {
+            color: #FF753E;
+          }
+          
+          .clouds, .fog, .dust, .mist {
+            color: #29AF77;
+          }
 
         .day-temperature {
             color: #000;

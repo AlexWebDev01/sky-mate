@@ -65,14 +65,14 @@
   line-height: 140.9%; /* 22.544px */
 }
 
-.rain, .snow {
+.look-page.rain, .look-page.snow {
   background-color: #CAE7FD;
 }
 
-.sun, .clear {
+.look-page.sun, .look-page.clear {
   background-color: #FDCBCA;
 }
 
-.clouds, .fog, .dust, .mist {
+.look-page.clouds, .look-page.fog, .look-page.dust, .look-page.mist {
   background-color: #CAF0C0;
 }/*# sourceMappingURL=LookPage.css.map */
