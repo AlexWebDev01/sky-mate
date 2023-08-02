@@ -28,14 +28,14 @@ body::-webkit-scrollbar {
   animation: rotating 2s linear infinite;
 }
 
-.rain, .snow {
+.weather-page.rain, .weather-page.snow {
   background-color: #CAE7FD;
 }
 
-.sun, .clear {
+.weather-page.sun, .weather-page.clear {
   background-color: #FDCBCA;
 }
 
-.clouds, .fog, .dust, .mist {
+.weather-page.clouds, .weather-page.fog, .weather-page.dust, .weather-page.mist {
   background-color: #CAF0C0;
 }

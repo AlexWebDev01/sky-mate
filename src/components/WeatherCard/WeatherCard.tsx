@@ -8,13 +8,14 @@ import "./WeatherCard.css";
 import AdditionalInfo from "../AdditionalInfo/AdditionalInfo";
 
 const WeatherCard = ({ weatherData, location }: any) => {
+  const pageStyle = weatherData.daily[0].weather[0].main.toLowerCase();
 
   return (
-    <div className="weather-card">
+    <div className={`${pageStyle} weather-card`}>
       <div className="main-info">
         <div className="left">
             <div className="temperature">{Math.round(weatherData.current.temp)}&deg; C</div>
-            <h2>{location}</h2>
+            <h2 className={pageStyle}>{location}</h2>
         </div>
         <div className="right">
             <div className="date">{calculateLocalDate(weatherData.current.dt)}/</div>

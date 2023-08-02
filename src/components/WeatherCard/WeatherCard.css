@@ -30,10 +30,18 @@
   line-height: 100%;
 }
 .weather-card .main-info .left h2 {
-  color: #CAE7FD;
   font-size: 24px;
   font-weight: 600;
   margin: 0;
+}
+.weather-card .main-info .left .rain, .weather-card .main-info .left .snow {
+  color: #CAE7FD;
+}
+.weather-card .main-info .left .sun, .weather-card .main-info .left .clear {
+  color: #FDCBCA;
+}
+.weather-card .main-info .left .clouds, .weather-card .main-info .left .fog, .weather-card .main-info .left .dust, .weather-card .main-info .left .mist {
+  color: #CAF0C0;
 }
 .weather-card .main-info .right {
   text-transform: lowercase;
@@ -63,4 +71,16 @@
   right: -30px;
   font-size: 50px;
   font-weight: 600;
+}
+
+.weather-card.rain, .weather-card.snow {
+  background-color: #67A8F4;
+}
+
+.weather-card.sun, .weather-card.clear {
+  background-color: #FF753E;
+}
+
+.weather-card.clouds, .weather-card.fog, .weather-card.dust, .weather-card.mist {
+  background-color: #29AF77;
 }/*# sourceMappingURL=WeatherCard.css.map */
