@@ -101,7 +101,7 @@ const WeatherPage = () => {
             <WeatherCard 
                 weatherData={data}
                 location={location}
-                getWeatherData={getWeatherData}
+                isMainPage={true}
             />
             <DailyForecast weatherData={data} />
             <NavigationLink navigationTo='/look' state={{ lat: lat, lon: lon, location: location, data: data, pageStyle: pageStyle }} />

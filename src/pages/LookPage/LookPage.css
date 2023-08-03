@@ -14,12 +14,6 @@
   font-weight: 600;
   text-align: left;
 }
-.look-page .left-part .additional-info .title {
-  color: black;
-}
-.look-page .left-part .additional-info .value {
-  color: #3E80FF;
-}
 .look-page .right-part {
   position: absolute;
   top: 70px;
@@ -33,9 +27,17 @@
   margin: 0;
 }
 .look-page .right-part .temperature {
-  color: #67A8F4;
   font-family: Oddval;
   font-size: 48px;
+}
+.look-page .right-part .rain, .look-page .right-part .snow {
+  color: #67A8F4;
+}
+.look-page .right-part .sun, .look-page .right-part .clear {
+  color: #FF753E;
+}
+.look-page .right-part .clouds, .look-page .right-part .fog, .look-page .right-part .dust, .look-page .right-part .mist {
+  color: #29AF77;
 }
 .look-page .right-part .clothes-list {
   list-style: none;

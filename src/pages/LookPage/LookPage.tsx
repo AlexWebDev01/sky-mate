@@ -3,13 +3,13 @@ import { useLocation } from 'react-router-dom'
 
 import NavBar from "../../components/NavBar/NavBar";
 import NavigationLink from "../../components/NavigationLink/NavigationLink";
+import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
 
 import "./LookPage.css";
 
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
 import { separateCoordinates } from "../../helpers";
-import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
 
 const LookPage = () => {
   const props = useLocation();
@@ -18,13 +18,13 @@ const LookPage = () => {
   const clotherDescription = 'Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.'
 
   const [data, setData] = useState(props.state ? props.state.data : null);
-  // const [pageStyle, setPageStyle] = useState(props.state ? props.state.pageStyle : '');
   const [newDataFetched, setNewDataFetched] = useState(false);
   const [lat, setLat] = useState(props.state ? props.state.lat : 0);
   const [lon, setLon] = useState(props.state ? props.state.lon : 0);
   const [isLoading, setIsLoading] = useState(props.state? false : true);
   const [location, setLocation] = useState(props.state ? props.state.location : '');
-  console.log(data);
+
+  const pageStyle = data.daily[0].weather[0].main.toLowerCase()
 
     useEffect(() => {
       if (!props.state) getUserLocation();
@@ -111,7 +111,7 @@ const LookPage = () => {
               </div>
               <div className="right-part">
                 <h1>Protect look</h1>
-                <div className="temperature">{Math.round(data.current.temp)}&deg; C</div>
+                <div className={`${pageStyle} temperature`}>{Math.round(data.current.temp)}&deg; C</div>
                 <ul className="clothes-list">
                   {
                     clothesList.map((item: string, index: number) => {

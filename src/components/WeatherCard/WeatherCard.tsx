@@ -7,7 +7,7 @@ import { calculateLocalDay } from "../../helpers";
 import "./WeatherCard.css";
 import AdditionalInfo from "../AdditionalInfo/AdditionalInfo";
 
-const WeatherCard = ({ weatherData, location }: any) => {
+const WeatherCard = ({ weatherData, location, isMainPage }: any) => {
   const pageStyle = weatherData.daily[0].weather[0].main.toLowerCase();
 
   return (
@@ -28,7 +28,7 @@ const WeatherCard = ({ weatherData, location }: any) => {
             <div>{calculateLocalDay(weatherData.current.dt)}</div>
         </div>
       </div>
-      <AdditionalInfo weatherData={weatherData} />
+      <AdditionalInfo weatherData={weatherData} isMainPage={isMainPage} />
       <HourlyForecast weatherData={weatherData} />
       <span className="weather">{weatherData.daily[0].weather[0].main}</span>
     </div>

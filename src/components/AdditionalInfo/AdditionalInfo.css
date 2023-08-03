@@ -8,12 +8,21 @@
   font-size: 16px;
 }
 .additional-info .rain, .additional-info .snow {
-  color: #CAE7FD;
+  color: #3E80FF;
 }
 .additional-info .sun, .additional-info .clear {
-  color: #FDCBCA;
+  color: #FF753E;
 }
 .additional-info .clouds, .additional-info .fog, .additional-info .dust, .additional-info .mist {
+  color: #29AF77;
+}
+.additional-info .rain-light, .additional-info .snow-light {
+  color: #CAE7FD;
+}
+.additional-info .sun-light, .additional-info .clear-light {
+  color: #FDCBCA;
+}
+.additional-info .clouds-light, .additional-info .fog-light, .additional-info .dust-light, .additional-info .mist-light {
   color: #CAF0C0;
 }
 .additional-info .value {
