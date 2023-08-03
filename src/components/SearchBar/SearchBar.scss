@@ -15,10 +15,6 @@
         outline: none;
         padding: 10px 0 10px 21px;
         border-radius: 30px;
-    }
-
-    input::placeholder {
-        color: #CAE7FD;
         font-size: 14px;
         font-weight: 600;
     }
@@ -30,5 +26,17 @@
     button {
         width: auto;
         margin: auto 0 auto 14px;
+    }
+
+    .rain::placeholder, .snow::placeholder {
+        color: #CAE7FD;
+    };
+
+    .sun::placeholder, .clear::placeholder {
+        color: #FDCBCA;
+    };
+
+    .clouds::placeholder, .fog::placeholder, .dust::placeholder, .mist::placeholder {
+        color: #CAF0C0;
     }
 }

@@ -97,7 +97,7 @@ const WeatherPage = () => {
   
     return (
         <div className={`${pageStyle} weather-page`}>
-            <NavBar handleSearch={handleSearch} />
+            <NavBar handleSearch={handleSearch} pageStyle={pageStyle} />
             <WeatherCard 
                 weatherData={data}
                 location={location}
