@@ -10,14 +10,26 @@
     }
 
     .rain, .snow {
-        color: #CAE7FD;
+        color: #3E80FF;
     };
 
     .sun, .clear {
-        color: #FDCBCA;
+        color: #FF753E;
     };
 
     .clouds, .fog, .dust, .mist {
+        color: #29AF77;
+    }
+
+    .rain-light, .snow-light {
+        color: #CAE7FD;
+    };
+
+    .sun-light, .clear-light {
+        color: #FDCBCA;
+    };
+
+    .clouds-light, .fog-light, .dust-light, .mist-light {
         color: #CAF0C0;
     }
 

@@ -14,18 +14,6 @@
             font-weight: 600;
             text-align: left;
         }
-    
-        .additional-info {
-            
-    
-            .title {
-                color: black;
-            }
-    
-            .value {
-                color: #3E80FF;
-            }
-        }
     }
     
     .right-part {
@@ -42,9 +30,20 @@
             }
 
         .temperature {
-            color: #67A8F4;
             font-family: Oddval;
             font-size: 48px;
+        }
+
+        .rain, .snow {
+            color: #67A8F4;
+        }
+          
+        .sun, .clear {
+            color: #FF753E;
+        }
+          
+        .clouds, .fog, .dust, .mist {
+            color: #29AF77;
         }
 
         .clothes-list {
