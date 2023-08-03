@@ -103,7 +103,7 @@ const LookPage = () => {
 
     return (
         <div className='look-page'>
-            <NavBar handleSearch={handleSearch} />
+            <NavBar handleSearch={handleSearch} pageStyle={pageStyle}/>
               <div className="left-part">
                 <h2 className="location">{location}</h2>
                 <AdditionalInfo weatherData={data} /> 
