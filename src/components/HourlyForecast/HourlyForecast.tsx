@@ -4,10 +4,6 @@ import "./HourlyForecast.css";
 
 import { epochToLocalTime } from "../../helpers";
 
-interface SliderProps {
-    sliderRef: React.RefObject<HTMLDivElement>;
-  }
-
 const WeatherCard = ({ weatherData, expanded }: any) => {
 
     const [currentPosition, setCurrentPosition] = useState(0);
