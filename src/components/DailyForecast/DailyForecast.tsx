@@ -3,11 +3,11 @@ import "./DailyForecast.css";
 import { calculateLocalDateAnotherFormat } from "../../helpers";
 import { calculateLocalFormattedDay } from "../../helpers";
 
-const DailyForecast = ({ weatherData }: any) => {
+const DailyForecast = ({ weatherData, expanded, onExpand }: any) => {
     const pageStyle = weatherData.daily[0].weather[0].main.toLowerCase();
 
     return(
-        <div className="daily-forecast">
+        <div className={expanded === 'daily-forecast' ? 'forecast-expanded' : 'daily-forecast'} onClick={onExpand}>
             {weatherData.daily.map((item: any, index: number) => {
 
                 return(
