@@ -1,7 +1,7 @@
 @import '../../fonts/fonts.css';
 .weather-card {
   width: 455px;
-  height: 468px;
+  height: 224px;
   background-color: #67A8F4;
   border-radius: 40px;
   padding: 21px 36px;
@@ -65,12 +65,12 @@
 .weather-card .weather {
   position: absolute;
   text-transform: lowercase;
-  writing-mode: vertical-rl;
-  font-family: Oddval;
-  top: 135px;
-  right: -30px;
-  font-size: 50px;
+  writing-mode: horizontal-tb;
+  bottom: -27px;
+  left: 36px;
+  font-size: 64px;
   font-weight: 600;
+  font-family: Oddval;
 }
 
 .weather-card.rain, .weather-card.snow {
@@ -83,4 +83,28 @@
 
 .weather-card.clouds, .weather-card.fog, .weather-card.dust, .weather-card.mist {
   background-color: #29AF77;
+}
+
+.weather-expanded {
+  height: 468px;
+}
+.weather-expanded .weather {
+  width: 55px;
+  height: 90px;
+  writing-mode: vertical-rl;
+  top: 135px;
+  left: 430px;
+  font-size: 50px;
+}
+
+.hide {
+  display: none;
+}
+
+.weather-card {
+  cursor: pointer;
+}
+
+.weather-expanded {
+  cursor: default;
 }/*# sourceMappingURL=WeatherCard.css.map */

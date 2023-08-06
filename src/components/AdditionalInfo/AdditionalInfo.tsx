@@ -2,7 +2,7 @@ import './AdditionalInfo.css';
 
 import { epochToLocalTime } from "../../helpers";
 
-const AdditionalInfo = ({ weatherData, isMainPage }: any) => {
+const AdditionalInfo = ({ weatherData, isMainPage, expanded }: any) => {
 
   const additionalInfoContent = [
     {title: 'sunrise', value: epochToLocalTime(weatherData.current.sunrise, weatherData.timezone_offset)},
@@ -15,10 +15,10 @@ const AdditionalInfo = ({ weatherData, isMainPage }: any) => {
   const contentStyle = isMainPage ? '' : weatherData.daily[0].weather[0].main.toLowerCase();
 
   return(
-    <div className="additional-info">
-      {additionalInfoContent.map((item) => {
+    <div className={expanded === 'weather-card' ? `additional-info` : 'hide'}>
+      {additionalInfoContent.map((item, index) => {
           return (
-              <div key='index'>
+              <div key={index}>
                 <div className={`${titleStyle} title`}>{item.title}</div>
                 <div className={`${contentStyle} value`}>{item.value}</div>
             </div>

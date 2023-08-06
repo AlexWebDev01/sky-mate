@@ -12,15 +12,15 @@ import { separateCoordinates } from "../../helpers";
 import NavigationLink from "../../components/NavigationLink/NavigationLink";
 
 
-
 const WeatherPage = () => {
 
-    const [lat, setLat] = useState(0);
-    const [lon, setLon] = useState(0);
-    const [data, setData] = useState(null);
-    const [location, setLocation] = useState("");
-    const [isLoading, setIsLoading] = useState(true);
-    const [pageStyle, setPageStyle] = useState('');
+    const [lat, setLat] = useState<number>(0);
+    const [lon, setLon] = useState<number>(0);
+    const [data, setData] = useState<object | null>(null);
+    const [location, setLocation] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(true);
+    const [expandedCard, setExpandedCard] = useState<'weather-card' | 'daily-forecast'>('weather-card');
+    const [pageStyle, setPageStyle] = useState<string>('');
 
     useEffect(() => {
       getUserLocation();
@@ -88,6 +88,18 @@ const WeatherPage = () => {
         });
     };
 
+    const handleWeatherExpand = () => {
+      if (expandedCard !== 'weather-card') {
+        setExpandedCard('weather-card');
+      }
+    };
+
+    const handleForecastExpand = () => {
+      if (expandedCard !== 'daily-forecast') {
+        setExpandedCard('daily-forecast');
+      }
+    };
+
     if (isLoading)
     return (
       <div className="loader">
@@ -102,8 +114,10 @@ const WeatherPage = () => {
                 weatherData={data}
                 location={location}
                 isMainPage={true}
+                expanded={expandedCard}
+                onExpand={handleWeatherExpand}
             />
-            <DailyForecast weatherData={data} />
+            <DailyForecast weatherData={data} expanded={expandedCard} onExpand={handleForecastExpand} />
             <NavigationLink navigationTo='/look' state={{ lat: lat, lon: lon, location: location, data: data, pageStyle: pageStyle }} />
         </div>
     )
