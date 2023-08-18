@@ -1,10 +1,3 @@
-export const WEATHER_CONDITIONS = {
-    RAIN: 'rain',
-    SUN: 'sun',
-    CLOUDS: 'clouds',
-    SNOW: 'snow',
-};
-
 export const TEMPERATURE_RANGES = [
     {name: 'DANGEROUS_FREEZING', lowestTemp: -100, highestTemp: -40},
     {name: "EXTREMELY_FREEZING", lowestTemp: -40, highestTemp: -20},
@@ -39,7 +32,7 @@ export const CLOTHES_ADVICES_RAIN = [
     },
 ];
 
-export const CLOTHES_ADVICE_SUN = [
+export const CLOTHES_ADVICES_SUN = [
     {
         tempRange: 'FREEZING',
         clothesList: ['Long Coat', 'Fleece Pants', 'Waterproof Boots', 'Wool Mittens', 'Waterproof Hat', 'Sweater', 'Underpants', 'Scarf', 'Sunglasses'],
@@ -82,7 +75,7 @@ export const CLOTHES_ADVICE_SUN = [
     },
 ];
 
-export const CLOTHES_ADVICE_CLOUDS = [
+export const CLOTHES_ADVICES_CLOUDS = [
     {
         tempRange: 'FREEZING',
         clothesList: ['Winter Coverall', 'Underpants', 'High Boots', 'Wool Mittens', 'Wool Hat', 'Sweater', 'Underpants'],
@@ -110,7 +103,7 @@ export const CLOTHES_ADVICE_CLOUDS = [
     },
 ];
 
-export const CLOTHES_ADVICE_SNOW = [
+export const CLOTHES_ADVICES_SNOW = [
     {
         tempRange: 'FREEZING', 
         clothesList: ['Winter Sports Jacket', 'Waterproof Pants', 'Waterproof Boots', 'Mittens', 'Cotton Hat', 'Sweater', 'Underpants', 'Sunglasses*'],
@@ -122,3 +115,10 @@ export const CLOTHES_ADVICE_SNOW = [
         clothesDescription: 'Opt for materials like thick wool or synthetic blends for insulation, and choose waterproof or water-resistant fabrics like Gore-Tex or nylon to keep you dry and protected from the snowy conditions.',
     },
 ];
+
+export const CLOTHES_ADVICES: any = {
+    Rain: CLOTHES_ADVICES_RAIN,
+    Sun: CLOTHES_ADVICES_SUN,
+    Clouds: CLOTHES_ADVICES_CLOUDS,
+    Snow: CLOTHES_ADVICES_SNOW,
+};
