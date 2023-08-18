@@ -16,8 +16,7 @@ export const calculateClothesAdvice = (weatherCondition: string, temp: number) =
     const currentTempRange = getTempRange(temp);
     
     for (let i = 0; i < clothesAdvicesArray.length; i++) {
-        console.log('CURRENT TEMP: ', currentTempRange);
-        console.log('CURRENT ADVICES ARRAY TEMP: ', clothesAdvicesArray[i].tempRange);
+
         if (clothesAdvicesArray[i].tempRange === currentTempRange) {
             return clothesAdvicesArray[i];
         } else {
