@@ -41,10 +41,6 @@
 .daily-forecast .daily-weather .date, .daily-forecast .daily-weather .night-temperature, .daily-forecast .daily-weather .weather {
   display: none;
 }
-.daily-forecast .daily-weather:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF 100%);
-  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14);
-}
 
 .forecast-expanded {
   display: grid;
@@ -93,10 +89,6 @@
   color: #000;
   font-size: 16px;
   font-weight: 600;
-}
-.forecast-expanded .daily-weather:hover {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFF 100%);
-  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14);
 }
 .forecast-expanded .rain, .forecast-expanded .snow {
   color: #67A8F4;
