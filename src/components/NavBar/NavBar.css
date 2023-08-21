@@ -6,4 +6,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
+}
+.nav-bar .logo-link {
+  z-index: 1;
+}
+.nav-bar .search-bar {
+  z-index: 1;
 }/*# sourceMappingURL=NavBar.css.map */
