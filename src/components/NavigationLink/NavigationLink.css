@@ -6,6 +6,7 @@
   position: absolute;
   bottom: 81px;
   left: 60px;
+  z-index: 1;
 }
 .navigation-link .link {
   display: flex;

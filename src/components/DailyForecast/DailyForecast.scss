@@ -16,6 +16,7 @@
     position: absolute;
     right: 80px;
     top: 555px;
+    z-index: 1;
     
     .daily-weather {
         display: flex;
@@ -65,6 +66,7 @@
     position: absolute;
     right: 80px;
     top: 305px;
+    z-index: 1;
 
     .daily-weather {
         display: flex;

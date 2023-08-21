@@ -13,6 +13,7 @@
   position: absolute;
   top: 60px;
   right: 80px;
+  z-index: 1;
 }
 .weather-card .main-info {
   display: flex;
@@ -87,6 +88,7 @@
 
 .weather-expanded {
   height: 468px;
+  z-index: 1;
 }
 .weather-expanded .weather {
   width: 55px;
