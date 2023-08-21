@@ -1,6 +1,11 @@
+body::-webkit-scrollbar {
+    width: scrollbarwidthpx;
+}
+
 .background-container {
     z-index: 0;
-    position: absolute;
+    width: calc(100vw - scrollbarwidthpx);
+    height: 100vh;
 
     .rain-character {
         position: absolute;
@@ -8,5 +13,11 @@
         height: 615px;
         left: 95px;
         top: 132px;
+    }
+
+    .rain-1 {
+        position: absolute;
+        bottom: -80px;
+        left: 0;
     }
 }
