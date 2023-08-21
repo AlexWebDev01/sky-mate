@@ -10,6 +10,7 @@ import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
 import { separateCoordinates } from "../../helpers";
 import NavigationLink from "../../components/NavigationLink/NavigationLink";
+import Background from "../../components/Background/Background";
 
 
 const WeatherPage = () => {
@@ -119,6 +120,7 @@ const WeatherPage = () => {
             />
             <DailyForecast weatherData={data} expanded={expandedCard} onExpand={handleForecastExpand} />
             <NavigationLink navigationTo='/look' state={{ lat: lat, lon: lon, location: location, data: data, pageStyle: pageStyle }} />
+            <Background page="weatherPage" pageStyle="rain" />
         </div>
     )
 };
