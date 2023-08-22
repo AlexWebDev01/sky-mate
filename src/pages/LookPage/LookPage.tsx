@@ -11,6 +11,7 @@ import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
 import { separateCoordinates } from "../../helpers";
 import { calculateClothesAdvice } from "../../clothes-algorithm/clothesAlgorithm";
+import Background from "../../components/Background/Background";
 
 const LookPage = () => {
   const props = useLocation();
@@ -105,6 +106,7 @@ const LookPage = () => {
 
   return (
       <div className='look-page'>
+          <Background page='lookPage' pageStyle={pageStyle}/>
           <NavBar handleSearch={handleSearch} pageStyle={pageStyle}/>
             <div className="left-part">
               <h2 className="location">{location}</h2>
