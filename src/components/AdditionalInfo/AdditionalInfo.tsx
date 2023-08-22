@@ -15,7 +15,7 @@ const AdditionalInfo = ({ weatherData, isMainPage, expanded }: any) => {
   const contentStyle = isMainPage ? '' : weatherData.daily[0].weather[0].main.toLowerCase();
 
   return(
-    <div className={expanded === 'weather-card' ? `additional-info` : 'hide'}>
+    <div className={expanded === 'weather-card' ? 'additional-info' : 'hide'}>
       {additionalInfoContent.map((item, index) => {
           return (
               <div key={index}>

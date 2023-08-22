@@ -110,9 +110,9 @@ const LookPage = () => {
           <NavBar handleSearch={handleSearch} pageStyle={pageStyle}/>
             <div className="left-part">
               <h2 className="location">{location}</h2>
-              <AdditionalInfo weatherData={data} /> 
-              <NavigationLink navigationTo="/" />
+              <AdditionalInfo weatherData={data} expanded='weather-card' /> 
             </div>
+            <NavigationLink navigationTo="/" />
             <div className="right-part">
               <h1>Protect look</h1>
               <div className={`${pageStyle} temperature`}>{Math.round(data.current.temp)}&deg; C</div>
