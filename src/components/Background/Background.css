@@ -3,9 +3,10 @@ body::-webkit-scrollbar {
 }
 
 .background-container {
-  z-index: 0;
-  width: calc(100vw - scrollbarwidthpx);
+  width: 100vw;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 .background-container .rain-character {
   position: absolute;
@@ -14,8 +15,32 @@ body::-webkit-scrollbar {
   left: 7.5%;
   top: 132px;
 }
-.background-container .rain-1 {
+.background-container .blob {
+  width: 231px;
+  height: 231px;
   position: absolute;
+}
+.background-container .rain-1 {
   bottom: -80px;
   left: 0;
+}
+.background-container .rain-2 {
+  top: 424px;
+  left: 437px;
+}
+.background-container .rain-3 {
+  top: 170px;
+  left: 437px;
+}
+.background-container .rain-4 {
+  top: 170px;
+  left: 698px;
+}
+.background-container .rain-5 {
+  top: -84px;
+  left: 648px;
+}
+.background-container .rain-6 {
+  top: 170px;
+  right: -76px;
 }/*# sourceMappingURL=Background.css.map */

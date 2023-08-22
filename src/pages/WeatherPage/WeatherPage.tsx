@@ -110,6 +110,7 @@ const WeatherPage = () => {
   
     return (
         <div className={`${pageStyle} weather-page`}>
+            <Background page="weatherPage" pageStyle="rain" />
             <NavBar handleSearch={handleSearch} pageStyle={pageStyle} />
             <WeatherCard 
                 weatherData={data}
@@ -120,7 +121,6 @@ const WeatherPage = () => {
             />
             <DailyForecast weatherData={data} expanded={expandedCard} onExpand={handleForecastExpand} />
             <NavigationLink navigationTo='/look' state={{ lat: lat, lon: lon, location: location, data: data, pageStyle: pageStyle }} />
-            <Background page="weatherPage" pageStyle="rain" />
         </div>
     )
 };

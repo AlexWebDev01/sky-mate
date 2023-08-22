@@ -5,7 +5,9 @@
     margin-top: 21px;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
 
     .logo-link {
         z-index: 1;
