@@ -51,4 +51,69 @@ body::-webkit-scrollbar {
         top: 170px;
         right: -76px;
     }
+
+    .clouds {
+        width: 826px;
+        height: 611px;
+        position: absolute;
+        top: 110px;
+        left: 401px;
+    }
+
+    .clouds-character {
+        width: 582px;
+        height: 814px;
+        position: absolute;
+        left: 110px;
+    }
+
+    .sun {
+        width: 626px;
+        height: 626px;
+        position: absolute;
+        top: 133px;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .sun-character {
+        width: 719px;
+        height: 719px;
+        position: absolute;
+        top: 92px;
+        left: 106px;
+    }
+
+    .snow {
+        position: absolute;
+    }
+
+    .snow-1 {
+        top: 120.5px;
+        left: 32.5px;
+    }
+
+    .snow-2 {
+        top: 260px;
+        left: 458px;
+    }
+
+    .snow-3 {
+        top: 473px;
+        left: 277px;
+    }
+
+    .snow-4 {
+        top: 518px;
+        left: 535px;
+    }
+
+    .snow-character {
+        width: 807px;
+        height: 807px;
+        position: absolute;
+        top: 21px;
+        left: 59px;
+    }
 }
