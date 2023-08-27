@@ -1,6 +1,6 @@
 import './Background.css';
 
-const Background = ({page, pageStyle}: any) => {
+const Background = ({page, pageStyle, tempRangeName}: any) => {
 
     const coldColor = page === 'weatherPage' ? '#FFFFFF' : '#CAE7FD';
     const warmColor = page === 'weatherPage' ? '#FFFFFF' : '#FDCBCA';
@@ -8,7 +8,7 @@ const Background = ({page, pageStyle}: any) => {
     
     if (pageStyle === 'rain' ) {
         return (
-            <div className='background-container'>   
+            <div className='background-container'>
                 <svg className='rain-1 blob' viewBox="0 0 231 231" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path id="Rectangle 168" d="M231 0L231 115.5C231 179.289 179.289 231 115.5 231C51.7111 231 7.42182e-06 179.289 1.02101e-05 115.5C1.29984e-05 51.7111 51.7111 -7.83697e-06 115.5 -5.04866e-06L231 0Z" fill={coldColor}/>
                 </svg>
@@ -27,7 +27,7 @@ const Background = ({page, pageStyle}: any) => {
                 <svg className='rain-6 blob' viewBox="0 0 231 231" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path id="Rectangle 168" d="M231 0L231 115.5C231 179.289 179.289 231 115.5 231C51.7111 231 7.42182e-06 179.289 1.02101e-05 115.5C1.29984e-05 51.7111 51.7111 -7.83697e-06 115.5 -5.04866e-06L231 0Z" fill={coldColor}/>
                 </svg>
-                <img src="./rain-character.png" className='rain-character'/>
+                <img src={tempRangeName ? `./rain-character-${tempRangeName}.png` : "./rain-character.png"} className='rain-character' />
             </div>
         );
     }
@@ -43,7 +43,7 @@ const Background = ({page, pageStyle}: any) => {
                     <circle cx="673.462" cy="277.458" r="152.538" fill={cloudColor}/>
                     <circle cx="304.651" cy="305.501" r="152.538" fill={cloudColor}/>
                 </svg>
-                <img src="./clouds-character.png" className='clouds-character'/>
+                <img src={tempRangeName ? `./clouds-character-${tempRangeName}.png` : "./clouds-character.png"} className='clouds-character' />
             </div> 
         )
     }
@@ -54,7 +54,7 @@ const Background = ({page, pageStyle}: any) => {
                 <svg className='sun' viewBox="0 0 626 626" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="313" cy="313" r="313" fill={warmColor}/>
                 </svg>
-                <img src="./sun-character.png" className='sun-character'/>
+                <img src={tempRangeName ? `./sun-character-${tempRangeName}.png` : "./sun-character.png"} className='sun-character'/>
             </div>
         )
     }
@@ -74,7 +74,7 @@ const Background = ({page, pageStyle}: any) => {
                 <svg className='snow snow-4' width="140" height="142" viewBox="0 0 140 142" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M70 113.316L53.3675 142L16.6326 120.858L33.2363 92.158L-2.17937e-06 92.1418L-4.02765e-06 49.8582L33.2363 49.842L16.6326 21.1418L53.3675 -2.33277e-06L70 28.684L86.6325 -3.78683e-06L123.367 21.1418L106.764 49.842L140 49.8582L140 92.1418L106.764 92.158L123.367 120.858L86.6325 142L70 113.316Z" fill={coldColor}/>
                 </svg>
-                <img src="./snow-character.png" className='snow-character'/>
+                <img src={tempRangeName ? `./snow-character-${tempRangeName}.png` : "./snow-character.png"} className='snow-character'/>
         </div>
         );
     }

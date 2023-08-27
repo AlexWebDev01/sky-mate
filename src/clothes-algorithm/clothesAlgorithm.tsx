@@ -18,12 +18,14 @@ export const calculateClothesAdvice = (weatherCondition: string, temp: number) =
     const tempRangeName = getTempRange(temp);
     
     if (clothesAdvices[tempRangeName]) {
-        return clothesAdvices[tempRangeName];
+        return {adviceData: clothesAdvices[tempRangeName], tempRangeName};
     } else {
-        return `For now there is no such conditions. 
+        console.log(`For now there is no such conditions. 
         Temperature: ${temp}, 
         Temperature range: ${tempRangeName}, 
         Weather condition: ${weatherCondition}
-        `
+        `)
+
+        return 0;
     }
 };
