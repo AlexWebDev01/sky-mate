@@ -16,9 +16,6 @@ import Background from "../../components/Background/Background";
 const LookPage = () => {
   const props = useLocation();
 
-  const clothesList = ['Shorts/Skirt', 'Rubber Boots', 'Umbrella', 'Cotton T-Shirt', 'Cap'];
-  const clotherDescription = 'Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.'
-
   const [data, setData] = useState(props.state ? props.state.data : null);
   const [newDataFetched, setNewDataFetched] = useState(false);
   const [lat, setLat] = useState(props.state ? props.state.lat : 0);
@@ -28,6 +25,11 @@ const LookPage = () => {
 
   const pageStyle = data.daily[0].weather[0].main.toLowerCase()
   console.log('WEATHER ADVICE: ', calculateClothesAdvice(data.daily[0].weather[0].main, data.daily[0].temp.day));
+  const calcResult = calculateClothesAdvice(data.daily[0].weather[0].main, data.daily[0].temp.day);
+  const clothesList = calcResult ? calcResult.adviceData.clothesList : ['Shorts/Skirt', 'Rubber Boots', 'Umbrella', 'Cotton T-Shirt', 'Cap'];
+  const clotherDescription = calcResult ? calcResult.adviceData.clothesDescription : 'Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.'
+  const tempRangeName = calcResult ? calcResult.tempRangeName.toLowerCase().replace('_', '-') : '';
+  console.log('TEMP RANGE NAME: ', tempRangeName);
 
   useEffect(() => {
     if (!props.state) getUserLocation();
@@ -106,7 +108,7 @@ const LookPage = () => {
 
   return (
       <div className='look-page'>
-          <Background page='lookPage' pageStyle={pageStyle}/>
+          <Background page='lookPage' pageStyle={pageStyle} tempRangeName={tempRangeName}/>
           <NavBar handleSearch={handleSearch} pageStyle={pageStyle}/>
             <div className="left-part">
               <h2 className="location">{location}</h2>
