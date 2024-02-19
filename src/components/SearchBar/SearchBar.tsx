@@ -3,15 +3,25 @@ import NavBarType from "../NavBar/NavBarType";
 import "./SearchBar.css";
 
 const SearchBar: React.FC<NavBarType> = ({ handleSearch, pageStyle }) => {
-  const OnClickHandler = () => {
+  const performSearch = () => {
     const inputElement = document.getElementById(
       "search-input"
     ) as HTMLInputElement;
-    const value = inputElement.value;
-    if (value === "") return;
+    const value = inputElement.value.trim();
+    if (value) {
+      handleSearch(value);
+      inputElement.value = "";
+    }
+  };
 
-    handleSearch(value);
-    inputElement.value = "";
+  const onClickHandler = () => {
+    performSearch();
+  };
+
+  const onKeyPressHandler = (event: React.KeyboardEvent) => {
+    if (event.key === "Enter") {
+      performSearch();
+    }
   };
 
   const color: string =
@@ -26,16 +36,14 @@ const SearchBar: React.FC<NavBarType> = ({ handleSearch, pageStyle }) => {
       ? "#CAF0C0"
       : "";
 
-  // inputElement.addEventListener("keypress", (event) => {
-  //     if (event.key === 'Enter') {
-  //         event.preventDefault();
-  //         OnClickHandler();
-  //     }
-  // });
-
   return (
     <div className="search-bar">
-      <input placeholder="Search" id="search-input" className={pageStyle} />
+      <input
+        placeholder="Search"
+        id="search-input"
+        className={pageStyle}
+        onKeyUp={onKeyPressHandler}
+      />
       <svg
         className="vertical-line"
         width="2"
@@ -46,7 +54,7 @@ const SearchBar: React.FC<NavBarType> = ({ handleSearch, pageStyle }) => {
       >
         <path id="Vector 10" d="M1 0L0.999999 32" stroke={color} />
       </svg>
-      <button onClick={OnClickHandler}>
+      <button onClick={onClickHandler}>
         <svg
           width="25"
           height="25"
