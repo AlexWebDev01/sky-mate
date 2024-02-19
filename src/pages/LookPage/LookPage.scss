@@ -1,94 +1,103 @@
 .look-page {
-    min-height: 100vh;
-    background-color: white;
+  min-height: 100vh;
+  background-color: white;
 
-    .left-part {
-        display: flex;
-        flex-direction: column;
-        margin-left: 80px;
-        position: absolute;
-        top: 134px;
+  .left-part {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+    position: absolute;
+    top: 134px;
 
-        .location {
-            color: #000;
-            font-size: 24px;
-            font-family: Oddval;
-            font-weight: 600;
-            text-align: left;
-        }
+    .location {
+      color: #000;
+      font-size: 24px;
+      font-family: Oddval;
+      font-weight: 600;
+      text-align: left;
     }
-    
-    .right-part {
-        position: absolute;
-        top: 70px;
-        right: 160px;
-        text-align: left;
+  }
 
-        h1 {
-            color: #000;
-            font-family: Oddval;
-            font-size: 48px;
-            margin: 0;
-            }
+  .right-part {
+    position: absolute;
+    top: 70px;
+    right: 160px;
+    text-align: left;
 
-        .temperature {
-            font-family: Oddval;
-            font-size: 48px;
-        }
-
-        .rain, .snow {
-            color: #67A8F4;
-        }
-          
-        .sun, .clear {
-            color: #FF753E;
-        }
-          
-        .clouds, .fog, .dust, .mist {
-            color: #29AF77;
-        }
-
-        .clothes-list {
-            list-style: none;
-            color: #000;
-            font-family: Circe-bold;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: normal;
-            margin-left: 170px;
-            padding: 0;
-
-            li {
-                margin-bottom: 17px;
-            }
-        }
+    h1 {
+      color: #000;
+      font-family: Oddval;
+      font-size: 48px;
+      margin: 0;
     }
 
-    .clothes-description {
-        position: absolute;
-        width: 353px;
-        bottom: 32px;
-        right: 87px;
-        text-align: left;
-        color: #000;
-        font-family: Circe-bold;
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 140.9%; /* 22.544px */
+    .temperature {
+      font-family: Oddval;
+      font-size: 48px;
     }
- 
+
+    .rain,
+    .snow {
+      color: #67a8f4;
+    }
+
+    .sun,
+    .clear {
+      color: #ff753e;
+    }
+
+    .clouds,
+    .fog,
+    .dust,
+    .mist {
+      color: #29af77;
+    }
+
+    .clothes-list {
+      list-style: none;
+      color: #000;
+      font-family: Circe-bold;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-left: 170px;
+      padding: 0;
+
+      li {
+        margin-bottom: 17px;
+      }
+    }
+  }
+
+  .clothes-description {
+    position: absolute;
+    width: 353px;
+    bottom: 32px;
+    right: 87px;
+    text-align: left;
+    color: #000;
+    font-family: Circe-bold;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 140.9%; /* 22.544px */
+  }
 }
 
-.look-page.rain, .look-page.snow {
-    background-color: #CAE7FD;
-  }
-  
-  .look-page.sun, .look-page.clear {
-    background-color: #FDCBCA;
-  }
-  
-  .look-page.clouds, .look-page.fog, .look-page.dust, .look-page.mist {
-    background-color: #CAF0C0;
-  }
+.look-page.rain,
+.look-page.snow {
+  background-color: #cae7fd;
+}
+
+.look-page.sun,
+.look-page.clear {
+  background-color: #fdcbca;
+}
+
+.look-page.clouds,
+.look-page.fog,
+.look-page.dust,
+.look-page.mist {
+  background-color: #caf0c0;
+}

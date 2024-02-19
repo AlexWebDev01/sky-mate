@@ -1,23 +1,23 @@
-@import url('../../fonts/fonts.css');
+@import url("../../fonts/fonts.css");
 
 .navigation-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    position: absolute;
-    bottom: 65px;
-    left: 65px;
-    z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 65px;
+  left: 65px;
+  z-index: 1;
 
-    .link {
-        display: flex;
-        height: 24px;
-        color: #000;
-        font-size: 16px;
-        font-family: Poppins, sans-serif;
-        outline: none;
-        margin: 0 15px;
-        text-decoration: none;
-        border-bottom: 1px solid black;
-    }
+  .link {
+    display: flex;
+    height: 24px;
+    color: #000;
+    font-size: 16px;
+    font-family: Poppins, sans-serif;
+    outline: none;
+    margin: 0 15px;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+  }
 }
