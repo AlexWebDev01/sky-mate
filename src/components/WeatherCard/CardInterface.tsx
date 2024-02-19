@@ -1,5 +1,4 @@
 interface WeatherCards {
-    expanded: boolean;
-    onExpand: () => void;
-  }
-  
+  expanded: boolean;
+  onExpand: () => void;
+}

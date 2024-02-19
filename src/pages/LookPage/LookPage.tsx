@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 
 import NavBar from "../../components/NavBar/NavBar";
 import NavigationLink from "../../components/NavigationLink/NavigationLink";
@@ -20,26 +20,43 @@ const LookPage = () => {
   const [newDataFetched, setNewDataFetched] = useState(false);
   const [lat, setLat] = useState(props.state ? props.state.lat : 0);
   const [lon, setLon] = useState(props.state ? props.state.lon : 0);
-  const [isLoading, setIsLoading] = useState(props.state? false : true);
-  const [location, setLocation] = useState(props.state ? props.state.location : '');
+  const [isLoading, setIsLoading] = useState(props.state ? false : true);
+  const [location, setLocation] = useState(
+    props.state ? props.state.location : ""
+  );
 
-  const pageStyle = data.daily[0].weather[0].main.toLowerCase()
-  console.log('WEATHER ADVICE: ', calculateClothesAdvice(data.daily[0].weather[0].main, data.daily[0].temp.day));
-  const calcResult = calculateClothesAdvice(data.daily[0].weather[0].main, data.daily[0].temp.day);
-  const clothesList = calcResult ? calcResult.adviceData.clothesList : ['Shorts/Skirt', 'Rubber Boots', 'Umbrella', 'Cotton T-Shirt', 'Cap'];
-  const clotherDescription = calcResult ? calcResult.adviceData.clothesDescription : 'Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.'
-  const tempRangeName = calcResult ? calcResult.tempRangeName.toLowerCase().replace('_', '-') : '';
-  console.log('TEMP RANGE NAME: ', tempRangeName);
+  const pageStyle = data.daily[0].weather[0].main.toLowerCase();
+  console.log(
+    "WEATHER ADVICE: ",
+    calculateClothesAdvice(
+      data.daily[0].weather[0].main,
+      data.daily[0].temp.day
+    )
+  );
+  const calcResult = calculateClothesAdvice(
+    data.daily[0].weather[0].main,
+    data.daily[0].temp.day
+  );
+  const clothesList = calcResult
+    ? calcResult.adviceData.clothesList
+    : ["Shorts/Skirt", "Rubber Boots", "Umbrella", "Cotton T-Shirt", "Cap"];
+  const clotherDescription = calcResult
+    ? calcResult.adviceData.clothesDescription
+    : "Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.";
+  const tempRangeName = calcResult
+    ? calcResult.tempRangeName.toLowerCase().replace("_", "-")
+    : "";
+  console.log("TEMP RANGE NAME: ", tempRangeName);
 
   useEffect(() => {
     if (!props.state) getUserLocation();
   }, []);
 
   const getUserLocation = () => {
-      fetchUserLocatioByIP()
+    fetchUserLocatioByIP()
       .then((res) => res.json())
       .then((result) => {
-        const {latitude, longitude}: any = separateCoordinates(result.loc);
+        const { latitude, longitude }: any = separateCoordinates(result.loc);
         console.log(latitude, longitude);
         setLocation(result.city);
         setLat(latitude);
@@ -47,18 +64,18 @@ const LookPage = () => {
         setNewDataFetched(true);
         console.log("USER LOCATION: ", result);
       })
-      .catch(error => console.error(error));
-    };
+      .catch((error) => console.error(error));
+  };
 
   const getWeatherData = () => {
-      fetchWeatherData(lat, lon, "metric")
-        .then((res) => res.json())
-        .then((result) => {
-          setData(result);
-          setIsLoading(false);
-          console.log("DATA:", result);
-        });
-    };
+    fetchWeatherData(lat, lon, "metric")
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result);
+        setIsLoading(false);
+        console.log("DATA:", result);
+      });
+  };
 
   const handleSearch = (location: string) => {
     fetch(
@@ -77,58 +94,62 @@ const LookPage = () => {
   };
 
   useEffect(() => {
-      if (!lat || !lon) return
+    if (!lat || !lon) return;
 
-      if (newDataFetched) {
-        getWeatherData();
+    if (newDataFetched) {
+      getWeatherData();
 
-        fetch(
-          `${
-            import.meta.env.VITE_GEOCODING_API_URL
-          }/reverse?lat=${lat}&lon=${lon}&limit=${1}&appid=${
-            import.meta.env.VITE_WEATHER_APP_API_KEY
-          }`
-        )
+      fetch(
+        `${
+          import.meta.env.VITE_GEOCODING_API_URL
+        }/reverse?lat=${lat}&lon=${lon}&limit=${1}&appid=${
+          import.meta.env.VITE_WEATHER_APP_API_KEY
+        }`
+      )
         .then((res) => res.json())
         .then((result) => {
           setLocation(result[0].name);
           console.log("LOCATION: ", result[0]);
         });
-      }
+    }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [lat, lon]);
+  }, [lat, lon]);
 
   if (isLoading)
-  return (
-    <div className="loader">
-      <img src="./loader.png" />
-    </div>
-  );
+    return (
+      <div className="loader">
+        <img src="./loader.png" />
+      </div>
+    );
 
   return (
-      <div className='look-page'>
-          <Background page='lookPage' pageStyle={pageStyle} tempRangeName={tempRangeName}/>
-          <NavBar handleSearch={handleSearch} pageStyle={pageStyle}/>
-            <div className="left-part">
-              <h2 className="location">{location}</h2>
-              <AdditionalInfo weatherData={data} expanded='weather-card' /> 
-            </div>
-            <NavigationLink navigationTo="/" />
-            <div className="right-part">
-              <h1>Protect look</h1>
-              <div className={`${pageStyle} temperature`}>{Math.round(data.current.temp)}&deg; C</div>
-              <ul className="clothes-list">
-                {
-                  clothesList.map((item: string, index: number) => {
-                    return <li key={index}>{item}</li>
-                  })
-                }
-              </ul>
-            </div>
-            <p className="clothes-description">{clotherDescription}</p>
+    <div className="look-page">
+      <Background
+        page="lookPage"
+        pageStyle={pageStyle}
+        tempRangeName={tempRangeName}
+      />
+      <NavBar handleSearch={handleSearch} pageStyle={pageStyle} />
+      <div className="left-part">
+        <h2 className="location">{location}</h2>
+        <AdditionalInfo weatherData={data} expanded="weather-card" />
       </div>
-  )
+      <NavigationLink navigationTo="/" />
+      <div className="right-part">
+        <h1>Protect look</h1>
+        <div className={`${pageStyle} temperature`}>
+          {Math.round(data.current.temp)}&deg; C
+        </div>
+        <ul className="clothes-list">
+          {clothesList.map((item: string, index: number) => {
+            return <li key={index}>{item}</li>;
+          })}
+        </ul>
+      </div>
+      <p className="clothes-description">{clotherDescription}</p>
+    </div>
+  );
 };
 
 export default LookPage;
