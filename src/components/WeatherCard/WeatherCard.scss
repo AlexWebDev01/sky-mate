@@ -1,127 +1,135 @@
-@import '../../fonts/fonts.css';
+@import "../../fonts/fonts.css";
 
 .weather-card {
-    width: 455px;
-    height: 224px;
-    background-color: #67A8F4;
-    border-radius: 40px;
-    padding: 21px 36px;
-    color: white;
-    position: relative;
-    box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14);
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 60px;
-    right: 80px;
-    z-index: 1;
+  width: 455px;
+  height: 224px;
+  background-color: #67a8f4;
+  border-radius: 40px;
+  padding: 21px 36px;
+  color: white;
+  position: relative;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.14);
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  z-index: 1;
+  transition: width 0.5s ease, height 0.5s ease;
+  overflow: hidden;
 
-    .main-info {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 25px;
-        font-family: Oddval;
+  .main-info {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 25px;
+    font-family: Oddval;
 
-        .left {
-            text-align: left;
-            width: 70%;
+    .left {
+      text-align: left;
+      width: 70%;
 
-            .temperature {
-                font-size: 48px;
-                font-weight: 600;
-                line-height: 100%;
-            }
-            
-            h2 {
-                font-size: 24px;
-                font-weight: 600;
-                margin: 0;
-            }
-
-            .rain, .snow {
-                color: #CAE7FD;
-            };
-
-            .sun, .clear {
-                color: #FDCBCA;
-            };
-
-            .clouds, .fog, .dust, .mist {
-                color: #CAF0C0;
-            }
-        }
-        
-        .right {
-            text-transform: lowercase;
-            text-align: left;
-
-            .date {
-                font-size: 32px;
-                font-weight: 600;
-                line-height: 100%;
-                margin-bottom: 15px;
-            }
-
-            .time {
-                font-size: 32px;
-                font-weight: 600;
-                line-height: 80%;
-
-            }
-
-            .day {
-                font-size: 16px;
-                font-weight: 600;
-            }
-        }
-    }
-
-    .weather {
-        position: absolute;
-        text-transform: lowercase;
-        writing-mode: horizontal-tb;
-        bottom: -27px;
-        left: 36px;
-        font-size: 64px;
+      .temperature {
+        font-size: 48px;
         font-weight: 600;
-        font-family: Oddval;
-    }
-}
+        line-height: 100%;
+      }
 
-.weather-card.rain, .weather-card.snow {
-    background-color: #67A8F4;
+      h2 {
+        font-size: 24px;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      .rain,
+      .snow {
+        color: #cae7fd;
+      }
+
+      .sun,
+      .clear {
+        color: #fdcbca;
+      }
+
+      .clouds,
+      .fog,
+      .dust,
+      .mist {
+        color: #caf0c0;
+      }
+    }
+
+    .right {
+      text-transform: lowercase;
+      text-align: left;
+
+      .date {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 100%;
+        margin-bottom: 15px;
+      }
+
+      .time {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 80%;
+      }
+
+      .day {
+        font-size: 16px;
+        font-weight: 600;
+      }
+    }
   }
 
-.weather-card.sun, .weather-card.clear {
-background-color: #FF753E;
+  .weather {
+    position: absolute;
+    text-transform: lowercase;
+    writing-mode: horizontal-tb;
+    bottom: -27px;
+    left: 36px;
+    font-size: 64px;
+    font-weight: 600;
+    font-family: Oddval;
+  }
 }
 
-.weather-card.clouds, .weather-card.fog, .weather-card.dust, .weather-card.mist {
-background-color: #29AF77;
+.weather-card.rain,
+.weather-card.snow {
+  background-color: #67a8f4;
+}
+
+.weather-card.sun,
+.weather-card.clear {
+  background-color: #ff753e;
+}
+
+.weather-card.clouds,
+.weather-card.fog,
+.weather-card.dust,
+.weather-card.mist {
+  background-color: #29af77;
 }
 
 .weather-expanded {
-    height: 468px;
-    z-index: 1;
+  height: 468px;
+  z-index: 1;
 
-    .weather {
-        width: 55px;
-        height: 90px;
-        writing-mode: vertical-rl;
-        top: 135px;
-        left: 430px;
-        font-size: 50px;
-    }
+  .weather {
+    width: 55px;
+    height: 90px;
+    writing-mode: vertical-rl;
+    top: 135px;
+    left: 430px;
+    font-size: 50px;
+  }
 }
 
 .hide {
-    display: none;
+  display: none;
 }
 
 .weather-card {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .weather-expanded {
-    cursor: default;
+  cursor: default;
 }
