@@ -8,15 +8,16 @@ import DailyForecast from "../../components/DailyForecast/DailyForecast";
 
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
-import { separateCoordinates } from "../../helpers";
 import NavigationLink from "../../components/NavigationLink/NavigationLink";
 import Background from "../../components/Background/Background";
+import { Coordinates } from "../../context/GlobalContext.interface";
+import { fetchGeocodingCoordinates } from "../../api/fetchGeocodingCoordinates";
+import { fetchGeocodingLocation } from "../../api/fetchGeocodingLocation";
 
 const WeatherPage = () => {
-  const [lat, setLat] = useState<number>(0);
-  const [lon, setLon] = useState<number>(0);
-  const [data, setData] = useState<object | null>(null);
-  const [location, setLocation] = useState<string>("");
+  const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
+  const [location, setLocation] = useState<string | null>(null);
+  const [weatherData, setWeatherData] = useState<object | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [expandedCard, setExpandedCard] = useState<
     "weather-card" | "daily-forecast"
@@ -24,69 +25,48 @@ const WeatherPage = () => {
   const [pageStyle, setPageStyle] = useState<string>("");
 
   useEffect(() => {
-    getUserLocation();
+    if (!coordinates && !location) {
+      getUserLocation();
+    }
   }, []);
 
-  const getUserLocation = () => {
-    fetchUserLocatioByIP()
-      .then((res) => res.json())
-      .then((result) => {
-        const { latitude, longitude }: any = separateCoordinates(result.loc);
-        console.log(latitude, longitude);
-        setLocation(result.city);
-        setLat(latitude);
-        setLon(longitude);
-        console.log("USER LOCATION: ", result);
-      })
-      .catch((error) => console.error(error));
-  };
-
-  const getWeatherData = () => {
-    fetchWeatherData(lat, lon, "metric")
-      .then((res) => res.json())
-      .then((result) => {
-        setData(result);
-        setPageStyle(result.daily[0].weather[0].main.toLowerCase());
-        setIsLoading(false);
-        console.log("DATA:", result);
-      });
-  };
-
   useEffect(() => {
-    if (!lat || !lon) {
-      return;
+    getWeatherData();
+    getLocation();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [coordinates]);
+
+  const getUserLocation = async () => {
+    const data = await fetchUserLocatioByIP();
+
+    console.log("COORDINATES:", data.loc);
+    setCoordinates(data.loc);
+    setLocation(data.city);
+  };
+
+  const getWeatherData = async () => {
+    if (coordinates) {
+      const data = await fetchWeatherData(coordinates, "metric");
+
+      setWeatherData(data);
+      setPageStyle(data.daily[0].weather[0].main.toLowerCase());
     }
 
-    getWeatherData();
+    setIsLoading(false);
+  };
 
-    fetch(
-      `${
-        import.meta.env.VITE_GEOCODING_API_URL
-      }/reverse?lat=${lat}&lon=${lon}&limit=${1}&appid=${
-        import.meta.env.VITE_WEATHER_APP_API_KEY
-      }`
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        setLocation(result[0].name);
-        console.log("LOCATION: ", result[0]);
-      });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lat, lon]);
+  const getLocation = async (): Promise<void> => {
+    if (coordinates) {
+      const location = await fetchGeocodingLocation(coordinates);
 
-  const handleSearch = (location: string) => {
-    fetch(
-      `${
-        import.meta.env.VITE_GEOCODING_API_URL
-      }/direct?q=${location}&limit=${1}&appid=${
-        import.meta.env.VITE_WEATHER_APP_API_KEY
-      }`
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        setLat(result[0].lat);
-        setLon(result[0].lon);
-      });
+      setLocation(location);
+    }
+  };
+
+  const handleSearch = async (location: string) => {
+    const coordinates = await fetchGeocodingCoordinates(location);
+    setCoordinates(coordinates);
   };
 
   const handleWeatherExpand = () => {
@@ -113,28 +93,19 @@ const WeatherPage = () => {
       <NavBar handleSearch={handleSearch} pageStyle={pageStyle} />
       <div className="content-container">
         <WeatherCard
-          weatherData={data}
+          weatherData={weatherData}
           location={location}
           isMainPage={true}
           expanded={expandedCard}
           onExpand={handleWeatherExpand}
         />
         <DailyForecast
-          weatherData={data}
+          weatherData={weatherData}
           expanded={expandedCard}
           onExpand={handleForecastExpand}
         />
       </div>
-      <NavigationLink
-        navigationTo="/look"
-        state={{
-          lat: lat,
-          lon: lon,
-          location: location,
-          data: data,
-          pageStyle: pageStyle,
-        }}
-      />
+      <NavigationLink navigationTo="/look" />
       <Background page="weatherPage" pageStyle={pageStyle} />
     </div>
   );
