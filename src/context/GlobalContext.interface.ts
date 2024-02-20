@@ -5,10 +5,8 @@ export interface GlobalContext {
   setCoordinates: (coordinates: Coordinates) => void;
   weatherData: object | null;
   setWeatherData: (data: object) => void;
-  location: string;
+  location: string | null;
   setLocation: (location: string) => void;
-  expandedCard: "weather-card" | "daily-forecast";
-  setExpandedCard: (expandedCard: "weather-card" | "daily-forecast") => void;
   pageStyle: string;
   setPageStyle: (pageStyle: string) => void;
 }
