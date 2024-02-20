@@ -1,48 +1,75 @@
 import { useState, useEffect } from "react";
 
-import "./WeatherPage.css";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 import NavBar from "../../components/NavBar/NavBar";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import DailyForecast from "../../components/DailyForecast/DailyForecast";
+import NavigationLink from "../../components/NavigationLink/NavigationLink";
+import Background from "../../components/Background/Background";
 
 import { fetchWeatherData } from "../../api/fetchWeatherData";
 import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
-import NavigationLink from "../../components/NavigationLink/NavigationLink";
-import Background from "../../components/Background/Background";
-import { Coordinates } from "../../context/GlobalContext.interface";
 import { fetchGeocodingCoordinates } from "../../api/fetchGeocodingCoordinates";
 import { fetchGeocodingLocation } from "../../api/fetchGeocodingLocation";
 
+import "./WeatherPage.css";
+import { separateCoordinates } from "../../helpers";
+
 const WeatherPage = () => {
-  const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
-  const [location, setLocation] = useState<string | null>(null);
-  const [weatherData, setWeatherData] = useState<object | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [expandedCard, setExpandedCard] = useState<
     "weather-card" | "daily-forecast"
   >("weather-card");
-  const [pageStyle, setPageStyle] = useState<string>("");
+
+  const {
+    coordinates,
+    setCoordinates,
+    location,
+    setLocation,
+    weatherData,
+    setWeatherData,
+    pageStyle,
+    setPageStyle,
+  } = useGlobalContext();
 
   useEffect(() => {
     if (!coordinates && !location) {
+      setIsLoading(true);
+      console.log("Getting location by ip...");
       getUserLocation();
     }
   }, []);
 
   useEffect(() => {
-    getWeatherData();
-    getLocation();
-
+    console.log("Getting weather data...");
+    fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [coordinates]);
 
   const getUserLocation = async () => {
     const data = await fetchUserLocatioByIP();
 
-    console.log("COORDINATES:", data.loc);
-    setCoordinates(data.loc);
+    const coords = separateCoordinates(data.loc);
+    const { lat, lon } = coords;
+    setCoordinates({ lat, lon });
+    console.log("CURRENT COORDINATES:", coordinates);
     setLocation(data.city);
+  };
+
+  const fetchData = async () => {
+    if (coordinates) {
+      setIsLoading(true);
+
+      try {
+        // Run both async operations concurrently and wait for them to complete
+        await Promise.all([getWeatherData(), getLocation()]);
+      } catch (error) {
+        console.error("Failed to fetch data:", error);
+      }
+
+      setIsLoading(false);
+    }
   };
 
   const getWeatherData = async () => {
@@ -52,8 +79,6 @@ const WeatherPage = () => {
       setWeatherData(data);
       setPageStyle(data.daily[0].weather[0].main.toLowerCase());
     }
-
-    setIsLoading(false);
   };
 
   const getLocation = async (): Promise<void> => {
@@ -81,34 +106,35 @@ const WeatherPage = () => {
     }
   };
 
-  if (isLoading)
+  if (isLoading) {
     return (
       <div className="loader">
         <img src="./loader.png" />
       </div>
     );
-
-  return (
-    <div className={`${pageStyle} weather-page`}>
-      <NavBar handleSearch={handleSearch} pageStyle={pageStyle} />
-      <div className="content-container">
-        <WeatherCard
-          weatherData={weatherData}
-          location={location}
-          isMainPage={true}
-          expanded={expandedCard}
-          onExpand={handleWeatherExpand}
-        />
-        <DailyForecast
-          weatherData={weatherData}
-          expanded={expandedCard}
-          onExpand={handleForecastExpand}
-        />
+  } else {
+    return (
+      <div className={`${pageStyle} weather-page`}>
+        <NavBar handleSearch={handleSearch} pageStyle={pageStyle} />
+        <div className="content-container">
+          <WeatherCard
+            weatherData={weatherData}
+            location={location}
+            isMainPage={true}
+            expanded={expandedCard}
+            onExpand={handleWeatherExpand}
+          />
+          <DailyForecast
+            weatherData={weatherData}
+            expanded={expandedCard}
+            onExpand={handleForecastExpand}
+          />
+        </div>
+        <NavigationLink navigationTo="/look" />
+        <Background page="weatherPage" pageStyle={pageStyle} />
       </div>
-      <NavigationLink navigationTo="/look" />
-      <Background page="weatherPage" pageStyle={pageStyle} />
-    </div>
-  );
+    );
+  }
 };
 
 export default WeatherPage;

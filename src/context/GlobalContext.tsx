@@ -22,10 +22,7 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
 }) => {
   const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
   const [weatherData, setWeatherData] = useState<object | null>(null);
-  const [location, setLocation] = useState<string>("");
-  const [expandedCard, setExpandedCard] = useState<
-    "weather-card" | "daily-forecast"
-  >("weather-card");
+  const [location, setLocation] = useState<string | null>(null);
   const [pageStyle, setPageStyle] = useState<string>("");
 
   const sharedState: GlobalContext = {
@@ -35,8 +32,6 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     setWeatherData,
     location,
     setLocation,
-    expandedCard,
-    setExpandedCard,
     pageStyle,
     setPageStyle,
   };

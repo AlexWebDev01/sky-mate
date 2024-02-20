@@ -1,3 +1,5 @@
+import { Coordinates } from "./context/GlobalContext.interface";
+
 export function epochToLocalTime(
   epochTime: number,
   offsetTime: number
@@ -117,10 +119,10 @@ export function isDateEqual(firstDate: Date, secondDate: Date) {
   );
 }
 
-export function separateCoordinates(coordinatesString: string): object {
+export function separateCoordinates(coordinatesString: string): Coordinates {
   const [latitude, longitude] = coordinatesString.split(",");
   return {
-    latitude: Number(latitude.trim()),
-    longitude: Number(longitude.trim()),
+    lat: Number(latitude.trim()),
+    lon: Number(longitude.trim()),
   };
 }
