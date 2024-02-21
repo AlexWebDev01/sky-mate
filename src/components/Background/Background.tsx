@@ -157,8 +157,8 @@ const Background = ({ page, pageStyle, tempRangeName }: any) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M144 59.4835L178.097 0.499995L253.403 43.9742L219.366 102.992L287.5 103.025L287.5 189.975L219.366 190.008L253.403 249.025L178.097 292.5L144 233.516L109.903 292.5L34.5966 249.025L68.6343 190.008L0.499992 189.975L0.499996 103.025L68.6343 102.992L34.5966 43.9742L109.903 0.499992L144 59.4835Z"
             fill={coldColor}
           />
@@ -172,8 +172,8 @@ const Background = ({ page, pageStyle, tempRangeName }: any) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M132.422 114.724L152.934 150.299L107.544 176.51L86.9966 140.955L66.444 176.513L21.0574 150.309L41.5753 114.731L0.510261 114.714L0.513948 62.2994L41.5794 62.2759L21.067 26.7005L66.4572 0.490137L87.0048 36.0448L107.557 0.486776L152.944 26.6907L132.426 62.2689L173.491 62.2864L173.487 114.701L132.422 114.724Z"
             fill={coldColor}
           />
@@ -187,8 +187,8 @@ const Background = ({ page, pageStyle, tempRangeName }: any) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M130.722 81.0664L163.791 100.218L139.417 142.517L106.328 123.398L106.31 161.669L57.5613 161.669L57.5426 123.398L24.4544 142.517L0.0800988 100.218L33.1497 81.0664L0.0801021 61.9146L24.4544 19.6156L57.5426 38.7342L57.5613 0.463827L106.31 0.463832L106.328 38.7342L139.417 19.6156L163.791 61.9146L130.722 81.0664Z"
             fill={coldColor}
           />
@@ -202,8 +202,8 @@ const Background = ({ page, pageStyle, tempRangeName }: any) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M70 113.316L53.3675 142L16.6326 120.858L33.2363 92.158L-2.17937e-06 92.1418L-4.02765e-06 49.8582L33.2363 49.842L16.6326 21.1418L53.3675 -2.33277e-06L70 28.684L86.6325 -3.78683e-06L123.367 21.1418L106.764 49.842L140 49.8582L140 92.1418L106.764 92.158L123.367 120.858L86.6325 142L70 113.316Z"
             fill={coldColor}
           />
