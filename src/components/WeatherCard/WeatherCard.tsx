@@ -6,54 +6,50 @@ import { calculateLocalDay } from "../../helpers";
 
 import "./WeatherCard.css";
 import AdditionalInfo from "../AdditionalInfo/AdditionalInfo";
+import { useGlobalContext } from "../../context/GlobalContext";
 
-const WeatherCard = ({
-  weatherData,
-  location,
-  isMainPage,
-  expanded,
-  onExpand,
-}: any) => {
-  const pageStyle = weatherData.daily[0].weather[0].main.toLowerCase();
+const WeatherCard = ({ isMainPage, expanded, onExpand }: any) => {
+  const { state } = useGlobalContext();
+  const { weatherData, pageStyle, location } = state;
 
-  return (
-    <div
-      className={
-        expanded === "weather-card"
-          ? `weather-expanded ${pageStyle} weather-card`
-          : `${pageStyle} weather-card`
-      }
-      onClick={onExpand}
-    >
-      <div className="main-info">
-        <div className="left">
-          <div className="temperature">
-            {Math.round(weatherData.current.temp)}&deg; C
+  if (!weatherData) {
+    return <div>Loading</div>;
+  } else {
+    return (
+      <div
+        className={
+          expanded === "weather-card"
+            ? `weather-expanded ${pageStyle} weather-card`
+            : `${pageStyle} weather-card`
+        }
+        onClick={onExpand}
+      >
+        <div className="main-info">
+          <div className="left">
+            <div className="temperature">
+              {Math.round(weatherData.current.temp)}&deg; C
+            </div>
+            <h2 className={pageStyle}>{location}</h2>
           </div>
-          <h2 className={pageStyle}>{location}</h2>
+          <div className="right">
+            <div className="date">
+              {calculateLocalDate(weatherData.current.dt)}/
+            </div>
+            <div className="time">
+              {epochToLocalTime(
+                weatherData.current.dt,
+                weatherData.timezone_offset
+              )}
+            </div>
+            <div>{calculateLocalDay(weatherData.current.dt)}</div>
+          </div>
         </div>
-        <div className="right">
-          <div className="date">
-            {calculateLocalDate(weatherData.current.dt)}/
-          </div>
-          <div className="time">
-            {epochToLocalTime(
-              weatherData.current.dt,
-              weatherData.timezone_offset
-            )}
-          </div>
-          <div>{calculateLocalDay(weatherData.current.dt)}</div>
-        </div>
+        <AdditionalInfo isMainPage={isMainPage} expanded={expanded} />
+        <HourlyForecast expanded={expanded} />
+        <span className="weather">{weatherData.daily[0].weather[0].main}</span>
       </div>
-      <AdditionalInfo
-        weatherData={weatherData}
-        isMainPage={isMainPage}
-        expanded={expanded}
-      />
-      <HourlyForecast weatherData={weatherData} expanded={expanded} />
-      <span className="weather">{weatherData.daily[0].weather[0].main}</span>
-    </div>
-  );
+    );
+  }
 };
 
 export default WeatherCard;

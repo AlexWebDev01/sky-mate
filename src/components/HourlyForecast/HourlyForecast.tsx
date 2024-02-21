@@ -1,11 +1,16 @@
 import { useState } from "react";
 
-import "./HourlyForecast.css";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 import { epochToLocalTime } from "../../helpers";
 
-const WeatherCard = ({ weatherData, expanded }: any) => {
+import "./HourlyForecast.css";
+
+const WeatherCard = ({ expanded }: any) => {
   const [currentPosition, setCurrentPosition] = useState(0);
+
+  const { state } = useGlobalContext();
+  const { weatherData } = state;
 
   const sliderItems = weatherData.hourly.slice(1, 14);
   const itemWidth = 55;

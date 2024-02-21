@@ -1,8 +1,11 @@
-import NavBarType from "../NavBar/NavBarType";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 import "./SearchBar.css";
 
-const SearchBar: React.FC<NavBarType> = ({ handleSearch, pageStyle }) => {
+const SearchBar = () => {
+  const { state, handleSearch } = useGlobalContext();
+  const { pageStyle } = state;
+
   const performSearch = () => {
     const inputElement = document.getElementById(
       "search-input"
