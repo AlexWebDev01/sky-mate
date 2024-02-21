@@ -1,41 +1,27 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+import { useGlobalContext } from "../../context/GlobalContext";
 
 import NavBar from "../../components/NavBar/NavBar";
 import NavigationLink from "../../components/NavigationLink/NavigationLink";
 import AdditionalInfo from "../../components/AdditionalInfo/AdditionalInfo";
+import Background from "../../components/Background/Background";
+
+import { calculateClothesAdvice } from "../../clothes-algorithm/clothesAlgorithm";
 
 import "./LookPage.css";
 
-import { fetchWeatherData } from "../../api/fetchWeatherData";
-import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
-import { separateCoordinates } from "../../helpers";
-import { calculateClothesAdvice } from "../../clothes-algorithm/clothesAlgorithm";
-import Background from "../../components/Background/Background";
-
 const LookPage = () => {
-  const props = useLocation();
+  const { state, fetchData } = useGlobalContext();
+  const { weatherData, pageStyle, location, isLoading } = state;
 
-  const [data, setData] = useState(props.state ? props.state.data : null);
-  const [newDataFetched, setNewDataFetched] = useState(false);
-  const [lat, setLat] = useState(props.state ? props.state.lat : 0);
-  const [lon, setLon] = useState(props.state ? props.state.lon : 0);
-  const [isLoading, setIsLoading] = useState(props.state ? false : true);
-  const [location, setLocation] = useState(
-    props.state ? props.state.location : ""
-  );
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
-  const pageStyle = data.daily[0].weather[0].main.toLowerCase();
-  console.log(
-    "WEATHER ADVICE: ",
-    calculateClothesAdvice(
-      data.daily[0].weather[0].main,
-      data.daily[0].temp.day
-    )
-  );
   const calcResult = calculateClothesAdvice(
-    data.daily[0].weather[0].main,
-    data.daily[0].temp.day
+    weatherData.daily[0].weather[0].main,
+    weatherData.daily[0].temp.day
   );
   const clothesList = calcResult
     ? calcResult.adviceData.clothesList
@@ -48,74 +34,6 @@ const LookPage = () => {
     : "";
   console.log("TEMP RANGE NAME: ", tempRangeName);
 
-  useEffect(() => {
-    if (!props.state) getUserLocation();
-  }, []);
-
-  const getUserLocation = () => {
-    fetchUserLocatioByIP()
-      .then((res) => res.json())
-      .then((result) => {
-        const { latitude, longitude }: any = separateCoordinates(result.loc);
-        console.log(latitude, longitude);
-        setLocation(result.city);
-        setLat(latitude);
-        setLon(longitude);
-        setNewDataFetched(true);
-        console.log("USER LOCATION: ", result);
-      })
-      .catch((error) => console.error(error));
-  };
-
-  const getWeatherData = () => {
-    fetchWeatherData(lat, lon, "metric")
-      .then((res) => res.json())
-      .then((result) => {
-        setData(result);
-        setIsLoading(false);
-        console.log("DATA:", result);
-      });
-  };
-
-  const handleSearch = (location: string) => {
-    fetch(
-      `${
-        import.meta.env.VITE_GEOCODING_API_URL
-      }/direct?q=${location}&limit=${1}&appid=${
-        import.meta.env.VITE_WEATHER_APP_API_KEY
-      }`
-    )
-      .then((res) => res.json())
-      .then((result) => {
-        setLat(result[0].lat);
-        setLon(result[0].lon);
-        setNewDataFetched(true);
-      });
-  };
-
-  useEffect(() => {
-    if (!lat || !lon) return;
-
-    if (newDataFetched) {
-      getWeatherData();
-
-      fetch(
-        `${
-          import.meta.env.VITE_GEOCODING_API_URL
-        }/reverse?lat=${lat}&lon=${lon}&limit=${1}&appid=${
-          import.meta.env.VITE_WEATHER_APP_API_KEY
-        }`
-      )
-        .then((res) => res.json())
-        .then((result) => {
-          setLocation(result[0].name);
-          console.log("LOCATION: ", result[0]);
-        });
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [lat, lon]);
-
   if (isLoading)
     return (
       <div className="loader">
@@ -125,21 +43,16 @@ const LookPage = () => {
 
   return (
     <div className="look-page">
-      <Background
-        page="lookPage"
-        pageStyle={pageStyle}
-        tempRangeName={tempRangeName}
-      />
-      <NavBar handleSearch={handleSearch} pageStyle={pageStyle} />
+      <NavBar />
       <div className="left-part">
         <h2 className="location">{location}</h2>
-        <AdditionalInfo weatherData={data} expanded="weather-card" />
+        <AdditionalInfo expanded="weather-card" />
       </div>
       <NavigationLink navigationTo="/" />
       <div className="right-part">
         <h1>Protect look</h1>
         <div className={`${pageStyle} temperature`}>
-          {Math.round(data.current.temp)}&deg; C
+          {Math.round(weatherData.current.temp)}&deg; C
         </div>
         <ul className="clothes-list">
           {clothesList.map((item: string, index: number) => {
@@ -148,6 +61,7 @@ const LookPage = () => {
         </ul>
       </div>
       <p className="clothes-description">{clotherDescription}</p>
+      <Background page="lookPage" tempRangeName={tempRangeName} />
     </div>
   );
 };

@@ -1,8 +1,13 @@
-import "./AdditionalInfo.css";
+import { useGlobalContext } from "../../context/GlobalContext";
 
 import { epochToLocalTime } from "../../helpers";
 
-const AdditionalInfo = ({ weatherData, isMainPage, expanded }: any) => {
+import "./AdditionalInfo.css";
+
+const AdditionalInfo = ({ isMainPage, expanded }: any) => {
+  const { state } = useGlobalContext();
+  const { weatherData } = state;
+
   const additionalInfoContent = [
     {
       title: "sunrise",
