@@ -1,14 +1,17 @@
 import { ReactNode } from "react";
 
 export interface GlobalContext {
+  state: GlobalState;
+  fetchData: () => Promise<void>;
+  handleSearch: (location: string) => Promise<void>;
+}
+
+export interface GlobalState {
+  isLoading: boolean;
   coordinates: Coordinates | null;
-  setCoordinates: (coordinates: Coordinates) => void;
-  weatherData: object | null;
-  setWeatherData: (data: object) => void;
   location: string | null;
-  setLocation: (location: string) => void;
+  weatherData: object | null;
   pageStyle: string;
-  setPageStyle: (pageStyle: string) => void;
 }
 
 export interface GlobalProviderProps {

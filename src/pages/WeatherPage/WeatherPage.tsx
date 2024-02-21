@@ -13,8 +13,9 @@ import { fetchUserLocatioByIP } from "../../api/fetchUserLocationByIp";
 import { fetchGeocodingCoordinates } from "../../api/fetchGeocodingCoordinates";
 import { fetchGeocodingLocation } from "../../api/fetchGeocodingLocation";
 
-import "./WeatherPage.css";
 import { separateCoordinates } from "../../helpers";
+
+import "./WeatherPage.css";
 
 const WeatherPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);

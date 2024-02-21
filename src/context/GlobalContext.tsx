@@ -1,9 +1,22 @@
-import { useState, createContext, useContext, FunctionComponent } from "react";
+import {
+  useState,
+  createContext,
+  useContext,
+  FunctionComponent,
+  useCallback,
+} from "react";
 import {
   Coordinates,
   GlobalContext,
   GlobalProviderProps,
+  GlobalState,
 } from "./GlobalContext.interface";
+
+import { fetchGeocodingCoordinates } from "../api/fetchGeocodingCoordinates";
+import { fetchUserLocatioByIP } from "../api/fetchUserLocationByIp";
+import { separateCoordinates } from "../helpers";
+import { fetchWeatherData } from "../api/fetchWeatherData";
+import { fetchGeocodingLocation } from "../api/fetchGeocodingLocation";
 
 const GlobalContext = createContext<GlobalContext | null>(null);
 
@@ -11,7 +24,7 @@ export const useGlobalContext = () => {
   const context = useContext(GlobalContext);
 
   if (!context) {
-    throw new Error("useWords must be used within a WordsProvider");
+    throw new Error("Global context should be used in GlobalProvider!");
   }
 
   return context;
@@ -20,20 +33,85 @@ export const useGlobalContext = () => {
 export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
   children,
 }) => {
-  const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
-  const [weatherData, setWeatherData] = useState<object | null>(null);
-  const [location, setLocation] = useState<string | null>(null);
-  const [pageStyle, setPageStyle] = useState<string>("");
+  const [state, setState] = useState<GlobalState>({
+    isLoading: true,
+    coordinates: null,
+    location: null,
+    weatherData: null,
+    pageStyle: "",
+  });
+
+  const getUserLocation = useCallback(async () => {
+    try {
+      const data = await fetchUserLocatioByIP();
+      const { lat, lon } = separateCoordinates(data.loc);
+      setState((prevState) => ({
+        ...prevState,
+        coordinates: { lat, lon },
+        location: data.city,
+      }));
+    } catch (error) {
+      console.error("Error fetching user location by IP:", error);
+    }
+  }, []);
+
+  const getWeatherData = useCallback(async () => {
+    if (!state.coordinates) return;
+    try {
+      const data = await fetchWeatherData(state.coordinates, "metric");
+      setState((prevState) => ({
+        ...prevState,
+        weatherData: data,
+        pageStyle: data.daily[0].weather[0].main.toLowerCase(),
+      }));
+    } catch (error) {
+      console.error("Error fetching weather data:", error);
+    }
+  }, [state.coordinates]);
+
+  const getLocationFromCoordinates = useCallback(async () => {
+    if (!state.coordinates) return;
+    try {
+      const location = await fetchGeocodingLocation(state.coordinates);
+      setState((prevState) => ({ ...prevState, location }));
+    } catch (error) {
+      console.error("Error fetching location from coordinates:", error);
+    }
+  }, [state.coordinates]);
+
+  const fetchData = useCallback(async () => {
+    setState((prevState) => ({ ...prevState, isLoading: true }));
+
+    if (!state.coordinates) {
+      await getUserLocation(); // Initial fetch for user location
+    }
+
+    try {
+      await Promise.all([getWeatherData(), getLocationFromCoordinates()]);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
+    }
+    setState((prevState) => ({ ...prevState, isLoading: false }));
+  }, [getUserLocation, getWeatherData, getLocationFromCoordinates]);
+
+  const handleSearch = async (location: string) => {
+    try {
+      const coordinates: Coordinates = await fetchGeocodingCoordinates(
+        location
+      );
+      setState((prevState) => ({
+        ...prevState,
+        coordinates: coordinates,
+      }));
+    } catch (error) {
+      console.error("Error fetching coordinates for location:", error);
+    }
+  };
 
   const sharedState: GlobalContext = {
-    coordinates,
-    setCoordinates,
-    weatherData,
-    setWeatherData,
-    location,
-    setLocation,
-    pageStyle,
-    setPageStyle,
+    state,
+    fetchData,
+    handleSearch,
   };
 
   return (
