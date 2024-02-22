@@ -88,10 +88,10 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
 
     try {
       await Promise.all([getWeatherData(), getLocationFromCoordinates()]);
+      setState((prevState) => ({ ...prevState, isLoading: false }));
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }
-    setState((prevState) => ({ ...prevState, isLoading: false }));
   }, [getUserLocation, getWeatherData, getLocationFromCoordinates]);
 
   const handleSearch = async (location: string) => {
