@@ -5,8 +5,8 @@ body::-webkit-scrollbar {
 .background-container {
   width: 100vw;
   height: 100vh;
-  position: relative;
   overflow: hidden;
+  position: absolute;
 }
 .background-container .rain-character {
   position: absolute;

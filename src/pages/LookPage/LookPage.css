@@ -8,6 +8,7 @@
   margin-left: 80px;
   position: absolute;
   top: 134px;
+  z-index: 10;
 }
 .look-page .left-part .location {
   color: #000;
@@ -21,6 +22,7 @@
   top: 70px;
   right: 160px;
   text-align: left;
+  z-index: 10;
 }
 .look-page .right-part h1 {
   color: #000;
@@ -32,14 +34,19 @@
   font-family: Oddval;
   font-size: 48px;
 }
-.look-page .right-part .rain, .look-page .right-part .snow {
-  color: #67A8F4;
+.look-page .right-part .rain,
+.look-page .right-part .snow {
+  color: #67a8f4;
 }
-.look-page .right-part .sun, .look-page .right-part .clear {
-  color: #FF753E;
+.look-page .right-part .sun,
+.look-page .right-part .clear {
+  color: #ff753e;
 }
-.look-page .right-part .clouds, .look-page .right-part .fog, .look-page .right-part .dust, .look-page .right-part .mist {
-  color: #29AF77;
+.look-page .right-part .clouds,
+.look-page .right-part .fog,
+.look-page .right-part .dust,
+.look-page .right-part .mist {
+  color: #29af77;
 }
 .look-page .right-part .clothes-list {
   list-style: none;
@@ -67,16 +74,22 @@
   font-style: normal;
   font-weight: 400;
   line-height: 140.9%; /* 22.544px */
+  z-index: 10;
 }
 
-.look-page.rain, .look-page.snow {
-  background-color: #CAE7FD;
+.look-page.rain,
+.look-page.snow {
+  background-color: #cae7fd;
 }
 
-.look-page.sun, .look-page.clear {
-  background-color: #FDCBCA;
+.look-page.sun,
+.look-page.clear {
+  background-color: #fdcbca;
 }
 
-.look-page.clouds, .look-page.fog, .look-page.dust, .look-page.mist {
-  background-color: #CAF0C0;
+.look-page.clouds,
+.look-page.fog,
+.look-page.dust,
+.look-page.mist {
+  background-color: #caf0c0;
 }/*# sourceMappingURL=LookPage.css.map */
