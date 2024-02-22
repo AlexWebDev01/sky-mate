@@ -1,6 +1,10 @@
+import { useGlobalContext } from "../../context/GlobalContext";
 import "./Background.css";
 
-const Background = ({ page, pageStyle, tempRangeName }: any) => {
+const Background = ({ page, tempRangeName }: any) => {
+  const { state } = useGlobalContext();
+  const { pageStyle } = state;
+
   const coldColor = page === "weatherPage" ? "#FFFFFF" : "#CAE7FD";
   const warmColor = page === "weatherPage" ? "#FFFFFF" : "#FDCBCA";
   const cloudColor = page === "weatherPage" ? "#FFFFFF" : "#CAF0C0";
