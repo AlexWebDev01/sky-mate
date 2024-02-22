@@ -1,4 +1,4 @@
-@import '../../fonts/fonts.css';
+@import "../../fonts/fonts.css";
 .hourly-forecast {
   position: relative;
   font-family: Oddval;
@@ -25,7 +25,8 @@
   height: 1px;
   background-color: white;
 }
-.hourly-forecast .right-arrow, .hourly-forecast .left-arrow {
+.hourly-forecast .right-arrow,
+.hourly-forecast .left-arrow {
   position: absolute;
   display: flex;
   height: auto;
