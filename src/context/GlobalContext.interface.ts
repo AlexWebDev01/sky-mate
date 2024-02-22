@@ -10,7 +10,7 @@ export interface GlobalState {
   isLoading: boolean;
   coordinates: Coordinates | null;
   location: string | null;
-  weatherData: object | null;
+  weatherData: any | null;
   pageStyle: string;
 }
 
