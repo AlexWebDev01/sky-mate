@@ -1,4 +1,10 @@
-export const TEMPERATURE_RANGES = [
+import {
+  ClothesAdvices,
+  ClothesAdvicesMap,
+  TempRanges,
+} from "./clothesAlgorithm.interface";
+
+export const TEMPERATURE_RANGES: TempRanges[] = [
   { name: "DANGEROUS_FREEZING", lowestTemp: -100, highestTemp: -40 },
   { name: "EXTREMELY_FREEZING", lowestTemp: -40, highestTemp: -20 },
   { name: "FREEZING", lowestTemp: -20, highestTemp: -10 },
@@ -14,7 +20,7 @@ export const TEMPERATURE_RANGES = [
   { name: "DANGEROUSLY_HOT", lowestTemp: 45, highestTemp: 100 },
 ];
 
-export const CLOTHES_ADVICES_RAIN = {
+export const CLOTHES_ADVICES_RAIN: ClothesAdvices = {
   COLD: {
     clothesList: [
       "Hoodie/Sweater",
@@ -45,7 +51,7 @@ export const CLOTHES_ADVICES_RAIN = {
   },
 };
 
-export const CLOTHES_ADVICES_SUN = {
+export const CLOTHES_ADVICES_SUN: ClothesAdvices = {
   FREEZING: {
     clothesList: [
       "Long Coat",
@@ -108,7 +114,7 @@ export const CLOTHES_ADVICES_SUN = {
   },
   FRESH: {
     clothesList: ["Hoodie", "Jeans", "Sneakers", "Cap", "Sunglasses*"],
-    clothesDesription:
+    clothesDescription:
       "Consider wearing fabrics like cotton, linen, or lightweight synthetics that offer breathability and allow for adequate airflow to help regulate your body temperature under the sun.",
   },
   VERY_WARM: {
@@ -123,7 +129,7 @@ export const CLOTHES_ADVICES_SUN = {
   },
 };
 
-export const CLOTHES_ADVICES_CLOUDS = {
+export const CLOTHES_ADVICES_CLOUDS: ClothesAdvices = {
   FREEZING: {
     clothesList: [
       "Winter Coverall",
@@ -138,7 +144,6 @@ export const CLOTHES_ADVICES_CLOUDS = {
       "Choose materials like thick wool, down, or synthetic insulations to provide warmth, and opt for windproof and water-resistant fabrics to shield yourself from the elements.",
   },
   UNDEFINED: {
-    tempRange: "",
     clothesList: [
       "Cotton Top",
       "Cotton Pants",
@@ -149,7 +154,6 @@ export const CLOTHES_ADVICES_CLOUDS = {
       "Choose comfortable and versatile materials for your clothing. Consider wearing breathable fabrics like cotton or linen, and layer with lightweight materials such as polyester or cotton blends for added warmth and flexibility.",
   },
   UNDEFINED_2: {
-    tempRange: "",
     clothesList: [
       "Long Coat",
       "Cotton Pants",
@@ -181,7 +185,7 @@ export const CLOTHES_ADVICES_CLOUDS = {
   },
 };
 
-export const CLOTHES_ADVICES_SNOW = {
+export const CLOTHES_ADVICES_SNOW: ClothesAdvices = {
   FREEZING: {
     clothesList: [
       "Winter Sports Jacket",
@@ -212,7 +216,7 @@ export const CLOTHES_ADVICES_SNOW = {
   },
 };
 
-export const CLOTHES_ADVICES: any = {
+export const CLOTHES_ADVICES: ClothesAdvicesMap = {
   Rain: CLOTHES_ADVICES_RAIN,
   Sun: CLOTHES_ADVICES_SUN,
   Clear: CLOTHES_ADVICES_SUN,
