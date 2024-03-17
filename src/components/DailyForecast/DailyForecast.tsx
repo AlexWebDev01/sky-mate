@@ -23,7 +23,7 @@ const DailyForecast = ({ expanded, onExpand }: any) => {
           return (
             <div className="daily-weather" key={index}>
               <div className="day">{calculateLocalFormattedDay(item.dt)}</div>
-              <div className={`${pageStyle} date`}>
+              <div className={`${item.weather[0].main.toLowerCase()} date`}>
                 {calculateLocalDateAnotherFormat(item.dt)}
               </div>
               <div className="day-temperature">
