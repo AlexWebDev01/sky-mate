@@ -2,22 +2,43 @@ import {
   ClothesAdvices,
   ClothesAdvicesMap,
   TempRanges,
+  TEMPERATURE_RANGE_NAMES,
 } from "./clothesAlgorithm.interface";
 
 export const TEMPERATURE_RANGES: TempRanges[] = [
-  { name: "DANGEROUS_FREEZING", lowestTemp: -100, highestTemp: -40 },
-  { name: "EXTREMELY_FREEZING", lowestTemp: -40, highestTemp: -20 },
-  { name: "FREEZING", lowestTemp: -20, highestTemp: -10 },
-  { name: "VERY_COLD", lowestTemp: -10, highestTemp: -5 },
-  { name: "COLD", lowestTemp: -5, highestTemp: 0 },
-  { name: "SLIGHTLY_COLD", lowestTemp: 0, highestTemp: 5 },
-  { name: "SLIGHTLY_FRESH", lowestTemp: 5, highestTemp: 10 },
-  { name: "FRESH", lowestTemp: 10, highestTemp: 15 },
-  { name: "WARM", lowestTemp: 15, highestTemp: 20 },
-  { name: "VERY_WARM", lowestTemp: 20, highestTemp: 25 },
-  { name: "HOT", lowestTemp: 25, highestTemp: 30 },
-  { name: "VERY_HOT", lowestTemp: 30, highestTemp: 45 },
-  { name: "DANGEROUSLY_HOT", lowestTemp: 45, highestTemp: 100 },
+  {
+    name: TEMPERATURE_RANGE_NAMES.DANGEROUSLY_FREEZING,
+    lowestTemp: -100,
+    highestTemp: -40,
+  },
+  {
+    name: TEMPERATURE_RANGE_NAMES.EXTREMELY_FREEZING,
+    lowestTemp: -40,
+    highestTemp: -20,
+  },
+  { name: TEMPERATURE_RANGE_NAMES.FREEZING, lowestTemp: -20, highestTemp: -10 },
+  { name: TEMPERATURE_RANGE_NAMES.VERY_COLD, lowestTemp: -10, highestTemp: -5 },
+  { name: TEMPERATURE_RANGE_NAMES.COLD, lowestTemp: -5, highestTemp: 0 },
+  {
+    name: TEMPERATURE_RANGE_NAMES.SLIGHTLY_COLD,
+    lowestTemp: 0,
+    highestTemp: 5,
+  },
+  {
+    name: TEMPERATURE_RANGE_NAMES.SLIGHTLY_FRESH,
+    lowestTemp: 5,
+    highestTemp: 10,
+  },
+  { name: TEMPERATURE_RANGE_NAMES.FRESH, lowestTemp: 10, highestTemp: 15 },
+  { name: TEMPERATURE_RANGE_NAMES.WARM, lowestTemp: 15, highestTemp: 20 },
+  { name: TEMPERATURE_RANGE_NAMES.VERY_WARM, lowestTemp: 20, highestTemp: 25 },
+  { name: TEMPERATURE_RANGE_NAMES.HOT, lowestTemp: 25, highestTemp: 30 },
+  { name: TEMPERATURE_RANGE_NAMES.VERY_HOT, lowestTemp: 30, highestTemp: 45 },
+  {
+    name: TEMPERATURE_RANGE_NAMES.DANGEROUSLY_HOT,
+    lowestTemp: 45,
+    highestTemp: 100,
+  },
 ];
 
 export const CLOTHES_ADVICES_RAIN: ClothesAdvices = {

@@ -31,10 +31,10 @@ const LookPage = () => {
       weatherData.daily[0].temp.day
     );
     const clothesList = calcResult
-      ? calcResult.adviceData.clothesList
+      ? calcResult.clothesList
       : ["Shorts/Skirt", "Rubber Boots", "Umbrella", "Cotton T-Shirt", "Cap"];
     const clotherDescription = calcResult
-      ? calcResult.adviceData.clothesDescription
+      ? calcResult.clothesDescription
       : "Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.";
     const tempRangeName = calcResult
       ? calcResult.tempRangeName.toLowerCase().replace("_", "-")
