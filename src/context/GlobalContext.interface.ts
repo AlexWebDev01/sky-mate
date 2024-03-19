@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { ClothesAdviceWithTemp } from "../clothes-algorithm/clothesAlgorithm.interface";
 
 export interface GlobalContext {
   state: GlobalState;
@@ -12,6 +13,7 @@ export interface GlobalState {
   location: string | null;
   weatherData: any | null;
   pageStyle: string;
+  clothesAdvice: ClothesAdviceWithTemp | null;
 }
 
 export interface GlobalProviderProps {
