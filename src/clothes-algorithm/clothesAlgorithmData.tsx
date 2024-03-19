@@ -164,17 +164,7 @@ export const CLOTHES_ADVICES_CLOUDS: ClothesAdvices = {
     clothesDescription:
       "Choose materials like thick wool, down, or synthetic insulations to provide warmth, and opt for windproof and water-resistant fabrics to shield yourself from the elements.",
   },
-  UNDEFINED: {
-    clothesList: [
-      "Cotton Top",
-      "Cotton Pants",
-      "Leather Boots",
-      "Cloth Jacket",
-    ],
-    clothesDescription:
-      "Choose comfortable and versatile materials for your clothing. Consider wearing breathable fabrics like cotton or linen, and layer with lightweight materials such as polyester or cotton blends for added warmth and flexibility.",
-  },
-  UNDEFINED_2: {
+  COLD: {
     clothesList: [
       "Long Coat",
       "Cotton Pants",
@@ -199,14 +189,63 @@ export const CLOTHES_ADVICES_CLOUDS: ClothesAdvices = {
     clothesDescription:
       "Opt for materials like wool or synthetic blends for insulation, and consider wearing a waterproof or water-resistant outer layer to protect against the dampness of the fog.",
   },
+  FRESH: {
+    clothesList: [
+      "Cotton Top",
+      "Cotton Pants",
+      "Leather Boots",
+      "Cloth Jacket",
+    ],
+    clothesDescription:
+      "Choose comfortable and versatile materials for your clothing. Consider wearing breathable fabrics like cotton or linen, and layer with lightweight materials such as polyester or cotton blends for added warmth and flexibility.",
+  },
   VERY_WARM: {
     clothesList: ["T-Shirt", "Shorts", "Sneakers"],
     clothesDescription:
       "Choose lightweight and breathable materials to stay cool and comfortable. Opt for fabrics like cotton, linen, or moisture-wicking synthetics such as polyester or nylon that allow for air circulation and help wick away sweat from the body.",
   },
+  HOT: {
+    clothesList: ["Short cotton dress", "Open shoes", "Hat"],
+    clothesDescription:
+      "Choose lightweight and breathable materials to stay cool and comfortable. Opt for fabrics like cotton, linen, or moisture-wicking synthetics such as polyester or nylon that allow for air circulation and help wick away sweat from the body.",
+  },
+  VERY_HOT: {
+    clothesList: ["Better just stay home"],
+    clothesDescription: "With air-conditioner!",
+  },
+  DANGEROUSLY_HOT: {
+    clothesList: ["Better just stay home"],
+    clothesDescription: "With air-conditioner!",
+  },
 };
 
 export const CLOTHES_ADVICES_SNOW: ClothesAdvices = {
+  DANGEROUSLY_FREEZING: {
+    clothesList: [
+      "Winter Jacket (better few)",
+      "Waterproof Pants",
+      "Waterproof Boots",
+      "Mittens",
+      "Cotton Hat",
+      "Sweater",
+      "Underpants",
+    ],
+    clothesDescription:
+      "Better just stay home. With hot tea and a lot of blankets!",
+  },
+  EXTREMELY_FREEZING: {
+    clothesList: [
+      "Winter Sports Jacket",
+      "Waterproof Pants",
+      "Waterproof Boots",
+      "Mittens",
+      "Cotton Hat",
+      "Sweater",
+      "Underpants",
+    ],
+    clothesDescription:
+      "Opt for materials like heavyweight wool or synthetic blends for optimal insulation, and choose waterproof or water-resistant fabrics like Gore-Tex or nylon to keep you dry and shielded from the snowy conditions.",
+  },
   FREEZING: {
     clothesList: [
       "Winter Sports Jacket",
