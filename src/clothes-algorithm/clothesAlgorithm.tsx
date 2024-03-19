@@ -1,11 +1,12 @@
 import {
   ClothesAdviceWithTemp,
   ClothesAdvices,
+  TEMPERATURE_RANGE_NAMES,
   WEATHER_CONDITIONS,
 } from "./clothesAlgorithm.interface";
 import { TEMPERATURE_RANGES, CLOTHES_ADVICES } from "./clothesAlgorithmData";
 
-const getTempRange = (temp: number): string => {
+const getTempRange = (temp: number): TEMPERATURE_RANGE_NAMES => {
   for (let i = 0; i < TEMPERATURE_RANGES.length; i++) {
     if (temp < TEMPERATURE_RANGES[i].highestTemp) {
       return TEMPERATURE_RANGES[i].name;
@@ -18,17 +19,22 @@ const getTempRange = (temp: number): string => {
 export const calculateClothesAdvice = (
   weatherCondition: WEATHER_CONDITIONS,
   temp: number
-): ClothesAdviceWithTemp => {
+): ClothesAdviceWithTemp | null => {
   const clothesAdvices: ClothesAdvices = CLOTHES_ADVICES[weatherCondition];
   const tempRangeName = getTempRange(temp);
 
   if (clothesAdvices[tempRangeName]) {
-    return { ...clothesAdvices[tempRangeName], tempRangeName };
+    return {
+      ...clothesAdvices[tempRangeName],
+      tempRangeName,
+    } as ClothesAdviceWithTemp;
   } else {
     console.error(`For now there is no such conditions. 
         Temperature: ${temp}, 
         Temperature range: ${tempRangeName}, 
         Weather condition: ${weatherCondition}
         `);
+
+    return null;
   }
 };

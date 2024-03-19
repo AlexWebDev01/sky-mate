@@ -23,7 +23,7 @@ export enum TEMPERATURE_RANGE_NAMES {
 }
 
 export interface TempRanges {
-  name: string;
+  name: TEMPERATURE_RANGE_NAMES;
   lowestTemp: number;
   highestTemp: number;
 }
