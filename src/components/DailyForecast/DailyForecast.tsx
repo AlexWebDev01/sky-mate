@@ -7,7 +7,7 @@ import "./DailyForecast.css";
 
 const DailyForecast = ({ expanded, onExpand }: any) => {
   const { state } = useGlobalContext();
-  const { weatherData, pageStyle } = state;
+  const { weatherData } = state;
 
   if (!weatherData) {
     return;
