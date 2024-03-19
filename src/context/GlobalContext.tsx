@@ -17,6 +17,7 @@ import { fetchUserLocatioByIP } from "../api/fetchUserLocationByIp";
 import { separateCoordinates } from "../helpers";
 import { fetchWeatherData } from "../api/fetchWeatherData";
 import { fetchGeocodingLocation } from "../api/fetchGeocodingLocation";
+import { calculateClothesAdvice } from "../clothes-algorithm/clothesAlgorithm";
 
 const GlobalContext = createContext<GlobalContext | null>(null);
 
@@ -39,6 +40,7 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     location: null,
     weatherData: null,
     pageStyle: "",
+    clothesAdvice: null,
   });
 
   const getUserLocation = useCallback(async () => {
@@ -59,10 +61,16 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     if (!state.coordinates) return;
     try {
       const data = await fetchWeatherData(state.coordinates, "metric");
+      const weatherCondition = data.daily[0].weather[0].main;
+      const clothesAdvice = calculateClothesAdvice(
+        data.daily[0].weather[0].main,
+        data.daily[0].temp.day
+      );
       setState((prevState) => ({
         ...prevState,
         weatherData: data,
-        pageStyle: data.daily[0].weather[0].main.toLowerCase(),
+        clothesAdvice,
+        pageStyle: weatherCondition.toLowerCase(),
       }));
     } catch (error) {
       console.error("Error fetching weather data:", error);

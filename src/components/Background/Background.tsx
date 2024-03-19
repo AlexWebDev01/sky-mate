@@ -1,13 +1,17 @@
 import { useGlobalContext } from "../../context/GlobalContext";
 import "./Background.css";
 
-const Background = ({ page, tempRangeName }: any) => {
+const Background = ({ page }: any) => {
   const { state } = useGlobalContext();
-  const { pageStyle } = state;
+  const { pageStyle, clothesAdvice } = state;
 
   const coldColor = page === "weatherPage" ? "#FFFFFF" : "#CAE7FD";
   const warmColor = page === "weatherPage" ? "#FFFFFF" : "#FDCBCA";
   const cloudColor = page === "weatherPage" ? "#FFFFFF" : "#CAF0C0";
+
+  const formattedTempRange = clothesAdvice?.tempRangeName
+    .toLowerCase()
+    .replace("_", "-");
 
   if (pageStyle === "rain") {
     return (
@@ -86,8 +90,8 @@ const Background = ({ page, tempRangeName }: any) => {
         </svg>
         <img
           src={
-            tempRangeName
-              ? `./rain-character-${tempRangeName}.png`
+            clothesAdvice?.tempRangeName
+              ? `./rain-character-${formattedTempRange}.png`
               : "./rain-character.png"
           }
           className="rain-character"
@@ -116,8 +120,8 @@ const Background = ({ page, tempRangeName }: any) => {
         </svg>
         <img
           src={
-            tempRangeName
-              ? `./clouds-character-${tempRangeName}.png`
+            clothesAdvice?.tempRangeName
+              ? `./clouds-character-${formattedTempRange}.png`
               : "./clouds-character.png"
           }
           className="clouds-character"
@@ -139,8 +143,8 @@ const Background = ({ page, tempRangeName }: any) => {
         </svg>
         <img
           src={
-            tempRangeName
-              ? `./sun-character-${tempRangeName}.png`
+            clothesAdvice?.tempRangeName
+              ? `./sun-character-${formattedTempRange}.png`
               : "./sun-character.png"
           }
           className="sun-character"
@@ -214,8 +218,8 @@ const Background = ({ page, tempRangeName }: any) => {
         </svg>
         <img
           src={
-            tempRangeName
-              ? `./snow-character-${tempRangeName}.png`
+            clothesAdvice?.tempRangeName
+              ? `./snow-character-${formattedTempRange}.png`
               : "./snow-character.png"
           }
           className="snow-character"

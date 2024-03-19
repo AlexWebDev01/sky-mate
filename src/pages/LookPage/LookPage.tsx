@@ -13,7 +13,7 @@ import "./LookPage.css";
 
 const LookPage = () => {
   const { state, fetchData } = useGlobalContext();
-  const { weatherData, pageStyle, location, isLoading } = state;
+  const { weatherData, pageStyle, location, isLoading, clothesAdvice } = state;
 
   useEffect(() => {
     fetchData();
@@ -26,18 +26,14 @@ const LookPage = () => {
       </div>
     );
   } else {
-    const calcResult = calculateClothesAdvice(
-      weatherData.daily[0].weather[0].main,
-      weatherData.daily[0].temp.day
-    );
-    const clothesList = calcResult
-      ? calcResult.clothesList
+    const clothesList = clothesAdvice
+      ? clothesAdvice.clothesList
       : ["Shorts/Skirt", "Rubber Boots", "Umbrella", "Cotton T-Shirt", "Cap"];
-    const clotherDescription = calcResult
-      ? calcResult.clothesDescription
+    const clotherDescription = clothesAdvice
+      ? clothesAdvice.clothesDescription
       : "Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.";
-    const tempRangeName = calcResult
-      ? calcResult.tempRangeName.toLowerCase().replace("_", "-")
+    const tempRangeName = clothesAdvice
+      ? clothesAdvice.tempRangeName.toLowerCase().replace("_", "-")
       : "";
     console.log("TEMP RANGE NAME: ", tempRangeName);
 
@@ -61,7 +57,7 @@ const LookPage = () => {
           </ul>
         </div>
         <p className="clothes-description">{clotherDescription}</p>
-        <Background page="lookPage" tempRangeName={tempRangeName} />
+        <Background page="lookPage" />
       </div>
     );
   }
