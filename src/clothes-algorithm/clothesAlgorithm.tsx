@@ -3,6 +3,7 @@ import {
   ClothesAdvices,
   TEMPERATURE_RANGE_NAMES,
   WEATHER_CONDITIONS,
+  clothesStyle,
 } from "./clothesAlgorithm.interface";
 import { TEMPERATURE_RANGES, CLOTHES_ADVICES } from "./clothesAlgorithmData";
 
@@ -19,7 +20,7 @@ const getTempRange = (temp: number): TEMPERATURE_RANGE_NAMES => {
 export const calculateClothesAdvice = (
   weatherCondition: WEATHER_CONDITIONS,
   temp: number
-): ClothesAdviceWithTemp | null => {
+): ClothesAdviceWithTemp => {
   const clothesAdvices: ClothesAdvices = CLOTHES_ADVICES[weatherCondition];
   const tempRangeName = getTempRange(temp);
 
@@ -35,6 +36,12 @@ export const calculateClothesAdvice = (
         Weather condition: ${weatherCondition}
         `);
 
-    return null;
+    return {
+      clothesStyle: clothesStyle.noLook,
+      clothesList: [""],
+      clothesDescription:
+        "Ahh, there is such flaky weather that we even don`t have an advice for you! Try to listen your intuition or just look at the sky!",
+      tempRangeName: null,
+    };
   }
 };

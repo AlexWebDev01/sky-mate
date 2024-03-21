@@ -17,20 +17,15 @@ const LookPage = () => {
     fetchData();
   }, [fetchData]);
 
-  if (isLoading || !weatherData) {
+  if (isLoading || !weatherData || !clothesAdvice) {
     return (
       <div className="loader">
         <img src="./loader.png" />
       </div>
     );
   } else {
-    const clothesList = clothesAdvice
-      ? clothesAdvice.clothesList
-      : ["Shorts/Skirt", "Rubber Boots", "Umbrella", "Cotton T-Shirt", "Cap"];
-    const clotherDescription = clothesAdvice
-      ? clothesAdvice.clothesDescription
-      : "Wear a lightweight, water-resistant jacket made of nylon or polyester to keep you dry in the rain. Layer with a long-sleeved shirt made of a moisture-wicking fabric like polyester or merino wool to keep you comfortable and dry.";
-    const tempRangeName = clothesAdvice
+    const { clothesStyle, clothesList, clothesDescription } = clothesAdvice;
+    const tempRangeName = clothesAdvice?.tempRangeName
       ? clothesAdvice.tempRangeName.toLowerCase().replace("_", "-")
       : "";
     console.log("TEMP RANGE NAME: ", tempRangeName);
@@ -44,7 +39,7 @@ const LookPage = () => {
         </div>
         <NavigationLink navigationTo="/" />
         <div className="right-part">
-          <h1>Protect look</h1>
+          <h1>{clothesStyle}</h1>
           <div className={`${pageStyle} temperature`}>
             {Math.round(weatherData.current.temp)}&deg; C
           </div>
@@ -54,7 +49,7 @@ const LookPage = () => {
             })}
           </ul>
         </div>
-        <p className="clothes-description">{clotherDescription}</p>
+        <p className="clothes-description">{clothesDescription}</p>
         <Background page="lookPage" />
       </div>
     );
