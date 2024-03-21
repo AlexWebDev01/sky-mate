@@ -10,8 +10,8 @@ const Background = ({ page }: any) => {
   const cloudColor = page === "weatherPage" ? "#FFFFFF" : "#CAF0C0";
 
   const formattedTempRange = clothesAdvice?.tempRangeName
-    .toLowerCase()
-    .replace("_", "-");
+    ? clothesAdvice.tempRangeName.toLowerCase().replace("_", "-")
+    : "";
 
   if (pageStyle === "rain") {
     return (

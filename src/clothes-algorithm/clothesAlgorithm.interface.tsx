@@ -29,12 +29,13 @@ export interface TempRanges {
 }
 
 export interface ClothesAdvice {
+  clothesStyle: clothesStyle;
   clothesList: string[];
   clothesDescription: string;
 }
 
 export interface ClothesAdviceWithTemp extends ClothesAdvice {
-  tempRangeName: string;
+  tempRangeName: TEMPERATURE_RANGE_NAMES | null;
 }
 
 export type ClothesAdvices = {
@@ -47,4 +48,12 @@ export interface ClothesAdvicesMap {
   Clear: ClothesAdvices;
   Clouds: ClothesAdvices;
   Snow: ClothesAdvices;
+}
+
+export enum clothesStyle {
+  basic = "Basic look",
+  protect = "Protect look",
+  elegant = "Elegant look",
+  home = "Home look",
+  noLook = "Oops, no look!",
 }
