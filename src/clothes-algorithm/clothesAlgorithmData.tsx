@@ -138,6 +138,11 @@ export const CLOTHES_ADVICES_SUN: ClothesAdvices = {
     clothesDescription:
       "Consider wearing fabrics like cotton, linen, or lightweight synthetics that offer breathability and allow for adequate airflow to help regulate your body temperature under the sun.",
   },
+  WARM: {
+    clothesList: ["T-Shirt", "Shorts", "Sneakers", "Panama", "Sunglasses*"],
+    clothesDescription:
+      "You can choose lightweight and breathable materials to stay comfortable. Consider fabrics like cotton, linen, or light synthetic blends that offer breathability and allow for adequate air circulation to keep you cool in the sun.",
+  },
   VERY_WARM: {
     clothesList: ["T-Shirt", "Shorts", "Sneakers", "Panama", "Sunglasses*"],
     clothesDescription:
@@ -147,6 +152,10 @@ export const CLOTHES_ADVICES_SUN: ClothesAdvices = {
     clothesList: ["Top", "Shorts", "Open Shoes", "Panama", "Sunglasses*"],
     clothesDescription:
       "It's best to choose lightweight and breathable materials that promote airflow and moisture-wicking. Fabrics such as cotton, linen, or moisture-wicking synthetics like polyester or nylon can help keep you cool and comfortable in the heat of the sun.",
+  },
+  DANGEROUSLY_HOT: {
+    clothesList: ["Better just stay home"],
+    clothesDescription: "With air-conditioner!",
   },
 };
 
