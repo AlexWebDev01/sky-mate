@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { useGlobalContext } from "../../context/GlobalContext";
 
-import { epochToLocalTime } from "../../helpers";
+import { epochToLocalTime } from "../../helpers/date";
 
 import "./HourlyForecast.css";
 

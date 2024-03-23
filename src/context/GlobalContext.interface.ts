@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ClothesAdviceWithTemp } from "../clothes-algorithm/clothesAlgorithm.interface";
+import { ClothesAdviceWithTemp } from "../helpers/clothes-algorithm/clothesAlgorithm.interface";
 
 export interface GlobalContext {
   state: GlobalState;

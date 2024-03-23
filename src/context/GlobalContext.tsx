@@ -14,9 +14,9 @@ import {
 
 import { fetchLocationData } from "../api/fetchLocationData";
 import { fetchUserLocatioByIP } from "../api/fetchUserLocationByIp";
-import { separateCoordinates } from "../helpers";
+import { separateCoordinates } from "../helpers/date";
 import { fetchWeatherData } from "../api/fetchWeatherData";
-import { calculateClothesAdvice } from "../clothes-algorithm/clothesAlgorithm";
+import { calculateClothesAdvice } from "../helpers/clothes-algorithm/clothesAlgorithm";
 
 const GlobalContext = createContext<GlobalContext | null>(null);
 
