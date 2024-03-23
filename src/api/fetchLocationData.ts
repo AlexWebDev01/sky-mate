@@ -1,8 +1,8 @@
-import { Coordinates } from "../context/GlobalContext.interface";
+import { LocationData } from "../context/GlobalContext.interface";
 
-export const fetchGeocodingCoordinates = async (
+export const fetchLocationData = async (
   location: string
-): Promise<Coordinates> => {
+): Promise<LocationData> => {
   const response = await fetch(
     `${
       import.meta.env.VITE_GEOCODING_API_URL
@@ -12,7 +12,7 @@ export const fetchGeocodingCoordinates = async (
   );
 
   const data = await response.json();
-  const { lat, lon } = data[0];
+  const { name, lat, lon } = data[0];
 
-  return { lat, lon };
+  return { name, lat, lon };
 };

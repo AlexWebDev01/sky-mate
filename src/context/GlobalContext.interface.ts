@@ -24,3 +24,7 @@ export interface Coordinates {
   lat: number;
   lon: number;
 }
+
+export interface LocationData extends Coordinates {
+  name: string;
+}
