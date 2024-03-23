@@ -2,17 +2,11 @@ import { Link } from "react-router-dom";
 
 import "./NavigationLink.css";
 
-const NavigationLink = ({
-  navigationTo,
-  state,
-}: {
-  navigationTo: string;
-  state?: object;
-}) => {
+const NavigationLink = ({ navigationTo }: { navigationTo: string }) => {
   if (navigationTo === "/look") {
     return (
       <div className="navigation-link">
-        <Link to={navigationTo} state={state} className="link">
+        <Link to={navigationTo} className="link">
           View more
         </Link>
         <svg
