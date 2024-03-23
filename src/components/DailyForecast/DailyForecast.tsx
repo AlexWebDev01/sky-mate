@@ -1,7 +1,7 @@
 import { useGlobalContext } from "../../context/GlobalContext";
 
-import { calculateLocalDateAnotherFormat } from "../../helpers";
-import { calculateLocalFormattedDay } from "../../helpers";
+import { calculateLocalDateAnotherFormat } from "../../helpers/date";
+import { calculateLocalFormattedDay } from "../../helpers/date";
 
 import "./DailyForecast.css";
 
