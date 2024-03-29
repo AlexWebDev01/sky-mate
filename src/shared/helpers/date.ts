@@ -1,4 +1,4 @@
-import { Coordinates } from "../context/GlobalContext.interface";
+import { Coordinates } from "../../context/GlobalContext.interface";
 
 export function epochToLocalTime(
   epochTime: number,

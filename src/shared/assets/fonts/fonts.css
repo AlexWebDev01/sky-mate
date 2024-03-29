@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Oddval";
+  src: url("./src/shared/assets/fonts/oddval-semibold.ttf") format("truetype");
+
+  font-family: "Circe-thin";
+  src: url("./src/shared/assets/fonts/circe25.otf");
+
+  font-family: "Circe-medium";
+  src: url("./src/shared/assets/fonts/circe35.otf");
+
+  font-family: "Circe-bold";
+  src: url("./src/shared/assets/fonts/circe55.otf");
+}
