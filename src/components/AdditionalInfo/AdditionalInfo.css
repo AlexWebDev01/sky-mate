@@ -1,4 +1,4 @@
-@import url("../../fonts/fonts.css");
+@import url("../../shared/assets/fonts/fonts.css");
 .additional-info {
   text-align: left;
   margin-bottom: 40px;
@@ -7,23 +7,33 @@
   font-family: Circe-medium, sans-serif;
   font-size: 16px;
 }
-.additional-info .rain, .additional-info .snow {
-  color: #67A8F4;
+.additional-info .rain,
+.additional-info .snow {
+  color: #67a8f4;
 }
-.additional-info .sun, .additional-info .clear {
-  color: #FF753E;
+.additional-info .sun,
+.additional-info .clear {
+  color: #ff753e;
 }
-.additional-info .clouds, .additional-info .fog, .additional-info .dust, .additional-info .mist {
-  color: #29AF77;
+.additional-info .clouds,
+.additional-info .fog,
+.additional-info .dust,
+.additional-info .mist {
+  color: #29af77;
 }
-.additional-info .rain-light, .additional-info .snow-light {
-  color: #CAE7FD;
+.additional-info .rain-light,
+.additional-info .snow-light {
+  color: #cae7fd;
 }
-.additional-info .sun-light, .additional-info .clear-light {
-  color: #FDCBCA;
+.additional-info .sun-light,
+.additional-info .clear-light {
+  color: #fdcbca;
 }
-.additional-info .clouds-light, .additional-info .fog-light, .additional-info .dust-light, .additional-info .mist-light {
-  color: #CAF0C0;
+.additional-info .clouds-light,
+.additional-info .fog-light,
+.additional-info .dust-light,
+.additional-info .mist-light {
+  color: #caf0c0;
 }
 .additional-info .value {
   font-family: Oddval;

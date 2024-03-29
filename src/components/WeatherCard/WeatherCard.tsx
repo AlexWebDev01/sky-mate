@@ -1,8 +1,8 @@
 import HourlyForecast from "../HourlyForecast/HourlyForecast";
 
-import { epochToLocalTime } from "../../helpers/date";
-import { calculateLocalDate } from "../../helpers/date";
-import { calculateLocalDay } from "../../helpers/date";
+import { epochToLocalTime } from "../../shared/helpers/date";
+import { calculateLocalDate } from "../../shared/helpers/date";
+import { calculateLocalDay } from "../../shared/helpers/date";
 
 import "./WeatherCard.css";
 import AdditionalInfo from "../AdditionalInfo/AdditionalInfo";

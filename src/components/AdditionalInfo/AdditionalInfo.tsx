@@ -1,6 +1,6 @@
 import { useGlobalContext } from "../../context/GlobalContext";
 
-import { epochToLocalTime } from "../../helpers/date";
+import { epochToLocalTime } from "../../shared/helpers/date";
 
 import "./AdditionalInfo.css";
 

@@ -1,4 +1,4 @@
-@import "../../fonts/fonts.css";
+@import url("../../shared/assets/fonts/fonts.css");
 .weather-card {
   width: 455px;
   height: 224px;

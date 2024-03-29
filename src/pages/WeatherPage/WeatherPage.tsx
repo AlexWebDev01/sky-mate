@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import { useGlobalContext } from "../../context/GlobalContext";
 
@@ -15,12 +15,8 @@ const WeatherPage = () => {
     "weather-card" | "daily-forecast"
   >("weather-card");
 
-  const { state, fetchData } = useGlobalContext();
+  const { state } = useGlobalContext();
   const { isLoading, pageStyle } = state;
-
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
 
   const handleWeatherExpand = () => {
     if (expandedCard !== "weather-card") {
@@ -40,26 +36,26 @@ const WeatherPage = () => {
         <img src="./loader.png" />
       </div>
     );
-  } else {
-    return (
-      <div className={`${pageStyle} weather-page`}>
-        <NavBar />
-        <div className="content-container">
-          <WeatherCard
-            isMainPage={true}
-            expanded={expandedCard}
-            onExpand={handleWeatherExpand}
-          />
-          <DailyForecast
-            expanded={expandedCard}
-            onExpand={handleForecastExpand}
-          />
-        </div>
-        <NavigationLink navigationTo="/look" />
-        <Background page="weatherPage" />
-      </div>
-    );
   }
+
+  return (
+    <div className={`${pageStyle} weather-page`}>
+      <NavBar />
+      <div className="content-container">
+        <WeatherCard
+          isMainPage={true}
+          expanded={expandedCard}
+          onExpand={handleWeatherExpand}
+        />
+        <DailyForecast
+          expanded={expandedCard}
+          onExpand={handleForecastExpand}
+        />
+      </div>
+      <NavigationLink navigationTo="/look" />
+      <Background page="weatherPage" />
+    </div>
+  );
 };
 
 export default WeatherPage;

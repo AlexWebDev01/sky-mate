@@ -1,41 +1,51 @@
-@import url('../../fonts/fonts.css');
+@import url("../../shared/assets/fonts/fonts.css");
 
 .additional-info {
-    text-align: left;
-    margin-bottom: 40px;
+  text-align: left;
+  margin-bottom: 40px;
 
-    .title {
-        font-family: Circe-medium, sans-serif;
-        font-size: 16px;
-    }
+  .title {
+    font-family: Circe-medium, sans-serif;
+    font-size: 16px;
+  }
 
-    .rain, .snow {
-        color: #67A8F4;
-    };
+  .rain,
+  .snow {
+    color: #67a8f4;
+  }
 
-    .sun, .clear {
-        color: #FF753E;
-    };
+  .sun,
+  .clear {
+    color: #ff753e;
+  }
 
-    .clouds, .fog, .dust, .mist {
-        color: #29AF77;
-    }
+  .clouds,
+  .fog,
+  .dust,
+  .mist {
+    color: #29af77;
+  }
 
-    .rain-light, .snow-light {
-        color: #CAE7FD;
-    };
+  .rain-light,
+  .snow-light {
+    color: #cae7fd;
+  }
 
-    .sun-light, .clear-light {
-        color: #FDCBCA;
-    };
+  .sun-light,
+  .clear-light {
+    color: #fdcbca;
+  }
 
-    .clouds-light, .fog-light, .dust-light, .mist-light {
-        color: #CAF0C0;
-    }
+  .clouds-light,
+  .fog-light,
+  .dust-light,
+  .mist-light {
+    color: #caf0c0;
+  }
 
-    .value {
-        font-family: Oddval;
-        font-size: 16px;
-        font-weight: 600;
-    }
+  .value {
+    font-family: Oddval;
+    font-size: 16px;
+    font-weight: 600;
+  }
 }

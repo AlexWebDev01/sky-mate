@@ -1,4 +1,4 @@
-@import "../../fonts/fonts.css";
+@import url("../../shared/assets/fonts/fonts.css");
 .daily-forecast {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
