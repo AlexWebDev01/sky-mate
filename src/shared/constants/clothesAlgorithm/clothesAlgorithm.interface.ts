@@ -1,9 +1,12 @@
-export enum WEATHER_CONDITIONS {
-  Rain = "Rain",
-  Sun = "Sun",
-  Clear = "Clear",
-  Clouds = "Clouds",
-  Snow = "Snow",
+export enum WeatherConditions {
+  rain = "rain",
+  snow = "snow",
+  sun = "sun",
+  clear = "clear",
+  clouds = "clouds",
+  fog = "fog",
+  dust = "dust",
+  mist = "mist",
 }
 
 export enum TEMPERATURE_RANGE_NAMES {
@@ -43,11 +46,14 @@ export type ClothesAdvices = {
 };
 
 export interface ClothesAdvicesMap {
-  Rain: ClothesAdvices;
-  Sun: ClothesAdvices;
-  Clear: ClothesAdvices;
-  Clouds: ClothesAdvices;
-  Snow: ClothesAdvices;
+  rain: ClothesAdvices;
+  sun: ClothesAdvices;
+  clear: ClothesAdvices;
+  clouds: ClothesAdvices;
+  snow: ClothesAdvices;
+  fog: ClothesAdvices;
+  dust: ClothesAdvices;
+  mist: ClothesAdvices;
 }
 
 export enum clothesStyle {

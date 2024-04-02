@@ -2,7 +2,7 @@ import {
   ClothesAdviceWithTemp,
   ClothesAdvices,
   TEMPERATURE_RANGE_NAMES,
-  WEATHER_CONDITIONS,
+  WeatherConditions,
   clothesStyle,
 } from "../constants/clothesAlgorithm/clothesAlgorithm.interface";
 import {
@@ -21,9 +21,10 @@ const getTempRange = (temp: number): TEMPERATURE_RANGE_NAMES => {
 };
 
 export const calculateClothesAdvice = (
-  weatherCondition: WEATHER_CONDITIONS,
+  weatherCondition: WeatherConditions,
   temp: number
 ): ClothesAdviceWithTemp => {
+  console.log(weatherCondition);
   const clothesAdvices: ClothesAdvices = CLOTHES_ADVICES[weatherCondition];
   const tempRangeName = getTempRange(temp);
 

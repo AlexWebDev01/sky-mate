@@ -48,15 +48,16 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     console.log("GET WEATHER DATA CORS: ", coordinates);
     try {
       const data = await fetchWeatherData(coordinates, "metric");
-      const weatherCondition = data.daily[0].weather[0].main;
+      const weatherCondition = data.daily[0].weather[0].main.toLowerCase();
+      const averageTemp = data.daily[0].temp.day;
       const clothesAdvice = calculateClothesAdvice(
-        data.daily[0].weather[0].main,
-        data.daily[0].temp.day
+        weatherCondition,
+        averageTemp
       );
       return {
         weatherData: data,
         clothesAdvice,
-        pageStyle: weatherCondition.toLowerCase(),
+        pageStyle: weatherCondition,
       };
     } catch (error) {
       console.error("Error fetching weather data:", error);

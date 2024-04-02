@@ -1,4 +1,5 @@
 import { useGlobalContext } from "../../context/GlobalContext";
+import { WeatherConditions } from "../../shared/constants/clothesAlgorithm/clothesAlgorithm.interface";
 
 import "./SearchBar.css";
 
@@ -28,14 +29,15 @@ const SearchBar = () => {
   };
 
   const color: string =
-    pageStyle === "snow" || pageStyle === "rain"
+    pageStyle === WeatherConditions.snow || pageStyle === WeatherConditions.rain
       ? "var(--light-blue)"
-      : pageStyle === "clear" || pageStyle === "sun"
+      : pageStyle === WeatherConditions.clear ||
+        pageStyle === WeatherConditions.sun
       ? "var(--light-orange)"
-      : pageStyle === "fog" ||
-        pageStyle === "clouds" ||
-        pageStyle === "dust" ||
-        pageStyle === "mist"
+      : pageStyle === WeatherConditions.clouds ||
+        pageStyle === WeatherConditions.fog ||
+        pageStyle === WeatherConditions.dust ||
+        pageStyle === WeatherConditions.mist
       ? "var(--light-green)"
       : "";
 

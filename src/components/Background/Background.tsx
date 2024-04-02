@@ -1,4 +1,5 @@
 import { useGlobalContext } from "../../context/GlobalContext";
+import { WeatherConditions } from "../../shared/constants/clothesAlgorithm/clothesAlgorithm.interface";
 import "./Background.css";
 
 const Background = ({ page }: any) => {
@@ -16,7 +17,7 @@ const Background = ({ page }: any) => {
     ? clothesAdvice.tempRangeName.toLowerCase().replace("_", "-")
     : "";
 
-  if (pageStyle === "rain") {
+  if (pageStyle === WeatherConditions.rain) {
     return (
       <div className="background-container">
         <svg
@@ -103,7 +104,12 @@ const Background = ({ page }: any) => {
     );
   }
 
-  if (pageStyle === "clouds") {
+  if (
+    pageStyle === WeatherConditions.clouds ||
+    pageStyle === WeatherConditions.fog ||
+    pageStyle === WeatherConditions.mist ||
+    pageStyle === WeatherConditions.dust
+  ) {
     return (
       <div className="background-container">
         <svg
@@ -133,7 +139,10 @@ const Background = ({ page }: any) => {
     );
   }
 
-  if (pageStyle === "sun" || pageStyle === "clear") {
+  if (
+    pageStyle === WeatherConditions.sun ||
+    pageStyle === WeatherConditions.clear
+  ) {
     return (
       <div className="background-container">
         <svg
@@ -156,7 +165,7 @@ const Background = ({ page }: any) => {
     );
   }
 
-  if (pageStyle === "snow") {
+  if (pageStyle === WeatherConditions.snow) {
     return (
       <div className="background-container">
         <svg
