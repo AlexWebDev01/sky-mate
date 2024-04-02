@@ -29,14 +29,14 @@ const SearchBar = () => {
 
   const color: string =
     pageStyle === "snow" || pageStyle === "rain"
-      ? "#CAE7FD"
+      ? "var(--light-blue)"
       : pageStyle === "clear" || pageStyle === "sun"
-      ? "#FDCBCA"
+      ? "var(--light-orange)"
       : pageStyle === "fog" ||
         pageStyle === "clouds" ||
         pageStyle === "dust" ||
         pageStyle === "mist"
-      ? "#CAF0C0"
+      ? "var(--light-green)"
       : "";
 
   return (

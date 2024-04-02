@@ -5,9 +5,12 @@ const Background = ({ page }: any) => {
   const { state } = useGlobalContext();
   const { pageStyle, clothesAdvice } = state;
 
-  const coldColor = page === "weatherPage" ? "#FFFFFF" : "#CAE7FD";
-  const warmColor = page === "weatherPage" ? "#FFFFFF" : "#FDCBCA";
-  const cloudColor = page === "weatherPage" ? "#FFFFFF" : "#CAF0C0";
+  const coldColor =
+    page === "weatherPage" ? "var(--white)" : "var(--light-blue)";
+  const warmColor =
+    page === "weatherPage" ? "var(--white)" : "var(--light-orange)";
+  const cloudColor =
+    page === "weatherPage" ? "var(--white)" : "var(--light-green)";
 
   const formattedTempRange = clothesAdvice?.tempRangeName
     ? clothesAdvice.tempRangeName.toLowerCase().replace("_", "-")
