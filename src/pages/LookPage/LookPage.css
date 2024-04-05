@@ -1,6 +1,6 @@
 .look-page {
   min-height: 100vh;
-  background-color: white;
+  background-color: var(--white);
 }
 .look-page .left-part {
   display: flex;
@@ -36,17 +36,17 @@
 }
 .look-page .right-part .rain,
 .look-page .right-part .snow {
-  color: #67a8f4;
+  color: var(--blue);
 }
 .look-page .right-part .sun,
 .look-page .right-part .clear {
-  color: #ff753e;
+  color: var(--orange);
 }
 .look-page .right-part .clouds,
 .look-page .right-part .fog,
 .look-page .right-part .dust,
 .look-page .right-part .mist {
-  color: #29af77;
+  color: var(--green);
 }
 .look-page .right-part .clothes-list {
   list-style: none;
@@ -79,17 +79,17 @@
 
 .look-page.rain,
 .look-page.snow {
-  background-color: #cae7fd;
+  background-color: var(--light-blue);
 }
 
 .look-page.sun,
 .look-page.clear {
-  background-color: #fdcbca;
+  background-color: var(--light-orange);
 }
 
 .look-page.clouds,
 .look-page.fog,
 .look-page.dust,
 .look-page.mist {
-  background-color: #caf0c0;
+  background-color: var(--light-green);
 }/*# sourceMappingURL=LookPage.css.map */

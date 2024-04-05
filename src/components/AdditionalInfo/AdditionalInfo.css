@@ -9,31 +9,31 @@
 }
 .additional-info .rain,
 .additional-info .snow {
-  color: #67a8f4;
+  color: var(--blue);
 }
 .additional-info .sun,
 .additional-info .clear {
-  color: #ff753e;
+  color: var(--orange);
 }
 .additional-info .clouds,
 .additional-info .fog,
 .additional-info .dust,
 .additional-info .mist {
-  color: #29af77;
+  color: var(--green);
 }
 .additional-info .rain-light,
 .additional-info .snow-light {
-  color: #cae7fd;
+  color: var(--light-blue);
 }
 .additional-info .sun-light,
 .additional-info .clear-light {
-  color: #fdcbca;
+  color: var(--light-orange);
 }
 .additional-info .clouds-light,
 .additional-info .fog-light,
 .additional-info .dust-light,
 .additional-info .mist-light {
-  color: #caf0c0;
+  color: var(--light-green);
 }
 .additional-info .value {
   font-family: Oddval;

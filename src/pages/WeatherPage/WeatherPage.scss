@@ -41,17 +41,17 @@ body::-webkit-scrollbar {
 
 .weather-page.rain,
 .weather-page.snow {
-  background-color: #cae7fd;
+  background-color: var(--light-blue);
 }
 
 .weather-page.sun,
 .weather-page.clear {
-  background-color: #fdcbca;
+  background-color: var(--light-orange);
 }
 
 .weather-page.clouds,
 .weather-page.fog,
 .weather-page.dust,
 .weather-page.mist {
-  background-color: #caf0c0;
+  background-color: var(--light-green);
 }

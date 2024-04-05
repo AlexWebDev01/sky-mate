@@ -23,7 +23,7 @@
 .hourly-forecast .slider-container .slider .day .line {
   width: 100%;
   height: 1px;
-  background-color: white;
+  background-color: var(--white);
 }
 .hourly-forecast .right-arrow,
 .hourly-forecast .left-arrow {

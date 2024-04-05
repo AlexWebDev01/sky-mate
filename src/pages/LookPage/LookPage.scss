@@ -1,6 +1,6 @@
 .look-page {
   min-height: 100vh;
-  background-color: white;
+  background-color: var(--white);
 
   .left-part {
     display: flex;
@@ -40,19 +40,19 @@
 
     .rain,
     .snow {
-      color: #67a8f4;
+      color: var(--blue);
     }
 
     .sun,
     .clear {
-      color: #ff753e;
+      color: var(--orange);
     }
 
     .clouds,
     .fog,
     .dust,
     .mist {
-      color: #29af77;
+      color: var(--green);
     }
 
     .clothes-list {
@@ -90,17 +90,17 @@
 
 .look-page.rain,
 .look-page.snow {
-  background-color: #cae7fd;
+  background-color: var(--light-blue);
 }
 
 .look-page.sun,
 .look-page.clear {
-  background-color: #fdcbca;
+  background-color: var(--light-orange);
 }
 
 .look-page.clouds,
 .look-page.fog,
 .look-page.dust,
 .look-page.mist {
-  background-color: #caf0c0;
+  background-color: var(--light-green);
 }

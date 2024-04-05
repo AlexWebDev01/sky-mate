@@ -98,17 +98,17 @@
 }
 .forecast-expanded .rain,
 .forecast-expanded .snow {
-  color: #67a8f4;
+  color: var(--blue);
 }
 .forecast-expanded .sun,
 .forecast-expanded .clear {
-  color: #ff753e;
+  color: var(--orange);
 }
 .forecast-expanded .clouds,
 .forecast-expanded .fog,
 .forecast-expanded .dust,
 .forecast-expanded .mist {
-  color: #29af77;
+  color: var(--green);
 }
 
 .daily-forecast {

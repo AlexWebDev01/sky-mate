@@ -30,18 +30,35 @@
 
   .rain::placeholder,
   .snow::placeholder {
-    color: #cae7fd;
+    color: var(--light-blue);
+  }
+
+  .rain,
+  .snow {
+    color: var(--blue);
   }
 
   .sun::placeholder,
   .clear::placeholder {
-    color: #fdcbca;
+    color: var(--light-orange);
+  }
+
+  .sun,
+  .clear {
+    color: var(--orange);
   }
 
   .clouds::placeholder,
   .fog::placeholder,
   .dust::placeholder,
   .mist::placeholder {
-    color: #caf0c0;
+    color: var(--light-green);
+  }
+
+  .clouds,
+  .fog,
+  .dust,
+  .mist {
+    color: var(--green);
   }
 }

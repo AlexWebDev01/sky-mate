@@ -11,36 +11,36 @@
 
   .rain,
   .snow {
-    color: #67a8f4;
+    color: var(--blue);
   }
 
   .sun,
   .clear {
-    color: #ff753e;
+    color: var(--orange);
   }
 
   .clouds,
   .fog,
   .dust,
   .mist {
-    color: #29af77;
+    color: var(--green);
   }
 
   .rain-light,
   .snow-light {
-    color: #cae7fd;
+    color: var(--light-blue);
   }
 
   .sun-light,
   .clear-light {
-    color: #fdcbca;
+    color: var(--light-orange);
   }
 
   .clouds-light,
   .fog-light,
   .dust-light,
   .mist-light {
-    color: #caf0c0;
+    color: var(--light-green);
   }
 
   .value {
