@@ -111,14 +111,6 @@ export function calculateLocalDay(unixTimestamp: number) {
   }
 }
 
-export function isDateEqual(firstDate: Date, secondDate: Date) {
-  return (
-    firstDate.getFullYear() === secondDate.getFullYear() &&
-    firstDate.getMonth() === secondDate.getMonth() &&
-    firstDate.getDate() === secondDate.getDate()
-  );
-}
-
 export function separateCoordinates(coordinatesString: string): Coordinates {
   const [latitude, longitude] = coordinatesString.split(",");
   return {
