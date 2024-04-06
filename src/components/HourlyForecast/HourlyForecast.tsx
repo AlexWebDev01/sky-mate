@@ -1,18 +1,23 @@
 import { useState } from "react";
-
 import { useGlobalContext } from "../../context/GlobalContext";
 
-import { epochToLocalTime } from "../../shared/helpers/date";
+import HourlyForecastItem from "./components/HourlyForecastItem";
+
+import { HourlyWeatherData } from "../../context/GlobalContext.interface";
 
 import "./HourlyForecast.css";
 
-const WeatherCard = ({ expanded }: any) => {
+interface Props {
+  expanded: boolean;
+}
+
+const HourlyForecast = ({ expanded }: Props) => {
   const [currentPosition, setCurrentPosition] = useState(0);
 
   const { state } = useGlobalContext();
   const { weatherData } = state;
 
-  const sliderItems = weatherData.hourly.slice(1, 14);
+  const sliderItems: HourlyWeatherData[] = weatherData.hourly.slice(1, 14);
   const itemWidth = 55;
   const isLeftArrowDisabled = currentPosition <= 0;
   const isRightArrowDisabled = currentPosition >= 220;
@@ -28,12 +33,13 @@ const WeatherCard = ({ expanded }: any) => {
   };
 
   return (
-    <div className={expanded === "weather-card" ? `hourly-forecast` : "hide"}>
+    <div className={expanded ? `hourly-forecast` : "hide"}>
       <button
         className="left-arrow"
         onClick={slideLeft}
         disabled={isLeftArrowDisabled}
       >
+        {/* TODO: import svg icons to React projects */}
         <svg
           width="11"
           height="19"
@@ -49,23 +55,19 @@ const WeatherCard = ({ expanded }: any) => {
       </button>
       <div className="slider-container">
         <div
+          id="slider"
           className="slider"
           style={{ transform: `translateX(-${currentPosition}px)` }}
         >
-          {sliderItems.map((hour: any, index: number) => {
-            return (
-              <div key={index} className="day">
-                <div>{Math.round(hour.temp)}&deg;</div>
-                <div className="line"></div>
-                <div>
-                  {epochToLocalTime(hour.dt, weatherData.timezone_offset).slice(
-                    0,
-                    2
-                  )}
-                </div>
-              </div>
-            );
-          })}
+          {sliderItems.map(
+            (item: HourlyWeatherData, timezoneOffset: number) => (
+              <HourlyForecastItem
+                item={item}
+                timezoneOffset={timezoneOffset}
+                key={item.dt}
+              />
+            )
+          )}
         </div>
       </div>
       <button
@@ -90,4 +92,4 @@ const WeatherCard = ({ expanded }: any) => {
   );
 };
 
-export default WeatherCard;
+export default HourlyForecast;

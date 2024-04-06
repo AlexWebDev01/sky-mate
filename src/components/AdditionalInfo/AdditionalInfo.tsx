@@ -4,7 +4,12 @@ import { epochToLocalTime } from "../../shared/helpers/date";
 
 import "./AdditionalInfo.css";
 
-const AdditionalInfo = ({ isMainPage, expanded }: any) => {
+interface Props {
+  isMainPage: boolean;
+  expanded: boolean;
+}
+
+const AdditionalInfo = ({ isMainPage, expanded }: Props) => {
   const { state } = useGlobalContext();
   const { weatherData } = state;
 
@@ -38,7 +43,7 @@ const AdditionalInfo = ({ isMainPage, expanded }: any) => {
     : weatherData.daily[0].weather[0].main.toLowerCase();
 
   return (
-    <div className={expanded === "weather-card" ? "additional-info" : "hide"}>
+    <div className={expanded ? "additional-info" : "hide"}>
       {additionalInfoContent.map((item, index) => {
         return (
           <div key={index}>
