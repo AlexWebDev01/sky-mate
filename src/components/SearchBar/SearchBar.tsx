@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { useGlobalContext } from "../../context/GlobalContext";
 import { WeatherConditions } from "../../shared/constants/clothesAlgorithm/clothesAlgorithm.interface";
 
@@ -5,21 +7,24 @@ import "./SearchBar.css";
 
 const SearchBar = () => {
   const { state, handleSearch } = useGlobalContext();
+  const [inputValue, setInputValue] = useState("");
   const { pageStyle } = state;
 
   const performSearch = () => {
-    const inputElement = document.getElementById(
-      "search-input"
-    ) as HTMLInputElement;
-    const value = inputElement.value.trim();
-    if (value) {
-      handleSearch(value);
-      inputElement.value = "";
+    const trimmedValue = inputValue.trim();
+    if (trimmedValue) {
+      handleSearch(trimmedValue);
+      setInputValue("");
     }
   };
 
   const onClickHandler = () => {
     performSearch();
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
   };
 
   const onKeyPressHandler = (event: React.KeyboardEvent) => {
@@ -45,9 +50,11 @@ const SearchBar = () => {
     <div className="search-bar">
       <input
         placeholder="Search"
-        id="search-input"
         className={pageStyle}
-        onKeyUp={onKeyPressHandler}
+        onKeyDown={onKeyPressHandler}
+        onChange={handleChange}
+        value={inputValue}
+        autoFocus
       />
       <svg
         className="vertical-line"
