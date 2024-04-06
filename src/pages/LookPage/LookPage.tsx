@@ -13,7 +13,7 @@ const LookPage = () => {
 
   const { clothesStyle, clothesList, clothesDescription } = clothesAdvice ?? {};
 
-  if (isLoading || !weatherData || !clothesAdvice) {
+  if (isLoading || !weatherData) {
     return (
       <div className="loader">
         <img src="./loader.png" />
@@ -26,8 +26,9 @@ const LookPage = () => {
       <NavBar />
       <div className="left-part">
         <h2 className="location">{location}</h2>
-        <AdditionalInfo expanded="weather-card" />
+        <AdditionalInfo expanded isMainPage={false} />
       </div>
+      {/* // TODO: change NavigationLink */}
       <NavigationLink navigationTo="/" />
       <div className="right-part">
         <h1>{clothesStyle}</h1>

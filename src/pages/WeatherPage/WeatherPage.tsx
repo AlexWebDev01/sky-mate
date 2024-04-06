@@ -11,23 +11,20 @@ import Background from "../../components/Background/Background";
 import "./WeatherPage.css";
 
 const WeatherPage = () => {
-  const [expandedCard, setExpandedCard] = useState<
-    "weather-card" | "daily-forecast"
-  >("weather-card");
+  const [isWeatherCardExpanded, setIsWeatherCardExpanded] = useState(true);
+  const [isDailyForecastExpanded, setIsDailyForecastExpanded] = useState(false);
 
   const { state } = useGlobalContext();
   const { isLoading, pageStyle } = state;
 
-  const handleWeatherExpand = () => {
-    if (expandedCard !== "weather-card") {
-      setExpandedCard("weather-card");
-    }
+  const handleWeatherExpanded = () => {
+    setIsWeatherCardExpanded(true);
+    setIsDailyForecastExpanded(false);
   };
 
-  const handleForecastExpand = () => {
-    if (expandedCard !== "daily-forecast") {
-      setExpandedCard("daily-forecast");
-    }
+  const handleForecastExpanded = () => {
+    setIsWeatherCardExpanded(false);
+    setIsDailyForecastExpanded(true);
   };
 
   if (isLoading) {
@@ -43,13 +40,13 @@ const WeatherPage = () => {
       <NavBar />
       <div className="content-container">
         <WeatherCard
-          isMainPage={true}
-          expanded={expandedCard}
-          onExpand={handleWeatherExpand}
+          isMainPage
+          expanded={isWeatherCardExpanded}
+          onExpand={handleWeatherExpanded}
         />
         <DailyForecast
-          expanded={expandedCard}
-          onExpand={handleForecastExpand}
+          expanded={isDailyForecastExpanded}
+          onExpand={handleForecastExpanded}
         />
       </div>
       <NavigationLink navigationTo="/look" />
