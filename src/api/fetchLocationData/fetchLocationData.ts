@@ -1,4 +1,7 @@
-import { LocationData } from "../context/GlobalContext.interface";
+import {
+  LocationData,
+  LocationGeocodeData,
+} from "./fetchLocationData.interface";
 
 export const fetchLocationData = async (
   location: string
@@ -11,8 +14,8 @@ export const fetchLocationData = async (
     }`
   );
 
-  const data = await response.json();
-  const { name, lat, lon } = data[0];
+  const locationData: LocationGeocodeData[] = await response.json();
+  const { name, lat, lon } = locationData[0];
 
   return { name, lat, lon };
 };

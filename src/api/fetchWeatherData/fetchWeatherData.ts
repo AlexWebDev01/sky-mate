@@ -1,11 +1,9 @@
-import { Coordinates } from "../context/GlobalContext.interface";
+import { Units, Coordinates, WeatherData } from "./fetchWeatherData.interface";
 
 export const fetchWeatherData = async (
   coordinates: Coordinates,
-  units: string
-) => {
-  console.log("COORDINATES:", coordinates);
-
+  units: Units
+): Promise<WeatherData> => {
   const response = await fetch(
     `${import.meta.env.VITE_WEATHER_APP_API_URL}/onecall?lat=${
       coordinates.lat
@@ -14,7 +12,7 @@ export const fetchWeatherData = async (
     }`
   );
 
-  const data = await response.json();
+  const data: WeatherData = await response.json();
 
   return data;
 };
