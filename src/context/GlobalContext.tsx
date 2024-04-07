@@ -7,18 +7,24 @@ import {
   useMemo,
 } from "react";
 import {
-  Coordinates,
   GlobalContext,
   GlobalProviderProps,
   GlobalState,
-  LocationData,
 } from "./GlobalContext.interface";
 
-import { fetchLocationData } from "../api/fetchLocationData";
-import { fetchUserLocatioByIP } from "../api/fetchUserLocationByIp";
+import { fetchLocationData } from "../api/fetchLocationData/fetchLocationData";
+import { fetchUserLocatioByIP } from "../api/fetchUserLocationByIP/fetchUserLocationByIP";
 import { separateCoordinates } from "../shared/helpers/date";
-import { fetchWeatherData } from "../api/fetchWeatherData";
+import { fetchWeatherData } from "../api/fetchWeatherData/fetchWeatherData";
 import { calculateClothesAdvice } from "../shared/helpers/clothesAlgorithm";
+
+import { WeatherConditions } from "../shared/constants/clothesAlgorithm/clothesAlgorithm.interface";
+import { LocationDataByIP } from "../api/fetchUserLocationByIP/fetchUserLocationByIP.interface";
+import { LocationData } from "../api/fetchLocationData/fetchLocationData.interface";
+import {
+  Units,
+  Coordinates,
+} from "../api/fetchWeatherData/fetchWeatherData.interface";
 
 const GlobalContext = createContext<GlobalContext | null>(null);
 
@@ -45,10 +51,10 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
   });
 
   const getWeatherData = useCallback(async (coordinates: Coordinates) => {
-    console.log("GET WEATHER DATA CORS: ", coordinates);
     try {
-      const data = await fetchWeatherData(coordinates, "metric");
-      const weatherCondition = data.daily[0].weather[0].main.toLowerCase();
+      const data = await fetchWeatherData(coordinates, Units.metric);
+      const weatherCondition =
+        data.daily[0].weather[0].main.toLowerCase() as WeatherConditions;
       const averageTemp = data.daily[0].temp.day;
       const clothesAdvice = calculateClothesAdvice(
         weatherCondition,
@@ -66,13 +72,14 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
   }, []);
 
   const fetchData = useCallback(async () => {
-    console.log("STARTED FETCH DATA");
+    console.group("FETCH DATA");
+    console.info("Started initial data fetching");
 
     setState((prevState) => ({ ...prevState, isLoading: true }));
 
     try {
-      const data = await fetchUserLocatioByIP();
-      const coordinates = separateCoordinates(data.loc);
+      const locationData: LocationDataByIP = await fetchUserLocatioByIP();
+      const coordinates = separateCoordinates(locationData.loc);
 
       const { weatherData, clothesAdvice, pageStyle } = await getWeatherData(
         coordinates
@@ -83,17 +90,28 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
         clothesAdvice,
         pageStyle,
         coordinates,
-        location: data.city,
+        location: locationData.city,
         isLoading: false,
       }));
+
+      console.info("Fetched & calculated data: ", {
+        weatherData,
+        clothesAdvice,
+        pageStyle,
+        city: locationData.city,
+      });
+      console.info("Finished initial data fetching");
+      console.groupEnd();
     } catch (error) {
-      console.error("Failed to fetch data:", error);
+      console.error("Failed to fetch initial data:", error);
     }
   }, [getWeatherData]);
 
   const handleSearch = useCallback(
     async (location: string) => {
       try {
+        console.group("HANDLE SEARCH");
+        console.info("Started fetching data for location:", location);
         const locationData: LocationData = await fetchLocationData(location);
         const { name, lat, lon } = locationData;
         const { weatherData, clothesAdvice, pageStyle } = await getWeatherData({
@@ -109,8 +127,15 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
           clothesAdvice,
           pageStyle,
         }));
+        console.info("Fetched & calculated data: ", {
+          weatherData,
+          clothesAdvice,
+          pageStyle,
+          city: name,
+        });
+        console.info("Finished fetching data for location:", location);
       } catch (error) {
-        console.error("Error fetching coordinates for location:", error);
+        console.error("Error fetching data for location:", error);
       }
     },
     [getWeatherData]

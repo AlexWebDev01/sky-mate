@@ -24,7 +24,6 @@ export const calculateClothesAdvice = (
   weatherCondition: WeatherConditions,
   temp: number
 ): ClothesAdviceWithTemp => {
-  console.log(weatherCondition);
   const clothesAdvices: ClothesAdvices = CLOTHES_ADVICES[weatherCondition];
   const tempRangeName = getTempRange(temp);
 
