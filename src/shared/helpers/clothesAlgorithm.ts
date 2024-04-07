@@ -33,7 +33,7 @@ export const calculateClothesAdvice = (
       tempRangeName,
     } as ClothesAdviceWithTemp;
   } else {
-    console.error(`For now there is no such conditions. 
+    console.error(`For now there is no advices for such conditions. 
         Temperature: ${temp}, 
         Temperature range: ${tempRangeName}, 
         Weather condition: ${weatherCondition}
