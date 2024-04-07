@@ -14,7 +14,7 @@ import {
 
 import { fetchLocationData } from "../api/fetchLocationData/fetchLocationData";
 import { fetchUserLocatioByIP } from "../api/fetchUserLocationByIP/fetchUserLocationByIP";
-import { separateCoordinates } from "../shared/helpers/date";
+import { separateCoordinates } from "../shared/helpers/date/date";
 import { fetchWeatherData } from "../api/fetchWeatherData/fetchWeatherData";
 import { calculateClothesAdvice } from "../shared/helpers/clothesAlgorithm";
 

@@ -1,14 +1,21 @@
-import HourlyForecast from "../HourlyForecast/HourlyForecast";
-
-import { epochToLocalTime } from "../../shared/helpers/date";
-import { calculateLocalDate } from "../../shared/helpers/date";
-import { calculateLocalDay } from "../../shared/helpers/date";
-
-import "./WeatherCard.css";
-import AdditionalInfo from "../AdditionalInfo/AdditionalInfo";
 import { useGlobalContext } from "../../context/GlobalContext";
 
-const WeatherCard = ({ isMainPage, expanded, onExpand }: any) => {
+import HourlyForecast from "../HourlyForecast/HourlyForecast";
+import AdditionalInfo from "../AdditionalInfo/AdditionalInfo";
+
+import { epochToLocalTime } from "../../shared/helpers/date/date";
+import { calculateLocalDate } from "../../shared/helpers/date/date";
+import { calculateLocalDay } from "../../shared/helpers/date/date";
+
+import "./WeatherCard.css";
+
+interface Props {
+  isMainPage: boolean;
+  expanded: boolean;
+  onExpand: () => void;
+}
+
+const WeatherCard = ({ isMainPage, expanded, onExpand }: Props) => {
   const { state } = useGlobalContext();
   const { weatherData, pageStyle, location } = state;
 
@@ -19,7 +26,7 @@ const WeatherCard = ({ isMainPage, expanded, onExpand }: any) => {
   return (
     <div
       className={
-        expanded === "weather-card"
+        expanded
           ? `weather-expanded ${pageStyle} weather-card`
           : `${pageStyle} weather-card`
       }

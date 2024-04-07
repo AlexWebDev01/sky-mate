@@ -1,5 +1,5 @@
-import { HourlyWeatherData } from "../../../context/GlobalContext.interface";
-import { epochToLocalTime } from "../../../shared/helpers/date";
+import { HourlyWeatherData } from "../../../api/fetchWeatherData/fetchWeatherData.interface";
+import { epochToLocalTime } from "../../../shared/helpers/date/date";
 
 interface Props {
   item: HourlyWeatherData;
