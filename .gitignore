@@ -3,7 +3,6 @@
 
 node_modules
 dist
-.husky
 
 # Editor directories and files
 .vscode/*
