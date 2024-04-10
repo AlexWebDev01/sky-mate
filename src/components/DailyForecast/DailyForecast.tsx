@@ -2,7 +2,7 @@ import { useGlobalContext } from '../../context/GlobalContext';
 
 import DailyForecastItem from './components/DailyForecastItem';
 
-import { DailyWeatherData } from '../../context/GlobalContext.interface';
+import { DailyWeatherData } from '../../api/fetchWeatherData/fetchWeatherData.interface';
 
 import './DailyForecast.css';
 

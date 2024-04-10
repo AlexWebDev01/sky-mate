@@ -1,5 +1,4 @@
-import { useGlobalContext } from '../../context/GlobalContext';
-
+import { WeatherData } from '../../api/fetchWeatherData/fetchWeatherData.interface';
 import { epochToLocalTime } from '../../shared/helpers/date/date';
 
 import './AdditionalInfo.css';
@@ -7,12 +6,10 @@ import './AdditionalInfo.css';
 interface Props {
   isMainPage: boolean;
   expanded: boolean;
+  weatherData: WeatherData;
 }
 
-const AdditionalInfo = ({ isMainPage, expanded }: Props) => {
-  const { state } = useGlobalContext();
-  const { weatherData } = state;
-
+const AdditionalInfo = ({ isMainPage, expanded, weatherData }: Props) => {
   const additionalInfoContent = [
     {
       title: 'sunrise',

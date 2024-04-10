@@ -140,7 +140,7 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     [getWeatherData]
   );
 
-  const sharedState = useMemo<GlobalContext>(
+  const sharedState = useMemo<GlobalContextInterface>(
     () => ({
       state,
       fetchData,

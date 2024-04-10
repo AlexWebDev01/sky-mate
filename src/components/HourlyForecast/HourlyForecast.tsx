@@ -3,7 +3,7 @@ import { useGlobalContext } from '../../context/GlobalContext';
 
 import HourlyForecastItem from './components/HourlyForecastItem';
 
-import { HourlyWeatherData } from '../../context/GlobalContext.interface';
+import { HourlyWeatherData } from '../../api/fetchWeatherData/fetchWeatherData.interface';
 
 import './HourlyForecast.css';
 
@@ -17,7 +17,9 @@ const HourlyForecast = ({ expanded }: Props) => {
   const { state } = useGlobalContext();
   const { weatherData } = state;
 
-  const sliderItems: HourlyWeatherData[] = weatherData.hourly.slice(1, 14);
+  const sliderItems: HourlyWeatherData[] = weatherData
+    ? weatherData.hourly.slice(1, 14)
+    : [];
   const itemWidth = 55;
   const isLeftArrowDisabled = currentPosition <= 0;
   const isRightArrowDisabled = currentPosition >= 220;

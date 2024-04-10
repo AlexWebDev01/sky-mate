@@ -26,7 +26,7 @@ const LookPage = () => {
       <NavBar />
       <div className='left-part'>
         <h2 className='location'>{location}</h2>
-        <AdditionalInfo expanded isMainPage={false} />
+        <AdditionalInfo expanded isMainPage={false} weatherData={weatherData} />
       </div>
       {/* // TODO: change NavigationLink */}
       <NavigationLink navigationTo='/' />
