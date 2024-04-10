@@ -1,4 +1,4 @@
-import { LocationDataByIP } from "./fetchUserLocationByIP.interface";
+import { LocationDataByIP } from './fetchUserLocationByIP.interface';
 
 export const fetchUserLocatioByIP = async (): Promise<LocationDataByIP> => {
   const response = await fetch(

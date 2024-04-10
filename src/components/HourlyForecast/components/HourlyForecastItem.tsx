@@ -1,5 +1,5 @@
-import { HourlyWeatherData } from "../../../api/fetchWeatherData/fetchWeatherData.interface";
-import { epochToLocalTime } from "../../../shared/helpers/date/date";
+import { HourlyWeatherData } from '../../../api/fetchWeatherData/fetchWeatherData.interface';
+import { epochToLocalTime } from '../../../shared/helpers/date/date';
 
 interface Props {
   item: HourlyWeatherData;
@@ -8,9 +8,9 @@ interface Props {
 
 const HourlyForecastItem = ({ item, timezoneOffset }: Props) => {
   return (
-    <div className="day">
+    <div className='day'>
       <div>{Math.round(item.temp)}&deg;</div>
-      <div className="line"></div>
+      <div className='line'></div>
       <div>{epochToLocalTime(item.dt, timezoneOffset).slice(0, 2)}</div>
     </div>
   );

@@ -1,7 +1,7 @@
 import {
   LocationData,
   LocationGeocodeData,
-} from "./fetchLocationData.interface";
+} from './fetchLocationData.interface';
 
 export const fetchLocationData = async (
   location: string

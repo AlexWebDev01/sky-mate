@@ -1,9 +1,9 @@
-import { ReactNode } from "react";
-import { ClothesAdviceWithTemp } from "../shared/constants/clothesAlgorithm/clothesAlgorithm.interface";
+import { ReactNode } from 'react';
+import { ClothesAdviceWithTemp } from '../shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 import {
   Coordinates,
   WeatherData,
-} from "../api/fetchWeatherData/fetchWeatherData.interface";
+} from '../api/fetchWeatherData/fetchWeatherData.interface';
 
 export interface GlobalContext {
   state: GlobalState;

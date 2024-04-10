@@ -1,4 +1,4 @@
-@import url("../../shared/assets/fonts/fonts.css");
+@import url('../../shared/assets/fonts/fonts.css');
 .daily-forecast {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -13,7 +13,9 @@
   font-family: Oddval;
   box-sizing: border-box;
   z-index: 1;
-  transition: width 0.5s ease, height 0.5s ease;
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
   overflow: hidden;
 }
 .daily-forecast .daily-weather {
@@ -58,7 +60,9 @@
   font-family: Oddval;
   box-sizing: border-box;
   z-index: 1;
-  transition: width 0.5s ease, height 0.5s ease;
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
   overflow: hidden;
 }
 .forecast-expanded .daily-weather {
@@ -117,4 +121,4 @@
 
 .forecast-expanded:hover {
   cursor: default;
-}/*# sourceMappingURL=DailyForecast.css.map */
+} /*# sourceMappingURL=DailyForecast.css.map */

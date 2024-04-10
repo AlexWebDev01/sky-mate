@@ -1,16 +1,17 @@
-import { useEffect } from "react";
-import { useGlobalContext } from "../context/GlobalContext";
+import { useEffect } from 'react';
+import { useGlobalContext } from '../context/GlobalContext';
 
-import MainRouting from "../pages/MainRouting";
+import MainRouting from '../pages/MainRouting';
 
-import "./App.css";
+import './App.css';
+
+// TODO: link to the figma design in portfolio
 
 function App() {
-  const { state, fetchData } = useGlobalContext();
+  const { fetchData } = useGlobalContext();
 
   useEffect(() => {
     fetchData();
-    console.log("CURRENT CONTEXT ON LOOK PAGE: ", state);
   }, []);
 
   return <MainRouting />;

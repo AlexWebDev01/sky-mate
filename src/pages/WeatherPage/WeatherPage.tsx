@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { useGlobalContext } from "../../context/GlobalContext";
+import { useGlobalContext } from '../../context/GlobalContext';
 
-import NavBar from "../../components/NavBar/NavBar";
-import WeatherCard from "../../components/WeatherCard/WeatherCard";
-import DailyForecast from "../../components/DailyForecast/DailyForecast";
-import NavigationLink from "../../components/NavigationLink/NavigationLink";
-import Background from "../../components/Background/Background";
+import NavBar from '../../components/NavBar/NavBar';
+import WeatherCard from '../../components/WeatherCard/WeatherCard';
+import DailyForecast from '../../components/DailyForecast/DailyForecast';
+import NavigationLink from '../../components/NavigationLink/NavigationLink';
+import Background from '../../components/Background/Background';
 
-import "./WeatherPage.css";
+import './WeatherPage.css';
 
 const WeatherPage = () => {
   const [isWeatherCardExpanded, setIsWeatherCardExpanded] = useState(true);
@@ -29,8 +29,8 @@ const WeatherPage = () => {
 
   if (isLoading) {
     return (
-      <div className="loader">
-        <img src="./loader.png" />
+      <div className='loader'>
+        <img src='./loader.png' />
       </div>
     );
   }
@@ -38,7 +38,7 @@ const WeatherPage = () => {
   return (
     <div className={`${pageStyle} weather-page`}>
       <NavBar />
-      <div className="content-container">
+      <div className='content-container'>
         <WeatherCard
           isMainPage
           expanded={isWeatherCardExpanded}
@@ -49,8 +49,8 @@ const WeatherPage = () => {
           onExpand={handleForecastExpanded}
         />
       </div>
-      <NavigationLink navigationTo="/look" />
-      <Background page="weatherPage" />
+      <NavigationLink navigationTo='/look' />
+      <Background page='weatherPage' />
     </div>
   );
 };

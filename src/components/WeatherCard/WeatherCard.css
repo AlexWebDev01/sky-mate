@@ -1,4 +1,4 @@
-@import url("../../shared/assets/fonts/fonts.css");
+@import url('../../shared/assets/fonts/fonts.css');
 .weather-card {
   width: 455px;
   height: 224px;
@@ -11,7 +11,9 @@
   box-sizing: border-box;
   margin-bottom: 20px;
   z-index: 1;
-  transition: width 0.5s ease, height 0.5s ease;
+  transition:
+    width 0.5s ease,
+    height 0.5s ease;
   overflow: hidden;
 }
 .weather-card .main-info {
@@ -118,4 +120,4 @@
 
 .weather-expanded {
   cursor: default;
-}/*# sourceMappingURL=WeatherCard.css.map */
+} /*# sourceMappingURL=WeatherCard.css.map */

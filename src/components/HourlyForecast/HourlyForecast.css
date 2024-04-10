@@ -1,4 +1,4 @@
-@import url("../../shared/assets/fonts/fonts.css");
+@import url('../../shared/assets/fonts/fonts.css');
 .hourly-forecast {
   position: relative;
   font-family: Oddval;
@@ -44,4 +44,4 @@
 .hourly-forecast .right-arrow {
   top: 21px;
   right: -20px;
-}/*# sourceMappingURL=HourlyForecast.css.map */
+} /*# sourceMappingURL=HourlyForecast.css.map */

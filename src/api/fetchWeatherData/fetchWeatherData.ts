@@ -1,4 +1,4 @@
-import { Units, Coordinates, WeatherData } from "./fetchWeatherData.interface";
+import { Units, Coordinates, WeatherData } from './fetchWeatherData.interface';
 
 export const fetchWeatherData = async (
   coordinates: Coordinates,

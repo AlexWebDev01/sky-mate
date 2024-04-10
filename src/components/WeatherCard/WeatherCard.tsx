@@ -1,13 +1,13 @@
-import { useGlobalContext } from "../../context/GlobalContext";
+import { useGlobalContext } from '../../context/GlobalContext';
 
-import HourlyForecast from "../HourlyForecast/HourlyForecast";
-import AdditionalInfo from "../AdditionalInfo/AdditionalInfo";
+import HourlyForecast from '../HourlyForecast/HourlyForecast';
+import AdditionalInfo from '../AdditionalInfo/AdditionalInfo';
 
-import { epochToLocalTime } from "../../shared/helpers/date/date";
-import { calculateLocalDate } from "../../shared/helpers/date/date";
-import { calculateLocalDay } from "../../shared/helpers/date/date";
+import { epochToLocalTime } from '../../shared/helpers/date/date';
+import { calculateLocalDate } from '../../shared/helpers/date/date';
+import { calculateLocalDay } from '../../shared/helpers/date/date';
 
-import "./WeatherCard.css";
+import './WeatherCard.css';
 
 interface Props {
   isMainPage: boolean;
@@ -32,18 +32,18 @@ const WeatherCard = ({ isMainPage, expanded, onExpand }: Props) => {
       }
       onClick={onExpand}
     >
-      <div className="main-info">
-        <div className="left">
-          <div className="temperature">
+      <div className='main-info'>
+        <div className='left'>
+          <div className='temperature'>
             {Math.round(weatherData.current.temp)}&deg; C
           </div>
           <h2 className={pageStyle}>{location}</h2>
         </div>
-        <div className="right">
-          <div className="date">
+        <div className='right'>
+          <div className='date'>
             {calculateLocalDate(weatherData.current.dt)}/
           </div>
-          <div className="time">
+          <div className='time'>
             {epochToLocalTime(
               weatherData.current.dt,
               weatherData.timezone_offset
@@ -54,7 +54,7 @@ const WeatherCard = ({ isMainPage, expanded, onExpand }: Props) => {
       </div>
       <AdditionalInfo isMainPage={isMainPage} expanded={expanded} />
       <HourlyForecast expanded={expanded} />
-      <span className="weather">{weatherData.daily[0].weather[0].main}</span>
+      <span className='weather'>{weatherData.daily[0].weather[0].main}</span>
     </div>
   );
 };

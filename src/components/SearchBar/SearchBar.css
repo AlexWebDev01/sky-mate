@@ -25,7 +25,8 @@
   width: auto;
   margin: auto 0 auto 14px;
 }
-.search-bar .rain::-moz-placeholder, .search-bar .snow::-moz-placeholder {
+.search-bar .rain::-moz-placeholder,
+.search-bar .snow::-moz-placeholder {
   color: var(--light-blue);
 }
 .search-bar .rain::placeholder,
@@ -36,7 +37,8 @@
 .search-bar .snow {
   color: var(--blue);
 }
-.search-bar .sun::-moz-placeholder, .search-bar .clear::-moz-placeholder {
+.search-bar .sun::-moz-placeholder,
+.search-bar .clear::-moz-placeholder {
   color: var(--light-orange);
 }
 .search-bar .sun::placeholder,
@@ -47,7 +49,10 @@
 .search-bar .clear {
   color: var(--orange);
 }
-.search-bar .clouds::-moz-placeholder, .search-bar .fog::-moz-placeholder, .search-bar .dust::-moz-placeholder, .search-bar .mist::-moz-placeholder {
+.search-bar .clouds::-moz-placeholder,
+.search-bar .fog::-moz-placeholder,
+.search-bar .dust::-moz-placeholder,
+.search-bar .mist::-moz-placeholder {
   color: var(--light-green);
 }
 .search-bar .clouds::placeholder,
@@ -61,4 +66,4 @@
 .search-bar .dust,
 .search-bar .mist {
   color: var(--green);
-}/*# sourceMappingURL=SearchBar.css.map */
+} /*# sourceMappingURL=SearchBar.css.map */

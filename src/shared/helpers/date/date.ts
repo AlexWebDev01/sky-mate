@@ -1,5 +1,5 @@
-import { Coordinates } from "../../../api/fetchWeatherData/fetchWeatherData.interface";
-import { FullWeekday, ShortWeekday } from "./date.interface";
+import { Coordinates } from '../../../api/fetchWeatherData/fetchWeatherData.interface';
+import { FullWeekday, ShortWeekday } from './date.interface';
 
 export function epochToLocalTime(
   epochTime: number,
@@ -24,24 +24,24 @@ export function calculateLocalDate(unixTimestamp: number): string {
   const month = fullDate.getMonth().toString();
   const date = fullDate.getDate().toString();
 
-  return `${date.padStart(2, "0")}.${month.padStart(2, "0")}`;
+  return `${date.padStart(2, '0')}.${month.padStart(2, '0')}`;
 }
 
 // Format: dd month
 export function calculateLocalDateAnotherFormat(unixTimestamp: number): string {
   const monthNames = [
-    "jan",
-    "feb",
-    "mar",
-    "apr",
-    "may",
-    "jun",
-    "jul",
-    "aug",
-    "sept",
-    "oct",
-    "nov",
-    "dec",
+    'jan',
+    'feb',
+    'mar',
+    'apr',
+    'may',
+    'jun',
+    'jul',
+    'aug',
+    'sept',
+    'oct',
+    'nov',
+    'dec',
   ];
   const fullDate = new Date(unixTimestamp * 1000);
   const month = fullDate.getMonth();
@@ -53,7 +53,7 @@ export function calculateLocalDateAnotherFormat(unixTimestamp: number): string {
 
 export function calculateLocalFormattedDay(
   unixTimestamp: number
-): ShortWeekday | "" {
+): ShortWeekday | '' {
   const date = new Date(unixTimestamp * 1000);
   const dayOfWeek = date.getDay();
   switch (dayOfWeek) {
@@ -72,11 +72,11 @@ export function calculateLocalFormattedDay(
     case 6:
       return ShortWeekday.Sat;
     default:
-      return "";
+      return '';
   }
 }
 
-export function calculateLocalDay(unixTimestamp: number): FullWeekday | "" {
+export function calculateLocalDay(unixTimestamp: number): FullWeekday | '' {
   const date = new Date(unixTimestamp * 1000);
   const dayOfWeek = date.getDay();
   switch (dayOfWeek) {
@@ -95,12 +95,12 @@ export function calculateLocalDay(unixTimestamp: number): FullWeekday | "" {
     case 6:
       return FullWeekday.Saturday;
     default:
-      return "";
+      return '';
   }
 }
 
 export function separateCoordinates(coordinatesString: string): Coordinates {
-  const [latitude, longitude] = coordinatesString.split(",");
+  const [latitude, longitude] = coordinatesString.split(',');
   return {
     lat: Number(latitude.trim()),
     lon: Number(longitude.trim()),

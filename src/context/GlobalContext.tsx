@@ -5,34 +5,34 @@ import {
   FunctionComponent,
   useCallback,
   useMemo,
-} from "react";
+} from 'react';
 import {
-  GlobalContext,
+  GlobalContext as GlobalContextInterface,
   GlobalProviderProps,
   GlobalState,
-} from "./GlobalContext.interface";
+} from './GlobalContext.interface';
 
-import { fetchLocationData } from "../api/fetchLocationData/fetchLocationData";
-import { fetchUserLocatioByIP } from "../api/fetchUserLocationByIP/fetchUserLocationByIP";
-import { separateCoordinates } from "../shared/helpers/date/date";
-import { fetchWeatherData } from "../api/fetchWeatherData/fetchWeatherData";
-import { calculateClothesAdvice } from "../shared/helpers/clothesAlgorithm";
+import { fetchLocationData } from '../api/fetchLocationData/fetchLocationData';
+import { fetchUserLocatioByIP } from '../api/fetchUserLocationByIP/fetchUserLocationByIP';
+import { separateCoordinates } from '../shared/helpers/date/date';
+import { fetchWeatherData } from '../api/fetchWeatherData/fetchWeatherData';
+import { calculateClothesAdvice } from '../shared/helpers/clothesAlgorithm';
 
-import { WeatherConditions } from "../shared/constants/clothesAlgorithm/clothesAlgorithm.interface";
-import { LocationDataByIP } from "../api/fetchUserLocationByIP/fetchUserLocationByIP.interface";
-import { LocationData } from "../api/fetchLocationData/fetchLocationData.interface";
+import { WeatherConditions } from '../shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
+import { LocationDataByIP } from '../api/fetchUserLocationByIP/fetchUserLocationByIP.interface';
+import { LocationData } from '../api/fetchLocationData/fetchLocationData.interface';
 import {
   Units,
   Coordinates,
-} from "../api/fetchWeatherData/fetchWeatherData.interface";
+} from '../api/fetchWeatherData/fetchWeatherData.interface';
 
-const GlobalContext = createContext<GlobalContext | null>(null);
+const GlobalContext = createContext<GlobalContextInterface | null>(null);
 
 export const useGlobalContext = () => {
   const context = useContext(GlobalContext);
 
   if (!context) {
-    throw new Error("Global context should be used in GlobalProvider!");
+    throw new Error('Global context should be used in GlobalProvider!');
   }
 
   return context;
@@ -46,7 +46,7 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     coordinates: null,
     location: null,
     weatherData: null,
-    pageStyle: "",
+    pageStyle: '',
     clothesAdvice: null,
   });
 
@@ -66,14 +66,14 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
         pageStyle: weatherCondition,
       };
     } catch (error) {
-      console.error("Error fetching weather data:", error);
+      console.error('Error fetching weather data:', error);
       throw error;
     }
   }, []);
 
   const fetchData = useCallback(async () => {
-    console.group("FETCH DATA");
-    console.info("Started initial data fetching");
+    console.group('FETCH DATA');
+    console.info('Started initial data fetching');
 
     setState((prevState) => ({ ...prevState, isLoading: true }));
 
@@ -81,9 +81,8 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
       const locationData: LocationDataByIP = await fetchUserLocatioByIP();
       const coordinates = separateCoordinates(locationData.loc);
 
-      const { weatherData, clothesAdvice, pageStyle } = await getWeatherData(
-        coordinates
-      );
+      const { weatherData, clothesAdvice, pageStyle } =
+        await getWeatherData(coordinates);
       setState((prevState) => ({
         ...prevState,
         weatherData,
@@ -94,24 +93,24 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
         isLoading: false,
       }));
 
-      console.info("Fetched & calculated data: ", {
+      console.info('Fetched & calculated data: ', {
         weatherData,
         clothesAdvice,
         pageStyle,
         city: locationData.city,
       });
-      console.info("Finished initial data fetching");
+      console.info('Finished initial data fetching');
       console.groupEnd();
     } catch (error) {
-      console.error("Failed to fetch initial data:", error);
+      console.error('Failed to fetch initial data:', error);
     }
   }, [getWeatherData]);
 
   const handleSearch = useCallback(
     async (location: string) => {
       try {
-        console.group("HANDLE SEARCH");
-        console.info("Started fetching data for location:", location);
+        console.group('HANDLE SEARCH');
+        console.info('Started fetching data for location:', location);
         const locationData: LocationData = await fetchLocationData(location);
         const { name, lat, lon } = locationData;
         const { weatherData, clothesAdvice, pageStyle } = await getWeatherData({
@@ -127,15 +126,15 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
           clothesAdvice,
           pageStyle,
         }));
-        console.info("Fetched & calculated data: ", {
+        console.info('Fetched & calculated data: ', {
           weatherData,
           clothesAdvice,
           pageStyle,
           city: name,
         });
-        console.info("Finished fetching data for location:", location);
+        console.info('Finished fetching data for location:', location);
       } catch (error) {
-        console.error("Error fetching data for location:", error);
+        console.error('Error fetching data for location:', error);
       }
     },
     [getWeatherData]

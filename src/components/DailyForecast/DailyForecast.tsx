@@ -1,10 +1,10 @@
-import { useGlobalContext } from "../../context/GlobalContext";
+import { useGlobalContext } from '../../context/GlobalContext';
 
-import DailyForecastItem from "./components/DailyForecastItem";
+import DailyForecastItem from './components/DailyForecastItem';
 
-import { DailyWeatherData } from "../../context/GlobalContext.interface";
+import { DailyWeatherData } from '../../context/GlobalContext.interface';
 
-import "./DailyForecast.css";
+import './DailyForecast.css';
 
 interface IProps {
   expanded: boolean;
@@ -21,7 +21,7 @@ const DailyForecast = ({ expanded, onExpand }: IProps) => {
 
   return (
     <div
-      className={expanded ? "forecast-expanded" : "daily-forecast"}
+      className={expanded ? 'forecast-expanded' : 'daily-forecast'}
       onClick={onExpand}
     >
       {weatherData.daily.map((item: DailyWeatherData, index: number) => {

@@ -1,4 +1,4 @@
-import { WeatherConditions } from "../../shared/constants/clothesAlgorithm/clothesAlgorithm.interface";
+import { WeatherConditions } from '../../shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 
 export interface WeatherData {
   current: CurrentWeatherData;
@@ -72,7 +72,7 @@ export interface Coordinates {
 }
 
 export enum Units {
-  standard = "standard",
-  metric = "metric",
-  imperial = "imperial",
+  standard = 'standard',
+  metric = 'metric',
+  imperial = 'imperial',
 }

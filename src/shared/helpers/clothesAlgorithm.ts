@@ -4,11 +4,11 @@ import {
   TEMPERATURE_RANGE_NAMES,
   WeatherConditions,
   clothesStyle,
-} from "../constants/clothesAlgorithm/clothesAlgorithm.interface";
+} from '../constants/clothesAlgorithm/clothesAlgorithm.interface';
 import {
   TEMPERATURE_RANGES,
   CLOTHES_ADVICES,
-} from "../constants/clothesAlgorithm/clothesAlgorithmData";
+} from '../constants/clothesAlgorithm/clothesAlgorithmData';
 
 const getTempRange = (temp: number): TEMPERATURE_RANGE_NAMES => {
   for (let i = 0; i < TEMPERATURE_RANGES.length; i++) {
@@ -41,7 +41,7 @@ export const calculateClothesAdvice = (
 
     return {
       clothesStyle: clothesStyle.noLook,
-      clothesList: [""],
+      clothesList: [''],
       clothesDescription:
         "Ahh, the weather is so unpredictable, we don't have any advice for you! Try following your intuition or simply look at the sky.",
       tempRangeName: null,
