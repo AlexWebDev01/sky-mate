@@ -3,4 +3,4 @@
 
 echo "Running pre-commit hook"
 npx lint-staged
-echo "lint-staged finished"
+echo "Finished pre-commit hook"
