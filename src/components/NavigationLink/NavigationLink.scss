@@ -21,3 +21,11 @@
     border-bottom: 1px solid black;
   }
 }
+
+.navigation-link.left {
+  flex-direction: row-reverse;
+
+  .arrow {
+    transform: rotate(180deg);
+  }
+}
