@@ -5,8 +5,6 @@ import MainRouting from '../pages/MainRouting';
 
 import './App.css';
 
-// TODO: link to the figma design in portfolio
-
 function App() {
   const { fetchData } = useGlobalContext();
 
