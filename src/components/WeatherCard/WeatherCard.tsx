@@ -52,11 +52,7 @@ const WeatherCard = ({ isMainPage, expanded, onExpand }: Props) => {
           <div>{calculateLocalDay(weatherData.current.dt)}</div>
         </div>
       </div>
-      <AdditionalInfo
-        isMainPage={isMainPage}
-        expanded={expanded}
-        weatherData={weatherData}
-      />
+      <AdditionalInfo isMainPage={isMainPage} expanded={expanded} />
       <HourlyForecast expanded={expanded} />
       <span className='weather'>{weatherData.daily[0].weather[0].main}</span>
     </div>

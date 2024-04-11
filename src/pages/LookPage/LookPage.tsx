@@ -26,10 +26,9 @@ const LookPage = () => {
       <NavBar />
       <div className='left-part'>
         <h2 className='location'>{location}</h2>
-        <AdditionalInfo expanded isMainPage={false} weatherData={weatherData} />
+        <AdditionalInfo expanded isMainPage={false} />
       </div>
-      {/* // TODO: change NavigationLink */}
-      <NavigationLink navigationTo='/' />
+      <NavigationLink direction='left' />
       <div className='right-part'>
         <h1>{clothesStyle}</h1>
         <div className={`${pageStyle} temperature`}>
