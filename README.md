@@ -29,13 +29,13 @@ Sky Mate is a weather application with a custom clothes advices algorithm based 
 
 ## Usage
 
-- To start the development server: `npm dev`
-- To create a production build: `npm build`
-- To preview production build locally: `npm preview`
+- To start the development server: `npm run dev`
+- To create a production build: `npm run build`
+- To preview production build locally: `npm run preview`
 
 ## Linters
 
-To keep project stable and safe there are configured [Eslint](https://typescript-eslint.io/) and [Prettier](https://prettier.io/). You can check configuration in appropriate files: `.prettierrc` and `.eslintrc`. There is also linters scripts that you can run locally to fix and format new code: `npm lint:fix`.
+To keep project stable and safe there are configured [Eslint](https://typescript-eslint.io/) and [Prettier](https://prettier.io/). You can check configuration in appropriate files: `.prettierrc` and `.eslintrc`. There is also linters scripts that you can run locally to fix and format new code: `npm run lint:fix`.
 
 ## Pre-commit
 
