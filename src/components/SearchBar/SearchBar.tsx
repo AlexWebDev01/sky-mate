@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { useGlobalContext } from '../../context/GlobalContext';
-import { WeatherConditions } from '../../shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
+import { useGlobalContext } from '@context/GlobalContext';
+import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 
 import './SearchBar.css';
 

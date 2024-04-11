@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import { useGlobalContext } from '../../context/GlobalContext';
+import { useGlobalContext } from '@context/GlobalContext';
 
-import NavBar from '../../components/NavBar/NavBar';
-import WeatherCard from '../../components/WeatherCard/WeatherCard';
-import DailyForecast from '../../components/DailyForecast/DailyForecast';
-import NavigationLink from '../../components/NavigationLink/NavigationLink';
-import Background from '../../components/Background/Background';
+import NavBar from '@components/NavBar/NavBar';
+import WeatherCard from '@components/WeatherCard/WeatherCard';
+import DailyForecast from '@components/DailyForecast/DailyForecast';
+import NavigationLink from '@components/NavigationLink/NavigationLink';
+import Background from '@components/Background/Background';
 
 import './WeatherPage.css';
 

@@ -1,4 +1,4 @@
-import { Coordinates } from '../fetchWeatherData/fetchWeatherData.interface';
+import { Coordinates } from '@api/fetchWeatherData/fetchWeatherData.interface';
 
 export interface LocationData extends Coordinates {
   name: string;

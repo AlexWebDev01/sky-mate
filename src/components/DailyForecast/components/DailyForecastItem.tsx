@@ -1,8 +1,8 @@
-import { DailyWeatherData } from '../../../api/fetchWeatherData/fetchWeatherData.interface';
+import { DailyWeatherData } from '@api/fetchWeatherData/fetchWeatherData.interface';
 import {
   calculateLocalDateAnotherFormat,
   calculateLocalFormattedDay,
-} from '../../../shared/helpers/date/date';
+} from '@shared/helpers/date/date';
 
 interface Props {
   item: DailyWeatherData;

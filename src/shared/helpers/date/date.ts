@@ -1,4 +1,4 @@
-import { Coordinates } from '../../../api/fetchWeatherData/fetchWeatherData.interface';
+import { Coordinates } from '@api/fetchWeatherData/fetchWeatherData.interface';
 import { FullWeekday, ShortWeekday } from './date.interface';
 
 export function epochToLocalTime(

@@ -1,9 +1,9 @@
-import { useGlobalContext } from '../../context/GlobalContext';
+import { useGlobalContext } from '@context/GlobalContext';
 
-import NavBar from '../../components/NavBar/NavBar';
-import NavigationLink from '../../components/NavigationLink/NavigationLink';
-import AdditionalInfo from '../../components/AdditionalInfo/AdditionalInfo';
-import Background from '../../components/Background/Background';
+import NavBar from '@components/NavBar/NavBar';
+import NavigationLink from '@components/NavigationLink/NavigationLink';
+import AdditionalInfo from '@components/AdditionalInfo/AdditionalInfo';
+import Background from '@components/Background/Background';
 
 import './LookPage.css';
 

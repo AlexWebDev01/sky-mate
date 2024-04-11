@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import SearchBar from '../SearchBar/SearchBar';
-import Logo from '../Logo/Logo';
+import SearchBar from '@components/SearchBar/SearchBar';
+import Logo from '@components/Logo/Logo';
 
 import './NavBar.css';
 

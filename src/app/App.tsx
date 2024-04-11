@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { useGlobalContext } from '../context/GlobalContext';
+import { useGlobalContext } from '@context/GlobalContext';
 
-import MainRouting from '../pages/MainRouting';
+import MainRouting from '@pages/MainRouting';
 
 import './App.css';
 

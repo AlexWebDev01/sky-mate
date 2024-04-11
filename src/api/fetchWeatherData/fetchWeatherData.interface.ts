@@ -1,4 +1,4 @@
-import { WeatherConditions } from '../../shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
+import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 
 export interface WeatherData {
   current: CurrentWeatherData;

@@ -12,19 +12,19 @@ import {
   GlobalState,
 } from './GlobalContext.interface';
 
-import { fetchLocationData } from '../api/fetchLocationData/fetchLocationData';
-import { fetchUserLocatioByIP } from '../api/fetchUserLocationByIP/fetchUserLocationByIP';
-import { separateCoordinates } from '../shared/helpers/date/date';
-import { fetchWeatherData } from '../api/fetchWeatherData/fetchWeatherData';
-import { calculateClothesAdvice } from '../shared/helpers/clothesAlgorithm';
+import { fetchLocationData } from '@api/fetchLocationData/fetchLocationData';
+import { fetchUserLocatioByIP } from '@api/fetchUserLocationByIP/fetchUserLocationByIP';
+import { separateCoordinates } from '@shared/helpers/date/date';
+import { fetchWeatherData } from '@api/fetchWeatherData/fetchWeatherData';
+import { calculateClothesAdvice } from '@shared/helpers/clothesAlgorithm';
 
-import { WeatherConditions } from '../shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
-import { LocationDataByIP } from '../api/fetchUserLocationByIP/fetchUserLocationByIP.interface';
-import { LocationData } from '../api/fetchLocationData/fetchLocationData.interface';
+import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
+import { LocationDataByIP } from '@api/fetchUserLocationByIP/fetchUserLocationByIP.interface';
+import { LocationData } from '@api/fetchLocationData/fetchLocationData.interface';
 import {
   Units,
   Coordinates,
-} from '../api/fetchWeatherData/fetchWeatherData.interface';
+} from '@api/fetchWeatherData/fetchWeatherData.interface';
 
 const GlobalContext = createContext<GlobalContextInterface | null>(null);
 

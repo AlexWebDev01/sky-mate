@@ -4,11 +4,11 @@ import {
   TEMPERATURE_RANGE_NAMES,
   WeatherConditions,
   clothesStyle,
-} from '../constants/clothesAlgorithm/clothesAlgorithm.interface';
+} from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 import {
   TEMPERATURE_RANGES,
   CLOTHES_ADVICES,
-} from '../constants/clothesAlgorithm/clothesAlgorithmData';
+} from '@shared/constants/clothesAlgorithm/clothesAlgorithmData';
 
 const getTempRange = (temp: number): TEMPERATURE_RANGE_NAMES => {
   for (let i = 0; i < TEMPERATURE_RANGES.length; i++) {
