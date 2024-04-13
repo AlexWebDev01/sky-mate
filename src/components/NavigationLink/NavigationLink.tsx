@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import LinkArrow from '@shared/assets/icons/link-arrow.svg?react';
+import LinkArrow from '@shared/assets/icons/link-arrow.svg';
 
 import './NavigationLink.css';
 

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useGlobalContext } from '@context/GlobalContext';
 
 import HourlyForecastItem from './components/HourlyForecastItem';
-import LeftArrow from '@shared/assets/icons/left-arrow.svg?react';
-import RightArrow from '@shared/assets/icons/right-arrow.svg?react';
+import LeftArrow from '@shared/assets/icons/left-arrow.svg';
+import RightArrow from '@shared/assets/icons/right-arrow.svg';
 
 import { HourlyWeatherData } from '@api/fetchWeatherData/fetchWeatherData.interface';
 

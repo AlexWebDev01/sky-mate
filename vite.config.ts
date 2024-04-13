@@ -5,7 +5,7 @@ import path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svgr(), react()],
+  plugins: [svgr({ include: '**/*.svg' }), react()],
   resolve: {
     alias: {
       '@shared': path.resolve(__dirname, './src/shared'),
