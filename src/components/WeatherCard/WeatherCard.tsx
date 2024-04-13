@@ -3,9 +3,11 @@ import { useGlobalContext } from '@context/GlobalContext';
 import HourlyForecast from '@components/HourlyForecast/HourlyForecast';
 import AdditionalInfo from '@components/AdditionalInfo/AdditionalInfo';
 
-import { epochToLocalTime } from '@shared/helpers/date/date';
-import { calculateLocalDate } from '@shared/helpers/date/date';
-import { calculateLocalDay } from '@shared/helpers/date/date';
+import {
+  epochToLocalTime,
+  calculateLocalDate,
+  calculateLocalDay,
+} from '@shared/helpers/date/date';
 
 import './WeatherCard.css';
 

@@ -7,7 +7,7 @@ export const fetchUserLocatioByIP = async (): Promise<LocationDataByIP> => {
     }& fields = latitude,longitude`
   );
 
-  const data: LocationDataByIP = await response.json();
+  const data = (await response.json()) as LocationDataByIP;
 
   return data;
 };

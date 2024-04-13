@@ -1,5 +1,8 @@
 import { ReactNode } from 'react';
-import { ClothesAdviceWithTemp } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
+import {
+  ClothesAdviceWithTemp,
+  WeatherConditions,
+} from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 import {
   Coordinates,
   WeatherData,
@@ -16,7 +19,7 @@ export interface GlobalState {
   coordinates: Coordinates | null;
   location: string | null;
   weatherData: WeatherData | null;
-  pageStyle: string;
+  pageStyle: WeatherConditions | '';
   clothesAdvice: ClothesAdviceWithTemp | null;
 }
 

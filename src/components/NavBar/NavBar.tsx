@@ -13,4 +13,5 @@ const NavBar = memo(() => {
   );
 });
 
+NavBar.displayName = 'NavBar';
 export default NavBar;

@@ -111,6 +111,7 @@ const Background = ({ page }: Props) => {
           }
           // onLoad={() => console.log("loaded")}
           className='rain-character'
+          alt='Rain character'
         />
       </div>
     );
@@ -146,6 +147,7 @@ const Background = ({ page }: Props) => {
               : './clouds-character.png'
           }
           className='clouds-character'
+          alt='Clouds character'
         />
       </div>
     );
@@ -172,6 +174,7 @@ const Background = ({ page }: Props) => {
               : './sun-character.png'
           }
           className='sun-character'
+          alt='Sun character'
         />
       </div>
     );
@@ -247,6 +250,7 @@ const Background = ({ page }: Props) => {
               : './snow-character.png'
           }
           className='snow-character'
+          alt='Snow character'
         />
       </div>
     );

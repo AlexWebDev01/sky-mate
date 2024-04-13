@@ -12,7 +12,7 @@ export const fetchWeatherData = async (
     }`
   );
 
-  const data: WeatherData = await response.json();
+  const data = (await response.json()) as WeatherData;
 
   return data;
 };

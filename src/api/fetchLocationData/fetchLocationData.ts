@@ -14,7 +14,7 @@ export const fetchLocationData = async (
     }`
   );
 
-  const locationData: LocationGeocodeData[] = await response.json();
+  const locationData = (await response.json()) as LocationGeocodeData[];
   const { name, lat, lon } = locationData[0];
 
   return { name, lat, lon };
