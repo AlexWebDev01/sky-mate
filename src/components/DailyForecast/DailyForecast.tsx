@@ -4,7 +4,7 @@ import DailyForecastItem from './components/DailyForecastItem';
 
 import { DailyWeatherData } from '@api/fetchWeatherData/fetchWeatherData.interface';
 
-import './DailyForecast.css';
+import './DailyForecast.scss';
 
 interface IProps {
   expanded: boolean;

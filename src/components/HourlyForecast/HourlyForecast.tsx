@@ -7,7 +7,7 @@ import RightArrow from '@shared/assets/icons/right-arrow.svg';
 
 import { HourlyWeatherData } from '@api/fetchWeatherData/fetchWeatherData.interface';
 
-import './HourlyForecast.css';
+import './HourlyForecast.scss';
 
 interface Props {
   expanded: boolean;

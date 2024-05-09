@@ -9,7 +9,7 @@ import {
   calculateLocalDay,
 } from '@shared/helpers/date/date';
 
-import './WeatherCard.css';
+import './WeatherCard.scss';
 
 interface Props {
   isMainPage: boolean;

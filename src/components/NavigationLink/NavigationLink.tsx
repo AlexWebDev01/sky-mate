@@ -1,7 +1,7 @@
 import { Link, LinkProps } from 'react-router-dom';
 import LinkArrow from '@shared/assets/icons/link-arrow.svg';
 
-import './NavigationLink.css';
+import './NavigationLink.scss';
 
 interface Props extends LinkProps {
   direction: string;

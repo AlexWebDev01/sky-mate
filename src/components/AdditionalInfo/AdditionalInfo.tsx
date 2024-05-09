@@ -1,7 +1,7 @@
 import { useGlobalContext } from '@context/GlobalContext';
 import { epochToLocalTime } from '@shared/helpers/date/date';
 
-import './AdditionalInfo.css';
+import './AdditionalInfo.scss';
 
 interface Props {
   isMainPage: boolean;
@@ -38,12 +38,9 @@ const AdditionalInfo = ({ isMainPage, expanded }: Props) => {
     { title: 'pressure', value: `${weatherData.current.pressure} m/s` },
   ];
 
-  const titleStyle = isMainPage
-    ? weatherData.daily[0].weather[0].main.toLowerCase() + '-light'
-    : '';
-  const contentStyle = isMainPage
-    ? ''
-    : weatherData.daily[0].weather[0].main.toLowerCase();
+  const weatherCondition = weatherData.daily[0].weather[0].main.toLowerCase();
+  const titleStyle = isMainPage ? weatherCondition + '-light' : '';
+  const contentStyle = isMainPage ? '' : weatherCondition;
 
   return (
     <div className={expanded ? 'additional-info' : 'hide'}>

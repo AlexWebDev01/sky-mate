@@ -1,7 +1,7 @@
 import { useGlobalContext } from '@context/GlobalContext';
 import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 
-import './Background.css';
+import './Background.scss';
 
 // TODO: use switch logic
 

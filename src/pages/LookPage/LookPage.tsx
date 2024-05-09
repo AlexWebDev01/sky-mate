@@ -5,7 +5,7 @@ import NavigationLink from '@components/NavigationLink/NavigationLink';
 import AdditionalInfo from '@components/AdditionalInfo/AdditionalInfo';
 import Background from '@components/Background/Background';
 
-import './LookPage.css';
+import './LookPage.scss';
 
 const LookPage = () => {
   const { state } = useGlobalContext();

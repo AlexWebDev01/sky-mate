@@ -2,7 +2,7 @@ import { memo } from 'react';
 import SearchBar from '@components/SearchBar/SearchBar';
 import Logo from '@components/Logo/Logo';
 
-import './NavBar.css';
+import './NavBar.scss';
 
 const NavBar = memo(() => {
   return (

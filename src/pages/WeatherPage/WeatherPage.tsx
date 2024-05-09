@@ -8,7 +8,7 @@ import DailyForecast from '@components/DailyForecast/DailyForecast';
 import NavigationLink from '@components/NavigationLink/NavigationLink';
 import Background from '@components/Background/Background';
 
-import './WeatherPage.css';
+import './WeatherPage.scss';
 
 const WeatherPage = () => {
   const [isWeatherCardExpanded, setIsWeatherCardExpanded] = useState(true);
