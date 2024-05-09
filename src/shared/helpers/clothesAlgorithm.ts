@@ -1,16 +1,16 @@
 import {
   ClothesAdviceWithTemp,
   ClothesAdvices,
-  TEMPERATURE_RANGE_NAMES,
+  TemperatureRangeNames,
   WeatherConditions,
-  clothesStyle,
+  ClothesStyle,
 } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 import {
   TEMPERATURE_RANGES,
   CLOTHES_ADVICES,
 } from '@shared/constants/clothesAlgorithm/clothesAlgorithmData';
 
-const getTempRange = (temp: number): TEMPERATURE_RANGE_NAMES => {
+const getTempRange = (temp: number): TemperatureRangeNames => {
   for (let i = 0; i < TEMPERATURE_RANGES.length; i++) {
     if (temp < TEMPERATURE_RANGES[i].highestTemp) {
       return TEMPERATURE_RANGES[i].name;
@@ -40,10 +40,10 @@ export const calculateClothesAdvice = (
         `);
 
     return {
-      clothesStyle: clothesStyle.noLook,
+      clothesStyle: ClothesStyle.noLook,
       clothesList: [''],
       clothesDescription:
-        "Ahh, the weather is so unpredictable, we don't have any advice for you! Try following your intuition or simply look at the sky.",
+        "Ahh, the weather is so unpredictable, we don't have any advice for you! Try following your intuition or just look at the sky.",
       tempRangeName: null,
     };
   }

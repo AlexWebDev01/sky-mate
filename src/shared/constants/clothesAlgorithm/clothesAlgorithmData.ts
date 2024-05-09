@@ -2,43 +2,43 @@ import {
   ClothesAdvices,
   ClothesAdvicesMap,
   TempRanges,
-  TEMPERATURE_RANGE_NAMES,
-  clothesStyle,
+  TemperatureRangeNames,
+  ClothesStyle,
 } from './clothesAlgorithm.interface';
 
-const { basic, protect, elegant, home } = clothesStyle;
+const { basic, protect, elegant, home } = ClothesStyle;
 
 export const TEMPERATURE_RANGES: TempRanges[] = [
   {
-    name: TEMPERATURE_RANGE_NAMES.DANGEROUSLY_FREEZING,
+    name: TemperatureRangeNames.DANGEROUSLY_FREEZING,
     lowestTemp: -100,
     highestTemp: -40,
   },
   {
-    name: TEMPERATURE_RANGE_NAMES.EXTREMELY_FREEZING,
+    name: TemperatureRangeNames.EXTREMELY_FREEZING,
     lowestTemp: -40,
     highestTemp: -20,
   },
-  { name: TEMPERATURE_RANGE_NAMES.FREEZING, lowestTemp: -20, highestTemp: -10 },
-  { name: TEMPERATURE_RANGE_NAMES.VERY_COLD, lowestTemp: -10, highestTemp: -5 },
-  { name: TEMPERATURE_RANGE_NAMES.COLD, lowestTemp: -5, highestTemp: 0 },
+  { name: TemperatureRangeNames.FREEZING, lowestTemp: -20, highestTemp: -10 },
+  { name: TemperatureRangeNames.VERY_COLD, lowestTemp: -10, highestTemp: -5 },
+  { name: TemperatureRangeNames.COLD, lowestTemp: -5, highestTemp: 0 },
   {
-    name: TEMPERATURE_RANGE_NAMES.SLIGHTLY_COLD,
+    name: TemperatureRangeNames.SLIGHTLY_COLD,
     lowestTemp: 0,
     highestTemp: 5,
   },
   {
-    name: TEMPERATURE_RANGE_NAMES.SLIGHTLY_FRESH,
+    name: TemperatureRangeNames.SLIGHTLY_FRESH,
     lowestTemp: 5,
     highestTemp: 10,
   },
-  { name: TEMPERATURE_RANGE_NAMES.FRESH, lowestTemp: 10, highestTemp: 15 },
-  { name: TEMPERATURE_RANGE_NAMES.WARM, lowestTemp: 15, highestTemp: 20 },
-  { name: TEMPERATURE_RANGE_NAMES.VERY_WARM, lowestTemp: 20, highestTemp: 25 },
-  { name: TEMPERATURE_RANGE_NAMES.HOT, lowestTemp: 25, highestTemp: 30 },
-  { name: TEMPERATURE_RANGE_NAMES.VERY_HOT, lowestTemp: 30, highestTemp: 45 },
+  { name: TemperatureRangeNames.FRESH, lowestTemp: 10, highestTemp: 15 },
+  { name: TemperatureRangeNames.WARM, lowestTemp: 15, highestTemp: 20 },
+  { name: TemperatureRangeNames.VERY_WARM, lowestTemp: 20, highestTemp: 25 },
+  { name: TemperatureRangeNames.HOT, lowestTemp: 25, highestTemp: 30 },
+  { name: TemperatureRangeNames.VERY_HOT, lowestTemp: 30, highestTemp: 45 },
   {
-    name: TEMPERATURE_RANGE_NAMES.DANGEROUSLY_HOT,
+    name: TemperatureRangeNames.DANGEROUSLY_HOT,
     lowestTemp: 45,
     highestTemp: 100,
   },

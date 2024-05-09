@@ -9,7 +9,7 @@ export enum WeatherConditions {
   mist = 'mist',
 }
 
-export enum TEMPERATURE_RANGE_NAMES {
+export enum TemperatureRangeNames {
   DANGEROUSLY_FREEZING = 'DANGEROUSLY_FREEZING',
   EXTREMELY_FREEZING = 'EXTREMELY_FREEZING',
   FREEZING = 'FREEZING',
@@ -26,23 +26,23 @@ export enum TEMPERATURE_RANGE_NAMES {
 }
 
 export interface TempRanges {
-  name: TEMPERATURE_RANGE_NAMES;
+  name: TemperatureRangeNames;
   lowestTemp: number;
   highestTemp: number;
 }
 
 export interface ClothesAdvice {
-  clothesStyle: clothesStyle;
+  clothesStyle: ClothesStyle;
   clothesList: string[];
   clothesDescription: string;
 }
 
 export interface ClothesAdviceWithTemp extends ClothesAdvice {
-  tempRangeName: TEMPERATURE_RANGE_NAMES | null;
+  tempRangeName: TemperatureRangeNames | null;
 }
 
 export type ClothesAdvices = {
-  [K in TEMPERATURE_RANGE_NAMES]?: ClothesAdvice;
+  [K in TemperatureRangeNames]?: ClothesAdvice;
 };
 
 export interface ClothesAdvicesMap {
@@ -56,7 +56,7 @@ export interface ClothesAdvicesMap {
   mist: ClothesAdvices;
 }
 
-export enum clothesStyle {
+export enum ClothesStyle {
   basic = 'Basic look',
   protect = 'Protect look',
   elegant = 'Elegant look',
