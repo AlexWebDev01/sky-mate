@@ -21,9 +21,26 @@
 
   .vertical-line {
     align-self: center;
+
+    .snow,
+    .rain {
+      stroke: var(--blue);
+    }
+
+    .clear,
+    .sun {
+      stroke: var(--orange);
+    }
+
+    .clouds,
+    .fog,
+    .dust,
+    .mist {
+      stroke: var(--green);
+    }
   }
 
-  button {
+  .search-button {
     width: auto;
     margin: auto 0 auto 14px;
   }
