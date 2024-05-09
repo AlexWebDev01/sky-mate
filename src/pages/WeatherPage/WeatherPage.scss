@@ -11,13 +11,13 @@ body::-webkit-scrollbar {
 
   .content-container {
     display: flex;
-    position: relative;
-    width: 50%;
+    position: fixed;
     flex-direction: column;
     align-items: flex-end;
     align-self: self-end;
     top: 60px;
     right: 80px;
+    z-index: 3;
   }
 }
 

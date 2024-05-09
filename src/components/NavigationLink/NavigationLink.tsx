@@ -1,20 +1,17 @@
-import { Link } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 import LinkArrow from '@shared/assets/icons/link-arrow.svg';
 
 import './NavigationLink.css';
 
-interface Props {
+interface Props extends LinkProps {
   direction: string;
 }
 
-const NavigationLink = ({ direction }: Props) => {
-  const text = direction === 'left' ? 'Go back' : 'View more';
-  const href = direction === 'left' ? '/' : '/look';
-
+const NavigationLink = ({ direction, children, ...rest }: Props) => {
   return (
     <div className={`navigation-link ${direction}`}>
-      <Link to={href} className='link'>
-        {text}
+      <Link className='link' {...rest}>
+        {children}
       </Link>
       <LinkArrow className='arrow' />
     </div>

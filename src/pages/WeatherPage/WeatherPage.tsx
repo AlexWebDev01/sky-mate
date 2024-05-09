@@ -49,7 +49,9 @@ const WeatherPage = () => {
           onExpand={handleForecastExpanded}
         />
       </div>
-      <NavigationLink direction='right' />
+      <NavigationLink direction='right' to='/look'>
+        View more
+      </NavigationLink>
       <Background page='weatherPage' />
     </div>
   );

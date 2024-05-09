@@ -28,7 +28,9 @@ const LookPage = () => {
         <h2 className='location'>{location}</h2>
         <AdditionalInfo expanded isMainPage={false} />
       </div>
-      <NavigationLink direction='left' />
+      <NavigationLink direction='left' to='/'>
+        Go back
+      </NavigationLink>
       <div className='right-part'>
         <h1>{clothesStyle}</h1>
         <div className={`${pageStyle} temperature`}>
