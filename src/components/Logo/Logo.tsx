@@ -6,7 +6,7 @@ import './Logo.scss';
 const Logo = () => {
   return (
     <Link to='/' className='logo-link'>
-      <LogoSvg class='logo' />
+      <LogoSvg className='logo' />
     </Link>
   );
 };

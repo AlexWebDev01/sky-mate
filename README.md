@@ -25,7 +25,7 @@ Sky Mate is a weather application with a custom clothes advices algorithm based 
 2. Navigate to the project directory: `cd sky-mate`
 3. Install the dependencies: `npm install`
 4. Rename `.env.dist` to `.env`
-5. Add [OpenWeather](https://openweathermap.org/api) and [IpInfo](https://ipinfo.io) private API keys (for getting API keys you need to create an account both on OpenWeather and IpInfo)
+5. Add [OpenWeather](https://openweathermap.org/api) and [IpInfo](https://ipinfo.io) private API keys (for getting API keys you need to create an account both on OpenWeather and IpInfo, it's free)
 
 ## Usage
 
