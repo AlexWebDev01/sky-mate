@@ -2,7 +2,7 @@
 
 ## Description
 
-Sky Mate is a weather application with a custom clothes advices algorithm based on current weather general conditions and temperature.
+Sky Mate is an aesthetic weather application with a custom clothes advices algorithm based on daily weather conditions and air temperature. Developed in collaboration with [Sura design studio](https://suradsgn.com/) that made an amazing [Figma prototype](https://www.figma.com/design/SqpwlpzFQKaC2WB0Lz4nw4/Weather?node-id=0%3A1&t=eh6z2DHfRe4vF30B-1).
 
 ## Table of Contents
 
@@ -21,11 +21,12 @@ Sky Mate is a weather application with a custom clothes advices algorithm based 
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/AlexWebDev01/sky-mate`
-2. Navigate to the project directory: `cd sky-mate`
-3. Install the dependencies: `npm install`
-4. Rename `.env.dist` to `.env`
-5. Add [OpenWeather](https://openweathermap.org/api) and [IpInfo](https://ipinfo.io) private API keys (for getting API keys you need to create an account both on OpenWeather and IpInfo, it's free)
+1. Fork the repository
+2. Pull the project from your github
+3. Navigate to the project directory: `cd sky-mate`
+4. Install the dependencies: `npm install`
+5. Rename `.env.dist` to `.env`
+6. Add [OpenWeather](https://openweathermap.org/api) and [IpInfo](https://ipinfo.io) private API keys (for getting API keys you need to create an account both on OpenWeather and IpInfo, it's free)
 
 ## Usage
 
