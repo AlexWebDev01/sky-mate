@@ -7,6 +7,7 @@ import WeatherCard from '@components/WeatherCard/WeatherCard';
 import DailyForecast from '@components/DailyForecast/DailyForecast';
 import NavigationLink from '@components/NavigationLink/NavigationLink';
 import Background from '@components/Background/Background';
+import Loader from '@components/Loader/Loader';
 
 import './WeatherPage.scss';
 
@@ -28,11 +29,7 @@ const WeatherPage = () => {
   };
 
   if (isLoading) {
-    return (
-      <div className='loader'>
-        <img src='./images/loader.png' />
-      </div>
-    );
+    return <Loader />;
   }
 
   return (

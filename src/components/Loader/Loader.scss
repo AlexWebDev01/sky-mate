@@ -1,0 +1,31 @@
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.loading-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+
+  .sun-loader {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    margin: auto auto;
+    width: 200px;
+    height: 200px;
+    background-color: var(--orange);
+    border-radius: 50%;
+    animation: pulse 2s infinite ease-in-out;
+  }
+}

@@ -4,6 +4,7 @@ import NavBar from '@components/NavBar/NavBar';
 import NavigationLink from '@components/NavigationLink/NavigationLink';
 import AdditionalInfo from '@components/AdditionalInfo/AdditionalInfo';
 import Background from '@components/Background/Background';
+import Loader from '@components/Loader/Loader';
 
 import './LookPage.scss';
 
@@ -14,11 +15,7 @@ const LookPage = () => {
   const { clothesStyle, clothesList, clothesDescription } = clothesAdvice ?? {};
 
   if (isLoading || !weatherData) {
-    return (
-      <div className='loader'>
-        <img src='./images/loader.png' />
-      </div>
-    );
+    return <Loader />;
   }
 
   return (
