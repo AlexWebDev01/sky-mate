@@ -1,4 +1,4 @@
-import { useGlobalContext } from '@context/GlobalContext';
+import { useGlobalContext } from '@context/global/GlobalContext';
 import { epochToLocalTime } from '@shared/helpers/date/date';
 
 import './AdditionalInfo.scss';

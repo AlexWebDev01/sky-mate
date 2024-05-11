@@ -1,4 +1,4 @@
-import { useGlobalContext } from '@context/GlobalContext';
+import { useGlobalContext } from '@context/global/GlobalContext';
 
 import HourlyForecast from '@components/HourlyForecast/HourlyForecast';
 import AdditionalInfo from '@components/AdditionalInfo/AdditionalInfo';

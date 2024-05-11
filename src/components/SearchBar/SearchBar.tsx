@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { VerticalLine } from './components/VerticalLine';
 import { SearchButton } from './components/SearchButton';
 
-import { useGlobalContext } from '@context/GlobalContext';
+import { useGlobalContext } from '@context/global/GlobalContext';
 import { defineColor } from '@shared/helpers/defineColor';
 
 import './SearchBar.scss';

@@ -3,12 +3,15 @@ import App from './app/App.tsx';
 import './index.css';
 
 import { BrowserRouter } from 'react-router-dom';
-import { GlobalProvider } from '@context/GlobalContext.tsx';
+import { GlobalProvider } from '@context/global/GlobalContext.tsx';
+import { ScreenProvider } from '@context/screen/ScreenContext.tsx';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
     <GlobalProvider>
-      <App />
+      <ScreenProvider>
+        <App />
+      </ScreenProvider>
     </GlobalProvider>
   </BrowserRouter>
 );

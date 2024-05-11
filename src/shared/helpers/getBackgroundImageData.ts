@@ -32,7 +32,6 @@ export const getBackgroundImageData = (
       };
     case WeatherConditions.clear:
     case WeatherConditions.sun:
-      console.log(`./images/sun-character-${formattedTempRange}.png`);
       return {
         src: clothesAdvice?.tempRangeName
           ? `./images/sun-character-${formattedTempRange}.png`

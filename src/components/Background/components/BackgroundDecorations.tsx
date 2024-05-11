@@ -1,4 +1,4 @@
-import { useGlobalContext } from '@context/GlobalContext';
+import { useGlobalContext } from '@context/global/GlobalContext';
 import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 import { RainDecoration } from './RainDecoration';
 import { SnowDecoration } from './SnowDecoration';

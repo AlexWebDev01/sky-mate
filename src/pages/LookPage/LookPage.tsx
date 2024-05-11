@@ -1,4 +1,4 @@
-import { useGlobalContext } from '@context/GlobalContext';
+import { useGlobalContext } from '@context/global/GlobalContext';
 
 import NavBar from '@components/NavBar/NavBar';
 import NavigationLink from '@components/NavigationLink/NavigationLink';

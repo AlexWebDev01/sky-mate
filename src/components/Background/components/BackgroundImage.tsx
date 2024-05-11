@@ -1,4 +1,4 @@
-import { useGlobalContext } from '@context/GlobalContext';
+import { useGlobalContext } from '@context/global/GlobalContext';
 import { getBackgroundImageData } from '@shared/helpers/getBackgroundImageData';
 import { useEffect, useState } from 'react';
 
@@ -27,7 +27,7 @@ export const BackgroundImage = () => {
         setImageSrc(newImageData.src);
         setImageClassName(newImageData.className);
         setIsLoaded(true);
-      }, 500);
+      }, 400);
     };
 
     img.onerror = () => {
@@ -35,7 +35,7 @@ export const BackgroundImage = () => {
         setImageSrc(newImageData.defaultSrc);
         setImageClassName(newImageData.className);
         setIsLoaded(true);
-      }, 500);
+      }, 400);
     };
 
     img.src = newImageData.src;
