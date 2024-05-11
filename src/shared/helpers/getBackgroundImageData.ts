@@ -15,25 +15,29 @@ export const getBackgroundImageData = (
     case WeatherConditions.snow:
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./snow-character-${formattedTempRange}.png`
-          : './snow-character.png',
+          ? `./images/snow-character-${formattedTempRange}.png`
+          : './images/snow-character.png',
+        defaultSrc: './images/snow-character.png',
         className: 'snow-character',
         alt: 'Snow character',
       };
     case WeatherConditions.rain:
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./rain-character-${formattedTempRange}.png`
-          : './rain-character.png',
+          ? `./images/rain-character-${formattedTempRange}.png`
+          : './images/rain-character.png',
+        defaultSrc: './images/rain-character.png',
         className: 'rain-character',
         alt: 'Rain character',
       };
     case WeatherConditions.clear:
     case WeatherConditions.sun:
+      console.log(`./images/sun-character-${formattedTempRange}.png`);
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./sun-character-${formattedTempRange}.png`
-          : './sun-character.png',
+          ? `./images/sun-character-${formattedTempRange}.png`
+          : './images/sun-character.png',
+        defaultSrc: './images/sun-character.png',
         className: 'sun-character',
         alt: 'Sun character',
       };
@@ -43,14 +47,16 @@ export const getBackgroundImageData = (
     case WeatherConditions.mist:
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./clouds-character-${formattedTempRange}.png`
-          : './clouds-character.png',
+          ? `./images/clouds-character-${formattedTempRange}.png`
+          : './images/clouds-character.png',
+        defaultSrc: './images/clouds-character.png',
         className: 'clouds-character',
         alt: 'Clouds character',
       };
     default:
       return {
         src: '',
+        defaultSrc: '',
         className: '',
         alt: '',
       };
@@ -59,6 +65,7 @@ export const getBackgroundImageData = (
 
 interface BackgroundImageData {
   src: string;
+  defaultSrc: string;
   className: string;
   alt: string;
 }

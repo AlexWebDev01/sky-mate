@@ -30,7 +30,7 @@ const WeatherPage = () => {
   if (isLoading) {
     return (
       <div className='loader'>
-        <img src='./loader.png' />
+        <img src='./images/loader.png' />
       </div>
     );
   }

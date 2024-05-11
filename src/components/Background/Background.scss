@@ -8,6 +8,15 @@ body::-webkit-scrollbar {
   overflow: hidden;
   position: absolute;
 
+  .background-image {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  .background-image.loaded {
+    opacity: 1;
+  }
+
   .rain-character {
     position: absolute;
     height: 615px;
