@@ -10,6 +10,8 @@ import {
 
 export interface GlobalContext {
   state: GlobalState;
+  error: string;
+  setError: (error: string) => void;
   fetchData: () => Promise<void>;
   handleSearch: (location: string) => Promise<void>;
 }

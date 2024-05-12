@@ -49,26 +49,19 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     pageStyle: '',
     clothesAdvice: null,
   });
+  const [error, setError] = useState<string>('');
 
   const getWeatherData = useCallback(async (coordinates: Coordinates) => {
-    try {
-      const data = await fetchWeatherData(coordinates, Units.metric);
-      const weatherCondition =
-        data.daily[0].weather[0].main.toLowerCase() as WeatherConditions;
-      const averageTemp = data.daily[0].temp.day;
-      const clothesAdvice = calculateClothesAdvice(
-        weatherCondition,
-        averageTemp
-      );
-      return {
-        weatherData: data,
-        clothesAdvice,
-        pageStyle: weatherCondition,
-      };
-    } catch (error) {
-      console.error('Error fetching weather data:', error);
-      throw error;
-    }
+    const data = await fetchWeatherData(coordinates, Units.metric);
+    const weatherCondition =
+      data.daily[0].weather[0].main.toLowerCase() as WeatherConditions;
+    const averageTemp = data.daily[0].temp.day;
+    const clothesAdvice = calculateClothesAdvice(weatherCondition, averageTemp);
+    return {
+      weatherData: data,
+      clothesAdvice,
+      pageStyle: weatherCondition,
+    };
   }, []);
 
   const fetchData = useCallback(async () => {
@@ -102,6 +95,10 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
       console.info('Finished initial data fetching');
       console.groupEnd();
     } catch (error) {
+      if (error instanceof Error) {
+        setError('Oops, unexpected error!');
+      }
+
       console.error('Failed to fetch initial data:', error);
     }
   }, [getWeatherData]);
@@ -113,6 +110,7 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
         console.info('Started fetching data for location:', location);
         const locationData: LocationData = await fetchLocationData(location);
         const { name, lat, lon } = locationData;
+
         const { weatherData, clothesAdvice, pageStyle } = await getWeatherData({
           lat,
           lon,
@@ -134,6 +132,12 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
         });
         console.info('Finished fetching data for location:', location);
       } catch (error) {
+        if (error instanceof Error && error.message === 'Location not found') {
+          setError('Location not found');
+        } else if (error instanceof Error) {
+          setError('Oops, unexpected error!');
+        }
+
         console.error('Error fetching data for location:', error);
       }
     },
@@ -143,10 +147,12 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
   const sharedState = useMemo<GlobalContextInterface>(
     () => ({
       state,
+      error,
+      setError,
       fetchData,
       handleSearch,
     }),
-    [state, fetchData, handleSearch]
+    [state, error, setError, fetchData, handleSearch]
   );
 
   return (

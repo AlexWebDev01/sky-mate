@@ -1,8 +1,10 @@
+import Notification from '@components/Notification/Notification';
 import './Loader.scss';
 
 const Loader = () => {
   return (
-    <div className='loading-page'>
+    <div className='loader-container'>
+      <Notification />
       <div className='sun-loader'></div>
     </div>
   );

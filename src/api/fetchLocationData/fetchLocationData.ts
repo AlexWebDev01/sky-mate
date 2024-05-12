@@ -15,6 +15,11 @@ export const fetchLocationData = async (
   );
 
   const locationData = (await response.json()) as LocationGeocodeData[];
+
+  if (!locationData.length) {
+    throw new Error('Location not found');
+  }
+
   const { name, lat, lon } = locationData[0];
 
   return { name, lat, lon };
