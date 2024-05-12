@@ -43,7 +43,10 @@ const AdditionalInfo = ({ isMainPage, expanded }: Props) => {
   const contentStyle = isMainPage ? '' : weatherCondition;
 
   return (
-    <div className={expanded ? 'additional-info' : 'hide'}>
+    <div
+      className={expanded ? 'additional-info' : 'hide'}
+      data-testid='additional-info'
+    >
       {additionalInfoContent.map((item, index) => {
         return (
           <div key={index}>

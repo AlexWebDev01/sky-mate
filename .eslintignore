@@ -7,3 +7,5 @@ tsconfig.node.json
 package.json
 package.json.lock
 .env.dist
+tests/
+jest.config.js

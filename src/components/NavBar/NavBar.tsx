@@ -6,7 +6,7 @@ import './NavBar.scss';
 
 const NavBar = memo(() => {
   return (
-    <div className='nav-bar'>
+    <div className='nav-bar' data-testid='nav-bar'>
       <Logo />
       <SearchBar />
     </div>
