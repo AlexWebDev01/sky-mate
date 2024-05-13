@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdditionalInfo matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="hide"
+    data-testid="additional-info"
+  >
+    <div>
+      <div
+        class="sun-light title"
+      >
+        sunrise
+      </div>
+      <div
+        class=" value"
+      >
+        21:40
+      </div>
+    </div>
+    <div>
+      <div
+        class="sun-light title"
+      >
+        sunset
+      </div>
+      <div
+        class=" value"
+      >
+        09:53
+      </div>
+    </div>
+    <div>
+      <div
+        class="sun-light title"
+      >
+        wind speed
+      </div>
+      <div
+        class=" value"
+      >
+        2.5 m/s
+      </div>
+    </div>
+    <div>
+      <div
+        class="sun-light title"
+      >
+        pressure
+      </div>
+      <div
+        class=" value"
+      >
+        1000 m/s
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

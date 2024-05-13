@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DailyForecast matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="daily-forecast"
+    data-testid="daily-forecast"
+  >
+    <div
+      class="daily-weather"
+      data-testid="daily-weather"
+    >
+      <div
+        class="day"
+      >
+        Sat
+      </div>
+      <div
+        class="sun date"
+      >
+        18 sept
+      </div>
+      <div
+        class="day-temperature"
+      >
+        15°
+      </div>
+      <div
+        class="night-temperature"
+      >
+        10°
+      </div>
+      <div
+        class="weather"
+      >
+        sun
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

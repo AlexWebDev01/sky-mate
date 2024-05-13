@@ -1,9 +1,15 @@
 import '@testing-library/jest-dom';
-import { queryByTestId, render, screen } from '@testing-library/react';
+import {
+  fireEvent,
+  queryByTestId,
+  render,
+  screen,
+} from '@testing-library/react';
 import { GlobalProvider } from '@context/global/GlobalContext';
-import AdditionalInfo from '@components/AdditionalInfo/AdditionalInfo';
+import DailyForecast from '@components/DailyForecast/DailyForecast';
 import { WeatherData } from '@api/fetchWeatherData/fetchWeatherData.interface';
 import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
+import { useState } from 'react';
 
 const mockWeatherData: WeatherData = {
   current: {
@@ -91,6 +97,16 @@ const mockWeatherData: WeatherData = {
   timezone_offset: 10800,
 };
 
+const DailyForecastParent = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  const handleExpand = () => {
+    setExpanded(!expanded);
+  };
+
+  return <DailyForecast expanded={expanded} onExpand={handleExpand} />;
+};
+
 jest.mock('@context/global/GlobalContext', () => ({
   useGlobalContext: jest.fn(),
   GlobalProvider: ({ children }: { children: React.ReactNode }) => (
@@ -98,7 +114,7 @@ jest.mock('@context/global/GlobalContext', () => ({
   ),
 }));
 
-describe('AdditionalInfo', () => {
+describe('DailyForecast', () => {
   beforeEach(() => {
     const { useGlobalContext } = jest.requireMock(
       '@context/global/GlobalContext'
@@ -122,10 +138,10 @@ describe('AdditionalInfo', () => {
   test('renders without crashing', () => {
     render(
       <GlobalProvider>
-        <AdditionalInfo isMainPage={true} expanded={false} />
+        <DailyForecast expanded={false} onExpand={jest.fn()} />
       </GlobalProvider>
     );
-    expect(screen.getByTestId('additional-info')).toBeInTheDocument();
+    expect(screen.getByTestId('daily-forecast')).toBeInTheDocument();
   });
 
   test('does not render if weatherData is null', () => {
@@ -149,15 +165,28 @@ describe('AdditionalInfo', () => {
 
     const { container } = render(
       <GlobalProvider>
-        <AdditionalInfo isMainPage={true} expanded={false} />
+        <DailyForecast expanded={false} onExpand={jest.fn()} />
       </GlobalProvider>
     );
-    expect(queryByTestId(container, 'additional-info')).toBeNull();
+    expect(queryByTestId(container, 'daily-forecast')).toBeNull();
+  });
+
+  test('toggles expansion on click', () => {
+    render(<DailyForecastParent />);
+
+    const dailyForecast = screen.getByTestId('daily-forecast');
+    expect(dailyForecast).toHaveClass('daily-forecast');
+
+    fireEvent.click(dailyForecast);
+    expect(dailyForecast).toHaveClass('forecast-expanded');
+
+    fireEvent.click(dailyForecast);
+    expect(dailyForecast).toHaveClass('daily-forecast');
   });
 
   test('matches snapshot', () => {
     const { asFragment } = render(
-      <AdditionalInfo isMainPage={true} expanded={false} />
+      <DailyForecast expanded={false} onExpand={jest.fn()} />
     );
     expect(asFragment()).toMatchSnapshot();
   });

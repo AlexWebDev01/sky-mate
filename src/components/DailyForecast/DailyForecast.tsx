@@ -23,6 +23,7 @@ const DailyForecast = ({ expanded, onExpand }: IProps) => {
     <div
       className={expanded ? 'forecast-expanded' : 'daily-forecast'}
       onClick={onExpand}
+      data-testid='daily-forecast'
     >
       {weatherData.daily.map((item: DailyWeatherData, index: number) => {
         return <DailyForecastItem item={item} key={index} />;

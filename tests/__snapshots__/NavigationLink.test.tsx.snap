@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationLink matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="navigation-link left"
+  >
+    <a
+      class="link"
+      href="/"
+    >
+      Go back
+    </a>
+    <svg
+      data-testid="mocked-arrow"
+    />
+  </div>
+</DocumentFragment>
+`;

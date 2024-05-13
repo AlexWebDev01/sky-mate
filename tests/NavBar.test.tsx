@@ -10,4 +10,9 @@ describe('NavBar', () => {
     render(<NavBar />);
     expect(screen.getByTestId('nav-bar')).toBeInTheDocument();
   });
+
+  test('matches snapshot', () => {
+    const { asFragment } = render(<NavBar />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

@@ -10,7 +10,7 @@ interface Props {
 
 const DailyForecastItem = ({ item }: Props) => {
   return (
-    <div className='daily-weather'>
+    <div className='daily-weather' data-testid='daily-weather'>
       <div className='day'>{calculateLocalFormattedDay(item.dt)}</div>
       <div className={`${item.weather[0].main.toLowerCase()} date`}>
         {calculateLocalDateAnotherFormat(item.dt)}

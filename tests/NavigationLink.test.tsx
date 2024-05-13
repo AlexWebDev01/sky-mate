@@ -57,4 +57,15 @@ describe('NavigationLink', () => {
     fireEvent.click(screen.getByRole('link', { name: 'Go back' }));
     expect(window.location.pathname).toBe('/');
   });
+
+  test('matches snapshot', () => {
+    const { asFragment } = render(
+      <Router>
+        <NavigationLink direction='left' to='/'>
+          Go back
+        </NavigationLink>
+      </Router>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });
