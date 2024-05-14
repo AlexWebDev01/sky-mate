@@ -5,7 +5,11 @@ interface IProps {
 
 export const SearchButton = ({ color, onClick }: IProps) => {
   return (
-    <button onClick={onClick} className='search-button'>
+    <button
+      onClick={onClick}
+      className='search-button'
+      data-testid='search-button'
+    >
       <svg
         width='25'
         height='25'

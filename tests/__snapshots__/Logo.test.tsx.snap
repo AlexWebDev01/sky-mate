@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo should match snapshot 1`] = `
+<DocumentFragment>
+  <a
+    class="logo-link"
+    data-testid="logo-link"
+    href="/"
+  >
+    <svg
+      class="logo"
+      data-testid="logo-svg"
+    />
+  </a>
+</DocumentFragment>
+`;

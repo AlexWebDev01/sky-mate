@@ -10,7 +10,7 @@ interface Props extends LinkProps {
 const NavigationLink = ({ direction, children, ...rest }: Props) => {
   return (
     <div className={`navigation-link ${direction}`}>
-      <Link className='link' {...rest}>
+      <Link className='link' {...rest} data-testid='navigation-link'>
         {children}
       </Link>
       <LinkArrow className='arrow' />

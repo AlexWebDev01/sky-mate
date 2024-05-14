@@ -33,9 +33,16 @@ const Notification = () => {
   };
 
   return (
-    <div className={isVisible ? 'visible notification' : 'notification'}>
+    <div
+      className={isVisible ? 'visible notification' : 'notification'}
+      data-testid='notification'
+    >
       <p className='text'>{error}</p>
-      <button className='close-button' onClick={handleClose}>
+      <button
+        className='close-button'
+        onClick={handleClose}
+        data-testid='close-button'
+      >
         X
       </button>
     </div>
