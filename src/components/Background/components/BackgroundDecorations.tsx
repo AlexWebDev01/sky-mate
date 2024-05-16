@@ -13,12 +13,12 @@ export const BackgroundDecoration = ({ page }: IProps) => {
   const { state } = useGlobalContext();
   const { pageStyle } = state;
 
-  const coldColor =
-    page === 'weatherPage' ? 'var(--white)' : 'var(--light-blue)';
-  const cloudsColor =
-    page === 'weatherPage' ? 'var(--white)' : 'var(--light-green)';
-  const warmColor =
-    page === 'weatherPage' ? 'var(--white)' : 'var(--light-orange)';
+  // TODO: Refactor svg - colors could be passed with classes on scss
+
+  const isWeatherPage = page === 'weatherPage';
+  const coldColor = isWeatherPage ? 'var(--white)' : 'var(--light-blue)';
+  const cloudsColor = isWeatherPage ? 'var(--white)' : 'var(--light-green)';
+  const warmColor = isWeatherPage ? 'var(--white)' : 'var(--light-orange)';
 
   switch (pageStyle) {
     case WeatherConditions.rain:
