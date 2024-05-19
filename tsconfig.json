@@ -27,7 +27,8 @@
       "@api/*": ["src/api/*"],
       "@components/*": ["src/components/*"],
       "@context/*": ["src/context/*"],
-      "@pages/*": ["src/pages/*"]
+      "@pages/*": ["src/pages/*"],
+      "@public/*": ["src/public/*"]
     }
   },
   "include": ["src/**/*", "src/custom.d.ts", "tests"],

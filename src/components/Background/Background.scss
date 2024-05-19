@@ -29,6 +29,10 @@ body::-webkit-scrollbar {
       width: 231px;
       height: 231px;
       position: absolute;
+
+      path {
+        fill: var(--light-blue);
+      }
     }
 
     .rain-1 {
@@ -69,13 +73,14 @@ body::-webkit-scrollbar {
       left: 20vw;
 
       circle {
+        fill: var(--light-green);
       }
     }
 
     .clouds-character {
-      height: 814px;
+      height: 800px;
       position: absolute;
-      top: -50px;
+      top: 0px;
       left: 110px;
     }
 
@@ -87,6 +92,8 @@ body::-webkit-scrollbar {
       left: 0;
       right: 0;
       margin: auto;
+      border-radius: 50%;
+      background-color: var(--light-orange);
     }
 
     .sun-character {
@@ -99,33 +106,64 @@ body::-webkit-scrollbar {
 
     .snow {
       position: absolute;
+
+      path {
+        fill: var(--light-blue);
+      }
     }
 
     .snow-1 {
       top: 120.5px;
-      left: 32.5px;
+      left: 100px;
+      width: 288px;
+      height: 293px;
     }
 
     .snow-2 {
       top: 260px;
-      left: 458px;
+      left: 528px;
+      width: 174px;
+      height: 177px;
     }
 
     .snow-3 {
       top: 473px;
-      left: 277px;
+      left: 347px;
+      width: 164px;
+      height: 162px;
     }
 
     .snow-4 {
       top: 518px;
-      left: 535px;
+      left: 605px;
+      width: 140px;
+      height: 142px;
     }
 
     .snow-character {
-      height: 807px;
+      height: 700px;
       position: absolute;
-      top: -30px;
-      left: 59px;
+      top: 40px;
+      left: 250px;
+    }
+  }
+
+  .background-container.white {
+    .blob,
+    .snow {
+      path {
+        fill: var(--white);
+      }
+    }
+
+    .clouds {
+      circle {
+        fill: var(--white);
+      }
+    }
+
+    .sun {
+      background-color: var(--white);
     }
   }
 }
@@ -151,8 +189,8 @@ body::-webkit-scrollbar {
     .snow-character {
       height: 900px;
       position: absolute;
-      top: 21px;
-      left: 59px;
+      top: 70px;
+      left: 300px;
     }
 
     .sun {

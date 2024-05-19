@@ -1,37 +1,38 @@
-import { useGlobalContext } from '@context/global/GlobalContext';
 import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
-import { RainDecoration } from './RainDecoration';
-import { SnowDecoration } from './SnowDecoration';
-import { CloudsDecoration } from './CloudsDecoration';
-import { SunDecoration } from './SunDecoration';
+
+import RainBlob from '@shared/assets/icons/rain-blob.svg';
+import Snowflake from '@shared/assets/icons/snowflake.svg';
+import Clouds from '@shared/assets/icons/clouds.svg';
 
 interface IProps {
-  page: string;
+  pageStyle: WeatherConditions | '';
 }
 
-export const BackgroundDecoration = ({ page }: IProps) => {
-  const { state } = useGlobalContext();
-  const { pageStyle } = state;
-
-  // TODO: Refactor svg - colors could be passed with classes on scss
-
-  const isWeatherPage = page === 'weatherPage';
-  const coldColor = isWeatherPage ? 'var(--white)' : 'var(--light-blue)';
-  const cloudsColor = isWeatherPage ? 'var(--white)' : 'var(--light-green)';
-  const warmColor = isWeatherPage ? 'var(--white)' : 'var(--light-orange)';
-
+export const BackgroundDecoration = ({ pageStyle }: IProps) => {
   switch (pageStyle) {
     case WeatherConditions.rain:
-      return <RainDecoration coldColor={coldColor} />;
+      return (
+        <>
+          {Array.from({ length: 6 }).map((_, index) => (
+            <RainBlob key={index} className={`blob rain-${index + 1}`} />
+          ))}
+        </>
+      );
     case WeatherConditions.snow:
-      return <SnowDecoration coldColor={coldColor} />;
+      return (
+        <>
+          {Array.from({ length: 4 }).map((_, index) => (
+            <Snowflake key={index} className={`snow snow-${index + 1}`} />
+          ))}
+        </>
+      );
     case WeatherConditions.clouds:
     case WeatherConditions.fog:
     case WeatherConditions.dust:
     case WeatherConditions.mist:
-      return <CloudsDecoration cloudsColor={cloudsColor} />;
+      return <Clouds className='clouds' />;
     case WeatherConditions.sun:
     case WeatherConditions.clear:
-      return <SunDecoration warmColor={warmColor} />;
+      return <div className='sun'></div>;
   }
 };

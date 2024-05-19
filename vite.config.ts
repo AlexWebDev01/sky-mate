@@ -14,6 +14,7 @@ export default defineConfig({
       '@components': path.resolve(__dirname, './src/components'),
       '@context': path.resolve(__dirname, './src/context'),
       '@pages': path.resolve(__dirname, './src/pages'),
+      '@public': path.resolve(__dirname, './public'),
     },
   },
 });

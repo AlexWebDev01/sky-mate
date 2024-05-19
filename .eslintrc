@@ -50,7 +50,8 @@
                 ["@api", "./src/api"],
                 ["@components", "./src/components"],
                 ["@context", "./src/context"],
-                ["@pages", "./src/pages"]
+                ["@pages", "./src/pages"],
+                ["@public", "./public"]
                 ],
                 "extensions": [
                     ".ts",

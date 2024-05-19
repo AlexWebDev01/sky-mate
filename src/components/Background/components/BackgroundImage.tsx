@@ -1,9 +1,10 @@
+import { useState } from 'react';
+
 import {
   ClothesAdviceWithTemp,
   WeatherConditions,
 } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
 import { getBackgroundImageData } from '@shared/helpers/getBackgroundImageData';
-import { useState } from 'react';
 
 interface IProps {
   pageStyle: WeatherConditions | '';

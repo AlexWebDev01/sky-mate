@@ -1,4 +1,3 @@
-import { SunDecoration } from '@components/Background/components/SunDecoration';
 import './SmallScreenPage.scss';
 
 const SmallScreenPage = () => {
@@ -10,7 +9,7 @@ const SmallScreenPage = () => {
         700px
       </p>
       <div className='images-container'>
-        <SunDecoration warmColor='var(--light-orange)' />
+        <div className='sun'></div>
         <img className='sun-character' src='./images/sun-character-warm.png' />
       </div>
     </div>
