@@ -1,104 +1,124 @@
+import React from 'react';
 import '@testing-library/jest-dom';
-import { render, fireEvent, waitFor, act } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import Notification from '@components/Notification/Notification';
-import { useGlobalContext } from '@context/global/GlobalContext';
-import { WeatherConditions } from '@shared/constants/clothesAlgorithm/clothesAlgorithm.interface';
+import { ErrorProvider, useErrorContext } from '@context/error/ErrorContext';
 
-jest.mock('@context/global/GlobalContext', () => ({
-  useGlobalContext: jest.fn(),
-  GlobalProvider: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
-}));
+describe('Notification Component', () => {
+  test('renders the notification message', () => {
+    render(
+      <Notification
+        message='Test message'
+        onClose={() => {}}
+        isVisible={true}
+      />
+    );
 
-const mockUseGlobalContext = useGlobalContext as jest.MockedFunction<
-  typeof useGlobalContext
->;
+    const messageElement = screen.getByText(/Test message/i);
+    expect(messageElement).toBeInTheDocument();
+  });
 
-const baseContextValue = {
-  state: {
-    weatherData: null,
-    isLoading: false,
-    coordinates: { lat: 56.946, lon: 24.1059 },
-    location: 'Riga',
-    pageStyle: WeatherConditions.clear,
-    clothesAdvice: null,
-  },
-  setError: jest.fn(),
-  fetchData: jest.fn(),
-  handleSearch: jest.fn(),
+  test('calls onClose when close button is clicked', () => {
+    const onCloseMock = jest.fn();
+    render(
+      <Notification
+        message='Test message'
+        onClose={onCloseMock}
+        isVisible={true}
+      />
+    );
+
+    const closeButton = screen.getByTestId('close-button');
+    fireEvent.click(closeButton);
+
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
+
+  test('has the correct class when isVisible is true', () => {
+    render(
+      <Notification
+        message='Test message'
+        onClose={() => {}}
+        isVisible={true}
+      />
+    );
+
+    const notificationElement = screen.getByTestId('notification');
+    expect(notificationElement).toHaveClass('visible notification');
+  });
+
+  test('has the correct class when isVisible is false', () => {
+    render(
+      <Notification
+        message='Test message'
+        onClose={() => {}}
+        isVisible={false}
+      />
+    );
+
+    const notificationElement = screen.getByTestId('notification');
+    expect(notificationElement).toHaveClass('notification');
+    expect(notificationElement).not.toHaveClass('visible');
+  });
+});
+
+const TestComponent: React.FC = () => {
+  const { showNotification } = useErrorContext();
+
+  React.useEffect(() => {
+    showNotification('Test error message');
+  }, [showNotification]);
+
+  return null;
 };
 
-describe('Notification', () => {
-  let mockSetError: jest.Mock;
+describe('ErrorContext and Notification Component', () => {
+  jest.useFakeTimers();
 
-  beforeEach(() => {
-    mockSetError = jest.fn();
-    mockUseGlobalContext.mockReturnValue({
-      ...baseContextValue,
-      error: '',
-      setError: mockSetError,
-    });
+  test('shows the notification when the error message is setup', () => {
+    render(
+      <ErrorProvider>
+        <TestComponent />
+      </ErrorProvider>
+    );
+
+    expect(screen.getByText('Test error message')).toBeInTheDocument();
+    expect(screen.getByTestId('notification')).toHaveClass(
+      'visible notification'
+    );
   });
 
-  test('should render without crashing', () => {
-    const { getByTestId } = render(<Notification />);
-    expect(getByTestId('notification')).toBeInTheDocument();
-  });
-
-  test('should display the error message when error is present', () => {
-    mockUseGlobalContext.mockReturnValue({
-      ...baseContextValue,
-      error: 'Test error message',
-    });
-
-    const { getByText, getByTestId } = render(<Notification />);
-    expect(getByTestId('notification')).toHaveClass('visible');
-    expect(getByText('Test error message')).toBeInTheDocument();
-  });
-
-  test('should hide the notification after 5 seconds', async () => {
-    jest.useFakeTimers();
-
-    mockUseGlobalContext.mockReturnValue({
-      ...baseContextValue,
-      error: 'Test error message',
-    });
-
-    const { getByTestId } = render(<Notification />);
-    expect(getByTestId('notification')).toHaveClass('visible');
+  test('hides the notification after 5 seconds', () => {
+    render(
+      <ErrorProvider>
+        <TestComponent />
+      </ErrorProvider>
+    );
 
     act(() => {
       jest.advanceTimersByTime(5000);
     });
 
-    await waitFor(() => {
-      expect(getByTestId('notification')).not.toHaveClass('visible');
-    });
-
-    setTimeout(() => {
-      expect(mockSetError).toHaveBeenCalledWith('');
-    }, 600);
-
-    jest.useRealTimers();
+    expect(screen.getByTestId('notification')).not.toHaveClass('visible');
   });
 
-  test('should close the notification when close button is clicked', () => {
-    mockUseGlobalContext.mockReturnValue({
-      ...baseContextValue,
-      error: 'Test error message',
-    });
-
-    const { getByTestId } = render(<Notification />);
-    expect(getByTestId('notification')).toHaveClass('visible');
+  test('resets the error message after hiding the notification', () => {
+    render(
+      <ErrorProvider>
+        <TestComponent />
+      </ErrorProvider>
+    );
 
     act(() => {
-      fireEvent.click(getByTestId('close-button'));
+      jest.advanceTimersByTime(5600);
     });
 
-    setTimeout(() => {
-      expect(getByTestId('notification')).not.toHaveClass('visible');
-      expect(mockSetError).toHaveBeenCalledWith('');
-    }, 600);
+    act(() => {
+      jest.advanceTimersByTime(600);
+    });
+
+    expect(screen.getByTestId('notification')).not.toHaveTextContent(
+      'Test error message'
+    );
   });
 });
