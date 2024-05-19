@@ -39,6 +39,7 @@ const HourlyForecast = ({ expanded }: Props) => {
   return (
     <div className={expanded ? `hourly-forecast` : 'hide'}>
       <button
+        data-testid='left-arrow'
         className='left-arrow'
         onClick={slideLeft}
         disabled={isLeftArrowDisabled}
@@ -50,6 +51,7 @@ const HourlyForecast = ({ expanded }: Props) => {
           id='slider'
           className='slider'
           style={{ transform: `translateX(-${currentPosition}px)` }}
+          data-testid='slider'
         >
           {sliderItems.map(
             (item: HourlyWeatherData, timezoneOffset: number) => (
@@ -63,6 +65,7 @@ const HourlyForecast = ({ expanded }: Props) => {
         </div>
       </div>
       <button
+        data-testid='right-arrow'
         className='right-arrow'
         onClick={slideRight}
         disabled={isRightArrowDisabled}

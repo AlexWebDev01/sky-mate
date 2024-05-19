@@ -121,4 +121,13 @@ describe('ErrorContext and Notification Component', () => {
       'Test error message'
     );
   });
+
+  test('matches snapshot', () => {
+    const { asFragment } = render(
+      <ErrorProvider>
+        <TestComponent />
+      </ErrorProvider>
+    );
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

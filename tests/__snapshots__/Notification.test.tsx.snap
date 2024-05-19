@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorContext and Notification Component should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="visible notification"
+    data-testid="notification"
+  >
+    <p
+      class="text"
+    >
+      Test error message
+    </p>
+    <button
+      class="close-button"
+      data-testid="close-button"
+    >
+      X
+    </button>
+  </div>
+</DocumentFragment>
+`;

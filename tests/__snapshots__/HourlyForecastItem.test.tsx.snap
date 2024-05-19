@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HourlyForecastItem Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="day"
+  >
+    <div>
+      21°
+    </div>
+    <div
+      class="line"
+    />
+    <div>
+      14
+    </div>
+  </div>
+</DocumentFragment>
+`;
