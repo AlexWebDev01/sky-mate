@@ -15,18 +15,18 @@ export const getBackgroundImageData = (
     case WeatherConditions.snow:
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./images/snow-character-${formattedTempRange}.png`
-          : './images/snow-character.png',
-        defaultSrc: './images/snow-character.png',
+          ? `./images/snow-character-${formattedTempRange}.webp`
+          : './images/snow-character.webp',
+        defaultSrc: './images/snow-character.webp',
         className: 'snow-character',
         alt: 'Snow character',
       };
     case WeatherConditions.rain:
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./images/rain-character-${formattedTempRange}.png`
-          : './images/rain-character.png',
-        defaultSrc: './images/rain-character.png',
+          ? `./images/rain-character-${formattedTempRange}.webp`
+          : './images/rain-character.webp',
+        defaultSrc: './images/rain-character.webp',
         className: 'rain-character',
         alt: 'Rain character',
       };
@@ -34,9 +34,9 @@ export const getBackgroundImageData = (
     case WeatherConditions.sun:
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./images/sun-character-${formattedTempRange}.png`
-          : './images/sun-character.png',
-        defaultSrc: './images/sun-character.png',
+          ? `./images/sun-character-${formattedTempRange}.webp`
+          : './images/sun-character.webp',
+        defaultSrc: './images/sun-character.webp',
         className: 'sun-character',
         alt: 'Sun character',
       };
@@ -46,9 +46,9 @@ export const getBackgroundImageData = (
     case WeatherConditions.mist:
       return {
         src: clothesAdvice?.tempRangeName
-          ? `./images/clouds-character-${formattedTempRange}.png`
-          : './images/clouds-character.png',
-        defaultSrc: './images/clouds-character.png',
+          ? `./images/clouds-character-${formattedTempRange}.webp`
+          : './images/clouds-character.webp',
+        defaultSrc: './images/clouds-character.webp',
         className: 'clouds-character',
         alt: 'Clouds character',
       };
