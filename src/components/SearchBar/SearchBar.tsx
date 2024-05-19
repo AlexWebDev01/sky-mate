@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-import { VerticalLine } from './components/VerticalLine';
-import { SearchButton } from './components/SearchButton';
+import VerticalLine from '@shared/assets/icons/vertical-line.svg';
+import SearchIcon from '@shared/assets/icons/search-icon.svg';
 
 import { useGlobalContext } from '@context/global/GlobalContext';
-import { defineColor } from '@shared/helpers/defineColor';
 
 import './SearchBar.scss';
 
@@ -32,20 +31,18 @@ const SearchBar = () => {
     }
   };
 
-  const color = defineColor(pageStyle);
-
   return (
-    <div className='search-bar'>
+    <div className={`search-bar ${pageStyle}`}>
       <input
         placeholder='Search'
-        className={pageStyle}
         onKeyDown={onKeyPressHandler}
         onChange={handleChange}
         value={inputValue}
         autoFocus
       />
-      <VerticalLine color={color} />
-      <SearchButton color={color} onClick={performSearch} />
+
+      <VerticalLine className='vertical-line' />
+      <SearchIcon className='search-icon' onClick={performSearch} />
     </div>
   );
 };

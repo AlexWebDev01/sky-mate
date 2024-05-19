@@ -21,61 +21,66 @@
 
   .vertical-line {
     align-self: center;
-
-    .snow,
-    .rain {
-      stroke: var(--blue);
-    }
-
-    .clear,
-    .sun {
-      stroke: var(--orange);
-    }
-
-    .clouds,
-    .fog,
-    .dust,
-    .mist {
-      stroke: var(--green);
-    }
   }
 
-  .search-button {
+  .search-icon {
     width: auto;
     margin: auto 0 auto 14px;
   }
+}
 
-  .rain::placeholder,
-  .snow::placeholder {
-    color: var(--light-blue);
-  }
+.rain,
+.snow {
+  color: var(--blue);
 
-  .rain,
-  .snow {
+  input {
     color: var(--blue);
+
+    &::placeholder {
+      color: var(--light-blue);
+    }
   }
 
-  .sun::placeholder,
-  .clear::placeholder {
-    color: var(--light-orange);
+  .vertical-line path,
+  .search-icon path {
+    stroke: var(--light-blue);
   }
+}
 
-  .sun,
-  .clear {
+.sun,
+.clear {
+  color: var(--orange);
+
+  input {
     color: var(--orange);
+
+    &::placeholder {
+      color: var(--light-orange);
+    }
   }
 
-  .clouds::placeholder,
-  .fog::placeholder,
-  .dust::placeholder,
-  .mist::placeholder {
-    color: var(--light-green);
+  .vertical-line path,
+  .search-icon path {
+    stroke: var(--light-orange);
   }
+}
 
-  .clouds,
-  .fog,
-  .dust,
-  .mist {
+.clouds,
+.fog,
+.dust,
+.mist {
+  color: var(--green);
+
+  input {
     color: var(--green);
+
+    &::placeholder {
+      color: var(--light-green);
+    }
+  }
+
+  .vertical-line path,
+  .search-icon path {
+    stroke: var(--light-green);
   }
 }
