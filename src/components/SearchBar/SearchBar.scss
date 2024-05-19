@@ -26,6 +26,10 @@
   .search-icon {
     width: auto;
     margin: auto 0 auto 14px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useGlobalContext } from '@context/global/GlobalContext';
 
-import Notification from '@components/Notification/Notification';
 import NavBar from '@components/NavBar/NavBar';
 import WeatherCard from '@components/WeatherCard/WeatherCard';
 import DailyForecast from '@components/DailyForecast/DailyForecast';
@@ -34,7 +33,6 @@ const WeatherPage = () => {
 
   return (
     <div className={`${pageStyle} weather-page`}>
-      <Notification />
       <NavBar />
       <div className='content-container'>
         <WeatherCard

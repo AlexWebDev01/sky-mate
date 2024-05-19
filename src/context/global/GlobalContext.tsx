@@ -25,6 +25,7 @@ import {
   Units,
   Coordinates,
 } from '@api/fetchWeatherData/fetchWeatherData.interface';
+import { useErrorContext } from '@context/error/ErrorContext';
 
 const GlobalContext = createContext<GlobalContextInterface | null>(null);
 
@@ -49,7 +50,7 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
     pageStyle: '',
     clothesAdvice: null,
   });
-  const [error, setError] = useState<string>('');
+  const { showNotification } = useErrorContext();
 
   const getWeatherData = useCallback(async (coordinates: Coordinates) => {
     const data = await fetchWeatherData(coordinates, Units.metric);
@@ -96,12 +97,12 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
       console.groupEnd();
     } catch (error) {
       if (error instanceof Error) {
-        setError('Oops, unexpected error!');
+        showNotification('Oops, unexpected error!');
       }
 
       console.error('Failed to fetch initial data:', error);
     }
-  }, [getWeatherData]);
+  }, [getWeatherData, showNotification]);
 
   const handleSearch = useCallback(
     async (location: string) => {
@@ -133,26 +134,24 @@ export const GlobalProvider: FunctionComponent<GlobalProviderProps> = ({
         console.info('Finished fetching data for location:', location);
       } catch (error) {
         if (error instanceof Error && error.message === 'Location not found') {
-          setError('Location not found');
+          showNotification('Location not found');
         } else if (error instanceof Error) {
-          setError('Oops, unexpected error!');
+          showNotification('Oops, unexpected error!');
         }
 
         console.error('Error fetching data for location:', error);
       }
     },
-    [getWeatherData]
+    [getWeatherData, showNotification]
   );
 
   const sharedState = useMemo<GlobalContextInterface>(
     () => ({
       state,
-      error,
-      setError,
       fetchData,
       handleSearch,
     }),
-    [state, error, setError, fetchData, handleSearch]
+    [state, fetchData, handleSearch]
   );
 
   return (

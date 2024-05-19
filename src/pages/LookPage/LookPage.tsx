@@ -1,6 +1,5 @@
 import { useGlobalContext } from '@context/global/GlobalContext';
 
-import Notification from '@components/Notification/Notification';
 import NavBar from '@components/NavBar/NavBar';
 import NavigationLink from '@components/NavigationLink/NavigationLink';
 import AdditionalInfo from '@components/AdditionalInfo/AdditionalInfo';
@@ -21,7 +20,6 @@ const LookPage = () => {
 
   return (
     <div className='look-page'>
-      <Notification />
       <NavBar />
       <div className='left-part'>
         <h2 className='location'>{location}</h2>
