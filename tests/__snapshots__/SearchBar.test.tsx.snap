@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="search-bar "
+  >
+    <input
+      placeholder="Search"
+      value=""
+    />
+    <svg
+      data-testid="mocked-vertical-line"
+    />
+    <svg
+      data-testid="mocked-search-icon"
+    />
+  </div>
+</DocumentFragment>
+`;
