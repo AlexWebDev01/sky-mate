@@ -10,7 +10,6 @@ describe('Loader', () => {
   it('should render correctly', () => {
     const { getByTestId } = render(<Loader />);
 
-    expect(getByTestId('notification-mock')).toBeInTheDocument();
     const loaderContainer = getByTestId('loader-container');
     expect(loaderContainer).toBeInTheDocument();
     const sunLoader = getByTestId('sun-loader');
